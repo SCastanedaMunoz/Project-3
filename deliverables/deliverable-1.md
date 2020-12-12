@@ -2,7 +2,7 @@
 
 ## Project 3, Deliverable 1
 
-### An overview of the intended application and why you fell it's valuable.
+### An overview of the intended application and why you feel it's valuable.
 
 This application will allow users to dynamically generate complex legal documents based on simple, easy-to-answer questions. The application will allow users to see their documents being built in real-time as questions are answered and will allow users to download their documents in multiple formats or to save and store for future use.
 
