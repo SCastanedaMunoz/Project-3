@@ -15,11 +15,7 @@ We believe that this application will provide significant value to users who hav
 
 ### A set of detailed screen-by-screen design layouts with annotations describing all UI/UX components and all data relevant to the screen.
 
-![image](https://via.placeholder.com/300)
-
-![image](https://via.placeholder.com/300)
-
-![image](https://via.placeholder.com/300)
+![image](./ui-screenshot.png)
 
 ### A breakdown of roles by group member.
 
