@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-    Typography, Container.
-} from '@material-ui/core';
+import { Typography, Container } from '@material-ui/core';
 // import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
