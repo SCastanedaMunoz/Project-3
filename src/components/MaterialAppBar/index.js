@@ -25,7 +25,6 @@ export default function MaterialAppBar() {
 
     return (
         <div className={classes.root}>
-            <MaterialContainer>
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -37,7 +36,6 @@ export default function MaterialAppBar() {
                         <Button color="inherit">Login</Button>
                     </Toolbar>
                 </AppBar>
-            </MaterialContainer>
         </div>
     )
 }
