@@ -13,8 +13,8 @@ export default function CompanyDetails({ handleCompanyDetailChange }) {
                 <Grid item xs={12}>
                     <TextField
                         required
-                        id="companyName"
-                        name="companyName"
+                        id="name"
+                        name="name"
                         label="Company Name"
                         fullWidth
                         onChange={handleCompanyDetailChange}

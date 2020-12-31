@@ -11,8 +11,7 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import ContractView from "../components/ContractView";
-
+import CompanyAgreementView from "../components/ContractViews/CompanyAgreementView";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -77,7 +76,10 @@ function Main() {
                     handleRADetailChange={handleRADetailChange}
                 />;
             case 3:
-                return <ClauseQuestions />;
+                return <ClauseQuestions
+                    certificateValue={certificateValue}
+                    handleCertificateChange={handleCertificateChange}
+                />;
             default:
                 throw new Error('Unknown step');
         }
@@ -110,9 +112,7 @@ function Main() {
 
     // Company state and functions
 
-    const [companyDetails, setCompanyDetails] = useState({
-
-    });
+    const [companyDetails, setCompanyDetails] = useState({});
 
     const handleCompanyDetailChange = event => {
         const _tempCompanyDetails = { ...companyDetails };
@@ -132,14 +132,61 @@ function Main() {
 
     // Contract clause state and functions
 
-    const [contractClauses, setContractClauses] = useState({});
+    const [contractHead, setContractHead] = useState({});
+    const [article1, setArticle1] = useState([{}]);
+    const [article2, setArticle2] = useState([{}]);
 
-    // useEffect to log state
+    const getClauseData = () => {
+        fetch("./data/clause-data.json", {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(JSON => {
+                let { contractHead, article1, article2 } = JSON;
+                console.log(contractHead);
+                setContractHead({
+                    title: `${contractHead.title} ${companyDetails.name}`,
+                    text: `${contractHead.clause1} ${companyDetails.effectiveDate} ${contractHead.clause2}`
+                });
+                setArticle1([
+                    { "title": `${article1.title}` },
+                    { "formation": `${article1.content.formation.title} ${companyDetails.name} ${article1.content.formation.clause1} ${companyDetails.filingDate} ${article1.content.formation.clause2}` },
+                    { "name": `${article1.content.name.title} ${article1.content.name.clause1} ${companyDetails.name} ${article1.content.name.clause2}` },
+                    { "duration": `${article1.content.duration.title} ${article1.content.duration.clause}` },
+                    { "purpose": `${article1.content.purpose.title} ${article1.content.purpose.clause1} ${companyDetails.businessPurpose} ${article1.content.purpose.clause2}` },
+                    { "principalOffice": `${article1.content.principalOffice.title} ${article1.content.principalOffice.clause1} ${companyDetails.address1}, ${companyDetails.address2}, ${companyDetails.city}, ${companyDetails.state} ${companyDetails.zip} ${article1.content.principalOffice.clause2}` },
+                    { "registeredAgent": `${article1.content.registeredAgent.title} ${article1.content.registeredAgent.clause1} ${raDetails.name} ${article1.content.registeredAgent.clause2} ${raDetails.address1}, ${raDetails.address2}, ${raDetails.city}, ${raDetails.state} ${raDetails.zip} ${article1.content.registeredAgent.clause3}` },
+                    { "definitions": `${article1.content.definitions.title} ${article1.content.definitions.clause}` }
+                ])
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    };
+
+    const [certificateValue, setCertificateValue] = useState('no');
+
+    const handleCertificateChange = (event) => {
+        setCertificateValue(event.target.value);
+    };
+
+    // useEffect to log state and fetch JSON data
 
     useEffect(() => {
         console.log(members);
         console.log(companyDetails);
         console.log(raDetails);
+        console.log(contractHead)
+    }, [members, companyDetails, raDetails, contractHead]);
+
+    useEffect(() => {
+        console.log("useEffect getClauseData");
+        getClauseData();
     }, [members, companyDetails, raDetails]);
 
     return (
@@ -183,7 +230,8 @@ function Main() {
                                                 onClick={handleNext}
                                                 className={classes.button}
                                             >
-                                                {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                                                {activeStep === steps.length - 1 ?
+                                                    'Finish' : 'Next'}
                                             </Button>
                                         </div>
                                     </Fragment>
@@ -192,9 +240,14 @@ function Main() {
                     </Paper>
                 </Grid>
                 <Grid xs={12} sm={8} md={6}>
-                    <ContractView>
-
-                    </ContractView>
+                    {contractHead !== undefined ? (
+                        <CompanyAgreementView
+                            contractHead={contractHead}
+                            article1={article1}
+                        ></CompanyAgreementView>
+                    ) : (
+                            <div></div>
+                        )}
                 </Grid>
             </Grid>
 
