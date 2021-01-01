@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://images.pexels.com/photos/48148/document-agreement-documents-sign-48148.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -34,14 +34,14 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(1, 0, 0),
   },
 }));
 
@@ -54,6 +54,9 @@ export default function SignInSide() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
+        <Typography variant="h2" component="h3">
+  Welcome to Formulator
+          </Typography>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -96,19 +99,30 @@ export default function SignInSide() {
             >
               Sign In
             </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              href="/dashboard"
+            >
+              Use as Guest
+            </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
-                </Link>
+                </Link> 
+              {/* To DO - Sign Up */}
               </Grid>
-              <Grid item>
-                <Link href="/dashboard" variant="body2">
-                  {"Don't have an account? Use as Guest"}
+              <Grid item m>
+                <Link href="#" variant="body2">
+                  {"Sign Up"}
                 </Link>
               </Grid>
             </Grid>
-            <Box mt={5}>
+            <Box mt={6}>
               
             </Box>
           </form>
