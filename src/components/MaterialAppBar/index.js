@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Dashboard from '../../pages/dashboard.js';
+import { useHistory } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,7 +24,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MaterialAppBar() {
     const classes = useStyles();
-
+    const history = useHistory();
+    const redirectHome = () => {
+        history.push("/")
+    }
+    
     return (
         <div className={classes.root}>
                 <AppBar position="static">
@@ -33,7 +39,7 @@ export default function MaterialAppBar() {
                         <Typography variant="h6" className={classes.title}>
                             Formulater
                         </Typography>
-                        <Button color="inherit">Login</Button>
+                    <Button color="inherit" onClick= {redirectHome}>Login</Button>
                     </Toolbar>
                 </AppBar>
         </div>
