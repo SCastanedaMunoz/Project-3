@@ -1,12 +1,18 @@
-
 import "./App.css";
-import Main from "./pages/Main"
+import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
+import Dashboard from "./pages/dashboard"
+import SignIn from "./pages/SignIn";
 
 function App() {
   return (
-    <div>
-      <Main />
-    </div>
+    <Router >
+      <Switch>
+      <Route path="/dashboard"><Dashboard /></Route>
+      <Route path="/">
+      <SignIn />
+        </Route>
+        </Switch>
+    </Router>
   )
 }
 

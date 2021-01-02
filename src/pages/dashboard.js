@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function Main() {
+function Dashboard() {
     const classes = useStyles();
 
     return (
@@ -32,4 +32,4 @@ function Main() {
     );
 }
 
-export default Main;
+export default Dashboard;
