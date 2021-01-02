@@ -12,6 +12,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import CompanyAgreementView from "../components/ContractViews/CompanyAgreementView";
+import { ContactSupport } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -130,13 +131,26 @@ function Main() {
         setRADetails(_tempRADetails);
     }
 
+    // Helper function for updating clause object values
+
+    const updateClauseObjectValue = (articleState, key, newValue, setState) => {
+        let _tempArticle = [...articleState];
+        console.log(_tempArticle);
+        let updateIndex = _tempArticle.findIndex(object => Object.keys(object)[0] === key.toString());
+        console.log(updateIndex);
+        _tempArticle[updateIndex] = { key: newValue }
+        setState(_tempArticle);
+    }
+
     // Contract clause state and functions
 
     const [contractHead, setContractHead] = useState({});
-    const [article1, setArticle1] = useState([{}]);
-    const [article2, setArticle2] = useState([{}]);
+    const [article1State, setArticle1] = useState([{}]);
+    const [article2State, setArticle2] = useState([{}]);
+    const [article3State, setArticle3] = useState([{}]);
+    const [article9State, setArticle9] = useState([{}]);
 
-    const getClauseData = () => {
+    const generateContractHead = () => {
         fetch("./data/clause-data.json", {
             headers: {
                 "Content-Type": "application/json",
@@ -147,33 +161,170 @@ function Main() {
                 return response.json();
             })
             .then(JSON => {
-                let { contractHead, article1, article2 } = JSON;
-                console.log(contractHead);
+                let { contractHead } = JSON;
                 setContractHead({
-                    title: `${contractHead.title} ${companyDetails.name}`,
-                    text: `${contractHead.clause1} ${companyDetails.effectiveDate} ${contractHead.clause2}`
-                });
-                setArticle1([
-                    { "title": `${article1.title}` },
-                    { "formation": `${article1.content.formation.title} ${companyDetails.name} ${article1.content.formation.clause1} ${companyDetails.filingDate} ${article1.content.formation.clause2}` },
-                    { "name": `${article1.content.name.title} ${article1.content.name.clause1} ${companyDetails.name} ${article1.content.name.clause2}` },
-                    { "duration": `${article1.content.duration.title} ${article1.content.duration.clause}` },
-                    { "purpose": `${article1.content.purpose.title} ${article1.content.purpose.clause1} ${companyDetails.businessPurpose} ${article1.content.purpose.clause2}` },
-                    { "principalOffice": `${article1.content.principalOffice.title} ${article1.content.principalOffice.clause1} ${companyDetails.address1}, ${companyDetails.address2}, ${companyDetails.city}, ${companyDetails.state} ${companyDetails.zip} ${article1.content.principalOffice.clause2}` },
-                    { "registeredAgent": `${article1.content.registeredAgent.title} ${article1.content.registeredAgent.clause1} ${raDetails.name} ${article1.content.registeredAgent.clause2} ${raDetails.address1}, ${raDetails.address2}, ${raDetails.city}, ${raDetails.state} ${raDetails.zip} ${article1.content.registeredAgent.clause3}` },
-                    { "definitions": `${article1.content.definitions.title} ${article1.content.definitions.clause}` }
-                ])
+                    heading: `${contractHead.heading} ${companyDetails.name}`,
+                    intro: `${contractHead.clause1} ${companyDetails.effectiveDate} ${contractHead.clause2}`
+                })
             })
             .catch(error => {
                 console.log(error);
             })
     };
 
-    const [certificateValue, setCertificateValue] = useState('no');
+    const generateArticle1 = () => {
+        fetch("./data/clause-data.json", {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(JSON => {
+                let { article1 } = JSON;
+                if (members.length < 2) {
+                    let { article1SM } = article1;
+                    let { article1Heading, article1Clauses } = article1SM;
+                    setArticle1([
+                        { heading: `${article1Heading}` },
+                        { formation: `${article1Clauses.formation.heading} ${companyDetails.name} ${article1Clauses.formation.clause1} ${companyDetails.filingDate} ${article1Clauses.formation.clause2}` },
+                        { name: `${article1Clauses.name.heading} ${article1Clauses.name.clause1} ${companyDetails.name} ${article1Clauses.name.clause2}` },
+                        { duration: `${article1Clauses.duration.heading} ${article1Clauses.duration.clause}` },
+                        { purpose: `${article1Clauses.purpose.heading} ${article1Clauses.purpose.clause1} ${companyDetails.businessPurpose} ${article1Clauses.purpose.clause2}` },
+                        { principalOffice: `${article1Clauses.principalOffice.heading} ${article1Clauses.principalOffice.clause1} ${companyDetails.address1}, ${companyDetails.address2}, ${companyDetails.city}, ${companyDetails.state} ${companyDetails.zip} ${article1Clauses.principalOffice.clause2}` },
+                        { registeredAgent: `${article1Clauses.registeredAgent.heading} ${article1Clauses.registeredAgent.clause1} ${raDetails.name} ${article1Clauses.registeredAgent.clause2} ${raDetails.address1}, ${raDetails.address2}, ${raDetails.city}, ${raDetails.state} ${raDetails.zip} ${article1Clauses.registeredAgent.clause3}` },
+                        { definitions: `${article1Clauses.definitions.heading} ${article1Clauses.definitions.clause}` }
+                    ])
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    const generateArticle2 = () => {
+        fetch("./data/clause-data.json", {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(JSON => {
+                let { article2 } = JSON;
+                if (members.length < 2) {
+                    let { article2SM } = article2;
+                    let { article2Heading, article2Clauses } = article2SM;
+                    setArticle2([
+                        { heading: `${article2Heading}` },
+                        { initialMember: `${article2Clauses.initialMember.heading} ${article2Clauses.initialMember.clause}` },
+                        { natureOfMembershipInterest: `${article2Clauses.natureOfMembershipInterest.heading} ${article2Clauses.natureOfMembershipInterest.clause}` }
+                    ])
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    const generateArticle3 = () => {
+        fetch("./data/clause-data.json", {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(JSON => {
+                let { article3 } = JSON;
+                if (members.length < 2) {
+                    let { article3SM } = article3;
+                    let { article3Heading, article3Clauses } = article3SM;
+                    setArticle3([
+                        { heading: `${article3Heading}` },
+                        { management: `${article3Clauses.management.heading} ${article3Clauses.management.clause}` },
+                        { officers: `${article3Clauses.officers.heading} ${article3Clauses.officers.clause}` }
+                    ])
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    const generateArticle9 = () => {
+        fetch("./data/clause-data.json", {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(JSON => {
+                let { article9 } = JSON;
+                if (members.length < 2) {
+                    let { article9SM } = article9;
+                    let { article9Heading, article9Clauses } = article9SM;
+                    setArticle9([
+                        { title: `${article9.article9SM.title}` },
+                        { exculpation: `${article9.article9SM.content.exculpation.title}` },
+                        article9.article9SM.content.exculpation.subclauses
+                    ])
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    // Contract queston state and functions
+
+    const [certificateValue, setCertificateValue] = useState("No");
 
     const handleCertificateChange = (event) => {
         setCertificateValue(event.target.value);
-    };
+        fetch("./data/clause-data.json", {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(JSON => {
+                let { article2 } = JSON;
+                if (certificateValue === "Yes") {
+                    console.log("If yes triggered: " + certificateValue);
+                    let _tempArticle2 = [...article2State];
+                    if (_tempArticle2.some(object => object.certificates)) {
+                        let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                        _tempArticle2[certIndex].certificates = `${article2.article2SM.article2Clauses.certificates.heading} ${article2.article2SM.article2Clauses.certificates.clause.uncertificated}`;
+                    } else {
+                        _tempArticle2 = [...article2State, { certificates: `${article2.article2SM.article2Clauses.certificates.heading} ${article2.article2SM.article2Clauses.certificates.clause.uncertificated}` }];
+                    };
+                    setArticle2(_tempArticle2);
+                } else if (certificateValue === "No") {
+                    console.log("If no triggered: " + certificateValue);
+                    let _tempArticle2 = [...article2State];
+                    if (_tempArticle2.some(object => object.certificates)) {
+                        let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                        _tempArticle2[certIndex].certificates = `${article2.article2SM.article2Clauses.certificates.heading} ${article2.article2SM.article2Clauses.certificates.clause.certificated}`;
+                    } else {
+                        _tempArticle2 = [...article2State, { certificates: `${article2.article2SM.article2Clauses.certificates.heading} ${article2.article2SM.article2Clauses.certificates.clause.certificated}` }];
+                    }
+                    setArticle2(_tempArticle2)
+                };
+            })
+    }
 
     // useEffect to log state and fetch JSON data
 
@@ -181,13 +332,29 @@ function Main() {
         console.log(members);
         console.log(companyDetails);
         console.log(raDetails);
-        console.log(contractHead)
-    }, [members, companyDetails, raDetails, contractHead]);
+        console.log(contractHead);
+        console.log(certificateValue);
+        console.log(article1State);
+        console.log(article2State);
+        console.log(article3State);
+        console.log(article9State);
+
+    }, [members, companyDetails, raDetails, contractHead, certificateValue, article1State, article2State, article3State, article9State]);
 
     useEffect(() => {
-        console.log("useEffect getClauseData");
-        getClauseData();
-    }, [members, companyDetails, raDetails]);
+        generateContractHead();
+        generateArticle1();
+    }, [companyDetails]);
+
+    useEffect(() => {
+        generateArticle1();
+    }, [raDetails]);
+
+    useEffect(() => {
+        generateArticle2();
+        generateArticle3();
+        generateArticle9();
+    }, [])
 
     return (
         <main className={classes.layout}>
@@ -243,7 +410,10 @@ function Main() {
                     {contractHead !== undefined ? (
                         <CompanyAgreementView
                             contractHead={contractHead}
-                            article1={article1}
+                            article1={article1State}
+                            article2={article2State}
+                            article3={article3State}
+                            article9={article9State}
                         ></CompanyAgreementView>
                     ) : (
                             <div></div>

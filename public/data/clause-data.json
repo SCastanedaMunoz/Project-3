@@ -1,68 +1,103 @@
 {
     "contractHead": {
-        "title": "COMPANY AGREEMENT OF",
+        "heading": "COMPANY AGREEMENT OF",
         "clause1": "This Company Agreement (this “Agreement”), dated effective",
         "clause2": "is executed and agreed to, for good and valuable consideration, by the initial Member(s) listed on Exhibit A."
     },
     "article1": {
-        "title": "ARTICLE 1 FORMATION",
-        "num": "1",
-        "content": {
-            "formation": {
-                "title": "Formation.",
-                "clause1": " was formed as a limited liability company under and pursuant to the Texas Business Organizations Code (the “BOC”) and other relevant laws of the State of Texas by filing a certificate of formation with the Secretary of State of the State of Texas on ",
-                "clause2": "."
-            },
-            "name": {
-                "title": "Name.",
-                "clause1": "The name of the Company shall be ",
-                "clause2": ". The Company shall conduct business under that name or such other names complying with applicable law as the Members may determine from time to time."
-            },
-            "duration": {
-                "title": "Duration.",
-                "clause": "The Company shall exist until terminated in accordance with this Agreement."
-            },
-            "purpose": {
-                "title": "Purpose.",
-                "clause1": "The purpose of the Company shall be to engage in the business of",
-                "clause2": "and to engage in any other lawful business or activity necessary or convenient in pursuit of the foregoing purposes."
-            },
-            "principalOffice": {
-                "title": "Principal Office.",
-                "clause1": "The Company’s principal office shall be",
-                "clause2": " or such other place as the Members may determine from time to time."
-            },
-            "registeredAgent": {
-                "title": "Registered Office and Registered Agent.",
-                "clause1": "The initial address of the registered office of the Company in the State of Texas shall be",
-                "clause2": ", and the name of the Company’s initial registered agent at that address shall be",
-                "clause3": ". The Members may change the registered office and the registered agent of the Company from time to time. The Members may cause the Company to qualify to do business as a limited liability company (or other entity in which the Members have limited liability) in any other jurisdiction and to designate any registered office or registered agent in any such jurisdiction."
-            },
-            "definitions": {
-                "title": "Definitions.",
-                "clause": "Certain terms used in this instrument are capitalized. Such terms shall have the meaning set forth in the text or in Section 11.5."
-            }
-        }
-    },
-    "article2": {
-        "title": "ARTICLE 2 MEMBERS AND MEMBERSHIP INTERESTS",
-        "num": "2",
-        "content": {
-            "initialMember": {
-                "title": "Initial Member.",
-                "clause": "In connection with the formation of the Company, the Person(s) executing this Agreement as Member(s) is/are admitted to the Company as of the date of formation of the Company."
-            },
-            "natureOfMembershipInterest": {
-                "title": "Nature of Membership Interest.",
-                "clause": "A membership interest in the Company is personal property. A Member of the Company or an assignee of a membership interest in the Company does not have an interest in any specific property of the Company. A membership interest includes a Member’s or assignee’s share of profits and losses or similar items and the right to receive distributions as provided in this Agreement, but does not include a Member’s right to participate in management."
-            },
-            "certificates": {
-                "title": "Certifictes.",
-                "clause": {
-                    "uncertificated": "Membership interests in the Company shall be uncertificated.",
-                    "certificated": "Membership interests in the Company shall be certificated."
+        "article1SM": {
+            "article1Heading": "ARTICLE 1 FORMATION",
+            "article1Clauses": {
+                "formation": {
+                    "heading": "Formation.",
+                    "clause1": " was formed as a limited liability company under and pursuant to the Texas Business Organizations Code (the “BOC”) and other relevant laws of the State of Texas by filing a certificate of formation with the Secretary of State of the State of Texas on ",
+                    "clause2": "."
+                },
+                "name": {
+                    "heading": "Name.",
+                    "clause1": "The name of the Company shall be ",
+                    "clause2": ". The Company shall conduct business under that name or such other names complying with applicable law as the Members may determine from time to time."
+                },
+                "duration": {
+                    "heading": "Duration.",
+                    "clause": "The Company shall exist until terminated in accordance with this Agreement."
+                },
+                "purpose": {
+                    "heading": "Purpose.",
+                    "clause1": "The purpose of the Company shall be to engage in the business of",
+                    "clause2": "and to engage in any other lawful business or activity necessary or convenient in pursuit of the foregoing purposes."
+                },
+                "principalOffice": {
+                    "heading": "Principal Office.",
+                    "clause1": "The Company’s principal office shall be",
+                    "clause2": " or such other place as the Members may determine from time to time."
+                },
+                "registeredAgent": {
+                    "heading": "Registered Office and Registered Agent.",
+                    "clause1": "The initial address of the registered office of the Company in the State of Texas shall be",
+                    "clause2": ", and the name of the Company’s initial registered agent at that address shall be",
+                    "clause3": ". The Members may change the registered office and the registered agent of the Company from time to time. The Members may cause the Company to qualify to do business as a limited liability company (or other entity in which the Members have limited liability) in any other jurisdiction and to designate any registered office or registered agent in any such jurisdiction."
+                },
+                "definitions": {
+                    "heading": "Definitions.",
+                    "clause": "Certain terms used in this instrument are capitalized. Such terms shall have the meaning set forth in the text or in Section 11.5."
                 }
             }
-        }
+        },
+        "article1MM": {}
+    },
+    "article2": {
+        "article2SM": {
+            "article2Heading": "ARTICLE 2 MEMBERS AND MEMBERSHIP INTERESTS",
+            "article2Clauses": {
+                "initialMember": {
+                    "heading": "Initial Member.",
+                    "clause": "In connection with the formation of the Company, the Person(s) executing this Agreement as Member(s) is/are admitted to the Company as of the date of formation of the Company."
+                },
+                "natureOfMembershipInterest": {
+                    "heading": "Nature of Membership Interest.",
+                    "clause": "A membership interest in the Company is personal property. A Member of the Company or an assignee of a membership interest in the Company does not have an interest in any specific property of the Company. A membership interest includes a Member’s or assignee’s share of profits and losses or similar items and the right to receive distributions as provided in this Agreement, but does not include a Member’s right to participate in management."
+                },
+                "certificates": {
+                    "heading": "Certificates.",
+                    "clause": {
+                        "uncertificated": "Membership interests in the Company shall be uncertificated.",
+                        "certificated": "Membership interests in the Company shall be certificated."
+                    }
+                }
+            }
+        },
+        "article2MM": {}
+    },
+    "article3": {
+        "article3SM": {
+            "article3Heading": "ARTICLE 3 MANAGEMENT OF THE COMPANY, MEETINGS AND VOTING",
+            "article3Clauses": {
+                "management": {
+                    "heading": "Management by Members.",
+                    "clause": "The exclusive authority to manage and control the Company shall be vested in the Member. The Member shall have the sole and exclusive power and authority to bind the Company except to the extent that such power and authority is expressly delegated by the Member, and the delegation of such power and authority shall not reduce the power and authority of the Member. The Member shall be authorized to act on behalf of the Company under the heading “Member,” “Chief Executive Officer,” “President,” or any other heading or representative capacity deemed appropriate by the Member."
+                },
+                "officers": {
+                    "heading": "Officers.",
+                    "clause": "The Member may appoint such officers of the Company as the Member may deem appropriate and may remove any such officer at any time with or without cause. The Member may delegate to the Company’s officers such authority as the Member may deem appropriate and subsequently revoke or modify that authority. The Member also may delegate authority to other Persons and revoke that delegation as the Member may deem appropriate, including the power to delegate authority."
+                }
+            }
+        },
+        "article3MM": {}
+    },
+    "article9": {
+        "article9SM": {
+            "article9Heading": "ARTICLE 9 EXCULPATION, INDEMNIFICATION, AND ADVANCEMENT",
+            "article9Content": {
+                "exculpation": {
+                    "heading": "Exculpation.",
+                    "subclauses": [
+                        "For purposes of this Agreement, “Covered Person” means (i) the Member, whether acting in the capacity of owner, governing person, officer, employee, creditor or other relationship to the Company, and (ii) any Person with the power, whether through ownership of voting securities, by contract or otherwise, to direct the actions of the Member.",
+                        "No Covered Person shall be liable to the Company for any loss, damage or claim incurred by reason of any act or omission (whether or not constituting negligence) performed or omitted by the Covered Person in the Covered Person’s capacity as a Covered Person."
+                    ]
+                }
+            }
+        },
+        "article9MM": {}
     }
 }

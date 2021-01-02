@@ -3,6 +3,7 @@ import "./orderedlist.css"
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import ClauseListItem from "./ClauseListItem"
 
 const useStyles = makeStyles((theme) => ({
 
@@ -21,10 +22,9 @@ const useStyles = makeStyles((theme) => ({
 export default function CompanyAgreementView({
     contractHead,
     article1,
-    companyName,
-    effectiveDate,
-    certificateValue,
-    style
+    article2,
+    article3,
+    article9,
 }) {
 
     const classes = useStyles();
@@ -34,52 +34,21 @@ export default function CompanyAgreementView({
         <Paper className={classes.paper}>
 
             <Typography component="h1" variant="h5" align="center">
-                {contractHead.title}
+                {contractHead.heading}
             </Typography>
 
             <Typography component="p" variant="body1" align="justify">
-                {contractHead.text}
+                {contractHead.intro}
             </Typography>
 
-            <Typography component="h1" variant="h6" align="center">
-                {article1[0].title}
-            </Typography>
 
             <ol>
-                <li>
-                    <ol>
-                        {article1.slice(1).map((clause) => (
-                            <li>
-                                {Object.values(clause)}
-                            </li>
-                        ))}
-                    </ol>
-                </li>
+                <ClauseListItem article={article1}></ClauseListItem>
+                <ClauseListItem article={article2}></ClauseListItem>
+                <ClauseListItem article={article3}></ClauseListItem>
+                <ClauseListItem article={article9}></ClauseListItem>
             </ol>
 
-            <Typography component="h1" variant="h5" align="center">
-            </Typography>
-
-            <Typography component="h1" variant="h5" align="center">
-            </Typography>
-
-            <Typography component="p" variant="body1" align="justify">
-            </Typography>
-
-            {/* {certificateValue === "No" ? (
-                <div>
-                    <Typography component="p" variant="body1" align="justify">
-                        {article2.content.certificates.clause.uncertificated}
-                    </Typography>
-                </div>
-            ) : (
-                    <div>
-                        <Typography component="p" variant="body1" align="justify">
-                            {article2.content.certificates.clause.certificated}
-                        </Typography>
-                    </div>
-                )} */}
-
-        </Paper>
+        </Paper >
     )
 }

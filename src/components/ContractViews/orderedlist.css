@@ -3,6 +3,7 @@ ol {
   counter-reset: item;
   margin: 0;
   padding: 0;
+  
 }
 
 ol > li {
@@ -24,3 +25,23 @@ li ol > li {
 li ol > li:before {
   content: counters(item, ".") " ";
 }
+
+ol.letters {
+  content: counters(letter);
+  background-color: green;
+}
+
+
+
+/* ol.nostyle > li {
+  content: counters(letter) ".";
+  display: table;
+  counter-increment: letter;
+  margin-bottom: 0.6em;
+}
+
+ol.nostyle > li:before {
+  content: counters(letter) ".";
+  display: table-cell;
+  padding-right: 0.6em;    
+} */
