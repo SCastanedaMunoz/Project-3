@@ -68,16 +68,6 @@ export default function RegisteredAgent({ handleRADetailChange }) {
                         fullWidth
                     />
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="country"
-                        name="country"
-                        label="Country"
-                        onChange={handleRADetailChange}
-                        fullWidth
-                    />
-                </Grid>
             </Grid>
         </Fragment>
     );

@@ -1,3 +1,5 @@
+/* The numbering was pretty hard to get right, and I still have an issue where an extra number renders for subclauses, eg 1.1.1 will display as 1.1 1.1.1 */
+
 ol {
   list-style-type: none;
   counter-reset: item;
@@ -30,18 +32,3 @@ ol.letters {
   content: counters(letter);
   background-color: green;
 }
-
-
-
-/* ol.nostyle > li {
-  content: counters(letter) ".";
-  display: table;
-  counter-increment: letter;
-  margin-bottom: 0.6em;
-}
-
-ol.nostyle > li:before {
-  content: counters(letter) ".";
-  display: table-cell;
-  padding-right: 0.6em;    
-} */

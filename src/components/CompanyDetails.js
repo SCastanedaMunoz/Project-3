@@ -98,16 +98,6 @@ export default function CompanyDetails({ handleCompanyDetailChange }) {
                         onChange={handleCompanyDetailChange}
                     />
                 </Grid>
-                {/* <Grid item xs={12} sm={6}>
-                    <TextField
-                        required
-                        id="country"
-                        name="country"
-                        label="Country"
-                        fullWidth
-                        onChange={handleCompanyDetailChange}
-                    />
-                </Grid> */}
             </Grid>
         </Fragment>
     );

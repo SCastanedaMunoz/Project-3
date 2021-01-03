@@ -11,20 +11,22 @@ export default function ClauseListItem({ article }) {
             </Typography>
             <ol>
                 {article.slice(1).map((clause) => (
-                    clause.length > 1 ? (
-                        <ol>
-                            {clause.map((subclause) => (
-                                <li>
-                                    {subclause}
-                                </li>
-                            ))}
-                        </ol>
+                    <li>
+                        {Array.isArray(clause) ? (
+                            <ol>
+                                {clause.map((subclause) => (
+                                    <li>
+                                        {subclause}
+                                    </li>
+                                ))}
+                            </ol>
 
-                    ) : (
-                            <li>
-                                {Object.values(clause)}
-                            </li>
-                        )
+                        ) : (
+
+                                Object.values(clause)
+
+                            )}
+                    </li>
                 ))}
             </ol>
         </li>

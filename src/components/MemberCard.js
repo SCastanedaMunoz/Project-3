@@ -7,9 +7,24 @@ import { TextField, InputAdornment } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 
+    layout: {
+        position: "center",
+        width: 'auto',
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+            width: 1500,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+        },
+    },
     card: {
         margin: "20px",
         padding: "20px"
+    },
+    textfield: {
+        margin: "5px",
+        padding: "5px"
     },
     buttons: {
         display: 'flex',
@@ -29,11 +44,11 @@ export default function MemberCard({ members, handleMemberChange }) {
         members.map((member, index) => {
             let memberID = `member-${index}`;
             return (
-                <Card className={classes.card}>
+                <Card className={classes.card} key={memberID}>
                     <Typography className={classes.title} gutterBottom>
-                        Member Information
+                        Member {index + 1}
                     </Typography>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} className={classes.textfield}>
                         <TextField
                             required
                             name="name"
@@ -47,7 +62,7 @@ export default function MemberCard({ members, handleMemberChange }) {
                             onChange={handleMemberChange}
                         />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} className={classes.textfield}>
                         <TextField
                             required
                             name="address1"
@@ -61,7 +76,7 @@ export default function MemberCard({ members, handleMemberChange }) {
                             onChange={handleMemberChange}
                         />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} className={classes.textfield}>
                         <TextField
                             name={"address2"}
                             id={memberID + "-address2"}
@@ -74,7 +89,7 @@ export default function MemberCard({ members, handleMemberChange }) {
                             onChange={handleMemberChange}
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6} className={classes.textfield}>
                         <TextField
                             required
                             name={"city"}
@@ -88,7 +103,7 @@ export default function MemberCard({ members, handleMemberChange }) {
                             onChange={handleMemberChange}
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6} className={classes.textfield}>
                         <TextField
                             name="state"
                             id={memberID + "-state"}
@@ -101,7 +116,7 @@ export default function MemberCard({ members, handleMemberChange }) {
                             fullWidth
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6} className={classes.textfield}>
                         <TextField
                             required
                             name="zip"
@@ -115,7 +130,24 @@ export default function MemberCard({ members, handleMemberChange }) {
                             fullWidth
                         />
                     </Grid>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6} className={classes.textfield}>
+                        <TextField
+                            required
+                            name="contribution"
+                            id={memberID + "-contribution"}
+                            label="Capital Contribution"
+                            InputProps={{
+                                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                            }}
+                            value={member.contribution}
+                            inputProps={{
+                                "data-id": index
+                            }}
+                            onChange={handleMemberChange}
+                            fullWidth
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6} className={classes.textfield}>
                         <TextField
                             required
                             name="percentage"
