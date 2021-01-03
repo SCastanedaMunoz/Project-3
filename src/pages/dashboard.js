@@ -15,6 +15,7 @@ import CompanyAgreementView from "../components/ContractViews/CompanyAgreementVi
 import BlankCompanyAgreementView from "../components/ContractViews/BlankCompanyAgreementView";
 import ExhibitAView from '../components/ContractViews/ExhibitAView';
 import BlankExhibitAView from '../components/ContractViews/BlankExhibitAView';
+import AppBar from '../components/MaterialAppBar';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -728,7 +729,9 @@ function Dashboard() {
 
     return (
         <main className={classes.layout}>
-            <Grid container spacing={3}>
+            <AppBar />
+            <br />
+            <Grid container spacing={4}>
                 {/* Once the user gets to the end of the form questions (activeStep is greater than steps.length), the form paper will not render. */}
                 {activeStep !== steps.length ? (
                     <Grid item xs={12} sm={8} md={6}>
