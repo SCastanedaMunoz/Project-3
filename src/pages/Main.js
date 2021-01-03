@@ -52,7 +52,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Dashboard() {
+function Main() {
+
     const classes = useStyles();
 
     // Step state and functions to handle form flow
@@ -807,4 +808,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard;
+export default Main;

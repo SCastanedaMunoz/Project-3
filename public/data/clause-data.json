@@ -1,0 +1,693 @@
+{
+    "contractHead": {
+        "heading": "COMPANY AGREEMENT OF",
+        "clause1": "This Company Agreement (this “Agreement”), dated effective",
+        "clause2": "is executed and agreed to, for good and valuable consideration, by the initial Member(s) listed on Exhibit A."
+    },
+    "article1": {
+        "article1SM": {
+            "article1Heading": "ARTICLE 1 FORMATION",
+            "article1Clauses": {
+                "formation": {
+                    "heading": "Formation.",
+                    "clause1": " was formed as a limited liability company under and pursuant to the Texas Business Organizations Code (the “BOC”) and other relevant laws of the State of Texas by filing a certificate of formation with the Secretary of State of the State of Texas on ",
+                    "clause2": "."
+                },
+                "name": {
+                    "heading": "Name.",
+                    "clause1": "The name of the Company shall be ",
+                    "clause2": ". The Company shall conduct business under that name or such other names complying with applicable law as the Member may determine from time to time."
+                },
+                "duration": {
+                    "heading": "Duration.",
+                    "clause": "The Company shall exist until terminated in accordance with this Agreement."
+                },
+                "purpose": {
+                    "heading": "Purpose.",
+                    "clause1": "The purpose of the Company shall be to engage in the business of",
+                    "clause2": "and to engage in any other lawful business or activity necessary or convenient in pursuit of the foregoing purposes."
+                },
+                "principalOffice": {
+                    "heading": "Principal Office.",
+                    "clause1": "The Company’s principal office shall be",
+                    "clause2": " or such other place as the Member may determine from time to time."
+                },
+                "registeredAgent": {
+                    "heading": "Registered Office and Registered Agent.",
+                    "clause1": "The initial address of the registered office of the Company in the State of Texas shall be",
+                    "clause2": ", and the name of the Company’s initial registered agent at that address shall be",
+                    "clause3": ". The Member may change the registered office and the registered agent of the Company from time to time. The Member may cause the Company to qualify to do business as a limited liability company (or other entity in which the Member has limited liability) in any other jurisdiction and to designate any registered office or registered agent in any such jurisdiction."
+                },
+                "definitions": {
+                    "heading": "Definitions.",
+                    "clause": "Certain terms used in this instrument are capitalized. Such terms shall have the meaning set forth in the text or in Section 11.5."
+                }
+            }
+        },
+        "article1MM": {
+            "article1Heading": "ARTICLE 1 FORMATION",
+            "article1Clauses": {
+                "formation": {
+                    "heading": "Formation.",
+                    "clause1": " was formed as a limited liability company under and pursuant to the Texas Business Organizations Code (the “BOC”) and other relevant laws of the State of Texas by filing a certificate of formation with the Secretary of State of the State of Texas on ",
+                    "clause2": "."
+                },
+                "name": {
+                    "heading": "Name.",
+                    "clause1": "The name of the Company shall be ",
+                    "clause2": ". The Company shall conduct business under that name or such other names complying with applicable law as the Members may determine from time to time."
+                },
+                "duration": {
+                    "heading": "Duration.",
+                    "clause": "The Company shall exist until terminated in accordance with this Agreement."
+                },
+                "purpose": {
+                    "heading": "Purpose.",
+                    "clause1": "The purpose of the Company shall be to engage in the business of",
+                    "clause2": "and to engage in any other lawful business or activity necessary or convenient in pursuit of the foregoing purposes."
+                },
+                "principalOffice": {
+                    "heading": "Principal Office.",
+                    "clause1": "The Company’s principal office shall be",
+                    "clause2": " or such other place as the Members may determine from time to time."
+                },
+                "registeredAgent": {
+                    "heading": "Registered Office and Registered Agent.",
+                    "clause1": "The initial address of the registered office of the Company in the State of Texas shall be",
+                    "clause2": ", and the name of the Company’s initial registered agent at that address shall be",
+                    "clause3": ". The Members may change the registered office and the registered agent of the Company from time to time. The Members may cause the Company to qualify to do business as a limited liability company (or other entity in which the Members have limited liability) in any other jurisdiction and to designate any registered office or registered agent in any such jurisdiction."
+                },
+                "definitions": {
+                    "heading": "Definitions.",
+                    "clause": "Certain terms used in this instrument are capitalized. Such terms shall have the meaning set forth in the text or in Section 11.8."
+                }
+            }
+        }
+    },
+    "article2": {
+        "article2SM": {
+            "article2Heading": "ARTICLE 2 MEMBERS AND MEMBERSHIP INTERESTS",
+            "article2Clauses": {
+                "initialMember": {
+                    "heading": "Initial Member.",
+                    "clause": "In connection with the formation of the Company, the Person(s) executing this Agreement as Member(s) is/are admitted to the Company as of the date of formation of the Company."
+                },
+                "natureOfMembershipInterest": {
+                    "heading": "Nature of Membership Interest.",
+                    "clause": "A membership interest in the Company is personal property. A Member of the Company or an assignee of a membership interest in the Company does not have an interest in any specific property of the Company. A membership interest includes a Member’s or assignee’s share of profits and losses or similar items and the right to receive distributions as provided in this Agreement, but does not include a Member’s right to participate in management."
+                },
+                "certificates": {
+                    "heading": "Certificates.",
+                    "clause": {
+                        "uncertificated": "Membership interests in the Company shall be uncertificated.",
+                        "certificated": "Membership interests in the Company shall be certificated."
+                    }
+                }
+            }
+        },
+        "article2MM": {
+            "article2SM": {
+                "article2Heading": "ARTICLE 2 MEMBERS AND MEMBERSHIP INTERESTS",
+                "article2Clauses": {
+                    "initialMembers": {
+                        "heading": "Initial Members.",
+                        "clause": "In connection with the formation of the Company, the Persons executing this Agreement as Members are admitted to the Company as Members effective as of the date of the Company’s formation. The Percentage held by each of the Members is set forth next to such Member’s name on Exhibit A."
+                    },
+                    "issuanceOfMembershipInterestsAfterFormationOfCompany": {
+                        "heading": "Issuance of Membership Interests After Formation of Company.",
+                        "clause": "The Company, after the formation of the Company, may issue membership interests in the Company to any Person with the approval of all of the Members of the Company. Any such approval shall include the Capital Contribution, if any, required in connection with the new membership interest, the Percentage represented by the newly issued membership interest and all changes in the Percentages represented by the membership interests outstanding prior to the issuance of the new membership interest."
+                    },
+                    "natureOfMembershipInterest": {
+                        "heading": "Nature of Membership Interest.",
+                        "clause": "A membership interest in the Company is personal property. A Member of the Company or an assignee of a membership interest in the Company does not have an interest in any specific property of the Company. A membership interest includes a Member’s or assignee’s share of profits and losses or similar items and the right to receive distributions as provided in this Agreement, but does not include a Member’s right to participate in management."
+                    },
+                    "withdrawalOrExpulsionOfMember": {
+                        "heading": "Withdrawal or Expulsion of Member.",
+                        "subclauses": [
+                            "A Member of the Company may withdraw as a Member at any time by providing Written notice of the Member’s withdrawal to the Company. The withdrawal shall take effect at the time specified in the notice, and unless otherwise specified in the notice, acceptance of the withdrawal shall not be necessary to make it effective. When the withdrawal takes effect, the withdrawing Member shall cease to be a Member and thereafter shall be deemed an assignee of any membership interest owned by the withdrawn Member. The withdrawal of a Member shall not entitle the withdrawn Member to any distribution or payment for the withdrawn Member’s membership interest other than distributions that an assignee would be entitled to receive under Section 2.7.",
+                            "A Member of the Company may be expelled by unanimous vote of all other Members (not including the Member to be expelled) if that Member has (i) materially breached this Agreement, (ii) committed fraud, theft, or gross negligence injuring the Company or one or more Members of the Company; or (iii) engaged in wrongful conduct that adversely and materially affects the business or operation of the Company. When the expulsion takes effect, the expelled Member shall cease to be a Member and thereafter shall be deemed an assignee of any membership interest owned by the expelled Member. The expulsion of the expelled Member shall not entitle the expelled Member to any distribution or payment for the expelled Member’s membership interest other than distributions that an assignee would be entitled to receive under Section 2.7. Expulsion shall be in addition to, and not in lieu of, any remedies otherwise available against the expelled Member in connection with the acts or omissions constituting grounds for expulsion."
+                        ]
+                    },
+                    "assignmentOfMembershipInterest": {
+                        "heading": "Assignment of Membership Interest.",
+                        "clause": "Subject to the requirements of Article 8, a membership interest in the Company may be wholly or partly assigned. An assignment of a membership interest in the Company is not an event requiring the winding up of the Company and does not entitle an assignee who is not already a Member of the Company to participate in the management and affairs of the Company, become a Member of the Company or exercise any rights of a Member of the Company."
+                    },
+                    "admissionOfNewMembers": {
+                        "heading": "Admission of New Members.",
+                        "clause": "Any Member of the Company who is issued a new membership interest as provided in Section 2.2 or who acquires a membership interest by assignment (including by reason of death or divorce) shall become a Member of the Company with respect to the new or assigned membership interest immediately upon the issuance or assignment of the membership interest. Approval by the Members pursuant to Section 2.2 of the issuance of a new membership interest in the Company to a Person who is not already a Member shall be deemed approval of the admission of such Person as a Member. An assignee of a membership interest in the Company who is not already a Member of the Company is entitled to become a Member of the Company on the approval of all of the Company’s Members. Any Person who desires to become a Member after the formation of the Company shall, as a condition to becoming a Member and in addition to any other conditions set forth herein or established by the Members, execute and deliver an agreement to be bound by the terms and provisions of the Agreement. Such agreement shall also state an address for the Member for notice hereunder."
+                    },
+                    "rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership": {
+                        "heading": "Rights and Duties of Assignee of Membership Interest Before Membership.",
+                        "subclauses": [
+                            "A Person who is assigned a membership interest in the Company is entitled to: (a) receive any allocation of income, gain, loss, deduction, credit, or a similar item that the assignor is entitled to receive to the extent the allocation of the item is assigned; (b) receive any distribution the assignor is entitled to receive to the extent the distribution is assigned; (c) subject to Article 7, require, for any proper purpose, reasonable information or a reasonable account of the transactions of the Company; and (d) subject to Article 7, make, for any proper purpose, reasonable inspections of the books and records of the Company.",
+                            "An assignee of a membership interest in the Company is not liable as a Member of the Company until the assignee becomes a Member of the Company."
+                        ]
+                    },
+                    "rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember": {
+                        "heading": "Rights and Liabilities of Assignee of Membership Interest After Becoming Member.",
+                        "subclauses": [
+                            "An assignee of a membership interest in the Company, after becoming a Member of the Company, is: (a) entitled to the same rights and powers granted or provided to a Member of the Company by this Agreement; (b) subject to the same restrictions and liabilities placed or imposed on a Member of the Company by this Agreement; and (c) except as provided by Subsection 2.8(b), liable for the assignor’s obligation to make contributions to the Company.",
+                            "An assignee of a membership interest in the Company, after becoming a Member of the Company, is not obligated for a liability of the assignor that: (a) the assignee did not have knowledge of on the date the assignee became a Member of the Company; and (b) could not be ascertained from this Agreement."
+                        ]
+                    },
+                    "rightsAndDutiesOfAssignorOfMembershipInterest": {
+                        "heading": "Rights and Duties of Assignor of Membership Interest.",
+                        "clause": "An assignor of a membership interest in the Company continues to be a Member of the Company and is entitled to exercise any rights or powers of the Member not vested in the assignee by virtue of the assignment (including the right to on or consent to any matters requiring approval or consent of the Members under this Agreement) until the assignee becomes a Member of the Company. Upon admission of an assignee as a Member, the assignor shall cease to be a Member with respect to the membership interest assigned."
+                    },
+                    "certificates": {
+                        "heading": "Certificates.",
+                        "clause": {
+                            "uncertificated": "Membership interests in the Company shall be uncertificated.",
+                            "certificated": "Membership interests in the Company shall be certificated."
+                        }
+                    },
+                    "representationsAndWarranties": {
+                        "heading": "Representations and Warranties.",
+                        "clause": "Each Member hereby represents and warrants to the Company and each other Member that (a) the Member has duly executed and delivered this Agreement; and (b) the Member’s authorization, execution, delivery, and performance of this Agreement do not conflict with any other agreement or arrangement to which that Member is a party or by which that Member is bound."
+                    }
+                }
+            }
+        }
+    },
+    "article3": {
+        "article3SM": {
+            "article3Heading": "ARTICLE 3 MANAGEMENT OF THE COMPANY, MEETINGS AND VOTING",
+            "article3Clauses": {
+                "management": {
+                    "heading": "Management by Members.",
+                    "clause": "The exclusive authority to manage and control the Company shall be vested in the Member. The Member shall have the sole and exclusive power and authority to bind the Company except to the extent that such power and authority is expressly delegated by the Member, and the delegation of such power and authority shall not reduce the power and authority of the Member. The Member shall be authorized to act on behalf of the Company under the heading “Member,” “Chief Executive Officer,” “President,” or any other heading or representative capacity deemed appropriate by the Member."
+                },
+                "officers": {
+                    "heading": "Officers.",
+                    "clause": "The Member may appoint such officers of the Company as the Member may deem appropriate and may remove any such officer at any time with or without cause. The Member may delegate to the Company’s officers such authority as the Member may deem appropriate and subsequently revoke or modify that authority. The Member also may delegate authority to other Persons and revoke that delegation as the Member may deem appropriate, including the power to delegate authority."
+                }
+            }
+        },
+        "article3MM": {
+            "article3Heading": "ARTICLE 3 MANAGEMENT OF THE COMPANY, MEETINGS AND VOTING",
+            "article3Clauses": {
+                "management": {
+                    "heading": "Management by Members.",
+                    "clause": "The authority to manage, control and operate the Company shall be vested in the Members of the Company. The foregoing shall not restrict the authority of the officers of the Company as described in Section 3.2 below."
+                },
+                "officersAndOtherAgents": {
+                    "heading": "Officers and Other Agents.",
+                    "clause": "Each Member is an agent of the Company for the purpose of carrying out the Company’s business in accordance with the authority granted by action of the Members. The Members may appoint such officers of the Company as the Members may deem appropriate and may remove any such officer at any time with or without cause. The Members may delegate to the Company’s officers such authority as the Members may deem appropriate and subsequently revoke or modify that authority. The Members also may delegate authority to other Persons and revoke that delegation as the Members may deem appropriate including the power to delegate authority."
+                },
+                "locationOfMeetings": {
+                    "heading": "Location of Meetings.",
+                    "clause": "Meetings of the Members or a committee of the Members of the Company may be held at the principal office of the Company or a place in or outside the state as agreed to by all Persons entitled to notice of the meeting."
+                },
+                "alternativeFormsOfMeeting": {
+                    "heading": "Alternative Forms of Meetings.",
+                    "subclauses": [
+                        "The Members or a committee of the Members, may hold meetings by using a conference telephone or similar communications equipment, or another suitable electronic communications system, including videoconferencing technology or the Internet, or any combination, if the telephone or other equipment or system permits each individual participating in the meeting to communicate with all other individuals participating in the meeting.",
+                        "If voting is to take place at the meeting, the Company must implement reasonable measures to verify that every Person voting at the meeting by means of remote communications is sufficiently identified."
+                    ]
+                },
+                "participationConstitutesPresence": {
+                    "heading": "Participation Constitutes Presence.",
+                    "clause": "A Person participating in a meeting is considered present at the meeting, unless the participation is for the express purpose of objecting to the transaction of business at the meeting on the ground that the meeting has not been lawfully called or convened."
+                },
+                "noticeOfMeetings": {
+                    "heading": "Notice of Meetings.",
+                    "clause": "Notice of a meeting of the Members or a committee of the Members must be given in a manner described in Section 11.1 and state the date and time of the meeting and the location of the meeting or, if the meeting is held by using a conference telephone or other communications system authorized by Section 3.4, the form of communication used for the meeting."
+                },
+                "waiverOfNotice": {
+                    "heading": "Waiver of Notice.",
+                    "clause": "Notice of a meeting is not required to be given to a Member, or a member of a committee of the Members, entitled to notice under this Agreement if the person entitled to notice signs a Written waiver of notice of the meeting, regardless of whether the waiver is signed before or after the time of the meeting. If a Person entitled to notice of a meeting participates in the meeting, the person’s participation constitutes a waiver of notice of the meeting unless the person participates in the meeting solely to object to the transaction of business at the meeting on the ground that the meeting was not lawfully called or convened."
+                },
+                "whoMayCall": {
+                    "heading": "Who May Call.",
+                    "clause": "Any Member may call a meeting of the Members."
+                },
+                "timeOfNotice": {
+                    "heading": "Time of Notice.",
+                    "clause": "Notice shall be given not later than the tenth (10th) day or earlier than the sixtieth (60th) day before the date of the meeting."
+                },
+                "quorumAndActOfMembersOrCommittee": {
+                    "heading": "Quorum and Act of Members or Committee.",
+                    "clause": "Members of the Company owning a majority of the Percentages in the Company constitute a quorum for the purpose of transacting business at a meeting of the Members. Except as provided in Section 3.11, the affirmative vote of Members owning a majority of Percentages in the Company present at a meeting at which a quorum is present constitutes an act of the Members. A majority of all members of a committee of Members constitutes a quorum for the purpose of transacting business at a meeting of the committee. The affirmative vote of the majority of the committee present at a meeting at which a quorum is present constitutes an act of the committee."
+                },
+                "votesRequiredToApproveCertainActions": {
+                    "heading": "Participation Constitutes Presence.",
+                    "clause": "A Fundamental Business Transaction of the Company or an action that would make it impossible for the Company to carry out the ordinary business of the Company must be approved by the affirmative vote of all of the Members. For purposes of this Agreement, the term “Fundamental Business Transaction” shall mean a merger, interest exchange, conversion, or sale of all or substantially all of the Company’s assets."
+                },
+                "mannerOfVoting": {
+                    "heading": "Manner of Voting.",
+                    "clause": "A Member of the Company may vote in person or by a proxy executed in Writing by the Member to another Member. A member of a committee of the Members may vote in person or by a proxy executed in Writing by the committee member to another committee member. Except as provided by this Section, a Member or committee member may not vote by proxy."
+                },
+                "actionByWrittenConsent": {
+                    "heading": "Action by Written Consent.",
+                    "clause": "An action may be taken without holding a meeting, without providing notice, or without taking a vote if a Written consent or consents stating the action to be taken is obtained from the number of Members or committee members, as appropriate, necessary to have at least the minimum number of votes that would be necessary to take the action at a meeting at which each Member or committee member, as appropriate, entitled to vote on the action is present and votes. Any of the following shall satisfy the requirement for a Written consent: an originally signed document; a photographic, photostatic, facsimile or similarly reliable reproduction of an originally signed document; or an electronic message if the transmission contains or is accompanied by information allowing a determination (i) that the message was transmitted by the consenting Member or committee member and (ii) of the date of the transmission. Unless otherwise dated, a consent given by electronic message is considered given on the date transmitted. With regard to any action approved in accordance with this Agreement by Written consent of less than all Members, or committee members, no prior notice is required to be given to nonapproving Members or committee members."
+                },
+                "explicitVoteOrConsentRequired": {
+                    "heading": "Explicit Vote or Consent Required.",
+                    "clause": "The exclusive methods by which Members or committee members may take action with respect to the Company are voting or Written consent as provided in this Article. A Member or committee member shall not be deemed to have voted in favor of, or consented to, an action unless such Person has given explicit consent or voted as provided in this Article."
+                }
+            }
+        }
+    },
+    "article4": {
+        "article4SM": {
+            "article4Heading": "ARTICLE 4 CAPITAL CONTRIBUTIONS",
+            "article4Clauses": {
+                "agreedCapitalContributions": {
+                    "heading": "Agreed Capital Contributions.",
+                    "clause": "The Member shall contribute to the capital of the Company the contribution set forth opposite such Member’s name on the attached Exhibit A."
+                },
+                "additionalCapitalContributions": {
+                    "heading": "Additional Capital Contributions.",
+                    "clause": "The Member may, but is not required to, make additional contributions to the capital of the Company."
+                }
+            }
+        },
+        "article4MM": {
+            "article4Heading": "ARTICLE 4 CAPITAL CONTRIBUTIONS",
+            "article4Clauses": {
+                "agreedCapitalContributions": {
+                    "heading": "Agreed Capital Contributions.",
+                    "clause": "Each initial Member agrees to contribute to the capital of the Company the contribution set forth opposite such Member’s name on the attached Exhibit A. Any Person issued a membership interest in the Company after the formation of the Company shall contribute to the capital of the Company the contribution, if any, approved as provided in Section 2.2."
+                },
+                "additionalCapitalContributions": {
+                    "heading": "Additional Capital Contributions.",
+                    "clause": "The Members may request, but may not require, that the Members make additional contributions to the capital of the Company."
+                },
+                "capitalAccounts": {
+                    "heading": "Capital Accounts.",
+                    "clause": "A capital account (“Capital Account”) shall be established for each Member and shall be maintained in such a manner as to correspond with the rules set forth in the Treasury Regulations (the “Allocation Regulations”) promulgated under section 704(b) of the Code. Except as otherwise required by the Allocation Regulations or the Code, a Member’s Capital Account shall be increased by (i) the amount of any contribution of capital to the Company (based on the fair market value of the cash or other assets contributed) and (ii) allocations of income or gain (for Company book purposes) to the Member pursuant to this Agreement, and shall be reduced by (i) the amount of money distributed to the Member by the Company, (ii) the fair market value of any property distributed to the Member by the Company, and (iii) allocations of deduction or loss (for Company book purposes) to the Member by the Company pursuant to this Agreement. The Capital Accounts of the Members shall not bear interest. If any additional membership interests in the Company are to be issued in consideration for a contribution of property or cash or if any Company property is to be distributed in liquidation of the Company or an interest in the Company, the Capital Accounts of the Members (and the amounts at which all Company properties are carried on its books and records other than for income tax purposes) shall, immediately prior to such issuance or distribution, as the case may be, be adjusted (consistent with the provisions of section 704 of the Code) upward or downward to reflect any unrealized gain or unrealized loss attributable to all Company properties (as if such unrealized gain or unrealized loss had been recognized upon actual sale of the properties upon a liquidation of the Company immediately prior to issuance or distribution). Except as otherwise required by the Allocation Regulations, in the event any membership interest in the Company is transferred in accordance with the terms of this Agreement, the transferee shall succeed to the Capital Account of the transferor to the extent it relates to the transferred interest."
+                }
+            }
+        }
+    },
+    "article5": {
+        "article5SM": {
+            "article5Heading": "ARTICLE 5 TAXATION AND ALLOCATIONS",
+            "article5Clauses": {
+                "taxStatus": {
+                    "heading": "Tax Status.",
+                    "clause": "At all times that the Company has only one Member (who owns 100% of the membership interest in the Company), it is the intention of the Member that the Company be disregarded as an entity separate and apart from the Member for federal, and, to the extent applicable, state, local and foreign income tax purposes."
+                }
+            }
+        },
+        "article5MM": {
+            "article5Heading": "ARTICLE 5 TAXATION AND ALLOCATIONS",
+            "article5Clauses": {
+                "general": {
+                    "heading": "General.",
+                    "clause": "Unless otherwise required by the Allocation Regulations or the Code, all items of income, gain, loss, deduction and credit of the Company shall be allocated to the Members for accounting and tax purposes pro rata according to their Percentages."
+                },
+                "regulatoryAllocations": {
+                    "heading": "Regulatory Allocations",
+                    "clause": "To the extent the Allocation Regulations or the Code require allocations for tax purposes that differ from the foregoing allocations, the Members may determine the manner in which such tax allocations shall be made so as to fully comply with the Allocation Regulations, the Code, other applicable law and, at the same time to the extent reasonably possible, preserve the economic relationships among the Members as set forth in this Agreement."
+                },
+                "reporting": {
+                    "heading": "Reporting.",
+                    "clause": "The Members are aware of the income tax consequences of the allocations made by this Article and hereby agree to be bound by the provisions of this Article in reporting their shares of Company items for income tax purposes."
+                }
+            }
+        }
+    },
+    "article6": {
+        "article6SM": {
+            "article6Heading": "ARTICLE 6 DISTRIBUTIONS",
+            "article6Clauses": {
+                "distributions": {
+                    "heading": "Distributions.",
+                    "clause": "Distributions shall be made to the Member at the times and in the amounts determined by the Member, except that no distribution shall be made in violation of the BOC."
+                },
+                "noDistributionUponWithdrawal": {
+                    "heading": "No Distribution upon Withdrawal.",
+                    "clause": "Unless otherwise determined by the Member, no distribution shall be paid to the Member upon the Member’s withdrawal in connection with the voluntary assignment of the Member’s entire interest pursuant to Section 8.2."
+                }
+            }
+        },
+        "article6MM": {
+            "article6Heading": "ARTICLE 6 DISTRIBUTIONS",
+            "article6Clauses": {
+                "distributions": {
+                    "heading": "Distributions.",
+                    "clause": "Available Cash shall be distributed at least annually to all of the Members pro rata according to their Percentages."
+                },
+                "requiredAnnualTaxDistribution": {
+                    "heading": "Required Annual Tax Distribution.",
+                    "clause": "Within sixty (60) days following the end of each fiscal year, the Company shall make an additional distribution to each Member in an amount equal to (i) the income tax liability of the Member attributable to the taxable income allocable to the Member for such fiscal year with respect to such Member’s membership interest, computed as set forth in Article 5, less (ii) the aggregate amount of distributions to such Member by the Company during such fiscal year, if the amount per clause (i) is greater than the amount per clause (ii); provided, however, that the Company shall only be obligated to make distributions pursuant to this Section to the extent that it has cash available in the ordinary course of its business and this Section shall not require the Company to liquidate non-cash assets, to borrow funds or to require additional capital contributions for the purpose of making such distributions. A Member’s income tax liability for purposes of this Section shall be computed by multiplying the taxable income allocable to the Member by forty percent (40%)."
+                }
+            }
+        }
+    },
+    "article7": {
+        "article7SM": {
+            "article7Heading": "ARTICLE 7 BANK ACCOUNTS, BOOKS OF ACCOUNT, REPORTS AND FISCAL YEAR",
+            "article7Clauses": {
+                "bankAccountsInvestments": {
+                    "heading": "Bank Account; Investments.",
+                    "clause": "The Member shall establish one or more bank or other financial institution accounts into which Company funds shall be deposited. Funds deposited by the Company into such accounts may be withdrawn in furtherance of the business of the Company or for distribution to the Member pursuant to this Agreement. Pending withdrawal for such purposes, Company funds may be invested in such manner as the Member may determine."
+                },
+                "booksAndRecords": {
+                    "heading": "Books and Records.",
+                    "clause": "The books and records of the Company shall be maintained at the Company’s principal office by the Member. The books of the Company, for both tax and financial reporting purposes, shall be kept using the method of accounting selected by the Member."
+                },
+                "fiscalYear": {
+                    "heading": "Fiscal Year.",
+                    "clause": "The Company fiscal year shall be the calendar year."
+                }
+            }
+        },
+        "article7MM": {
+            "article7Heading": "ARTICLE 7 BANK ACCOUNTS, BOOKS OF ACCOUNT, REPORTS AND FISCAL YEAR",
+            "article7Clauses": {
+                "bankAccountsInvestments": {
+                    "heading": "Bank Account; Investments.",
+                    "clause": "The Members shall establish one or more bank or other financial institution accounts into which all Company funds shall be deposited. Funds deposited by the Company into such accounts may be withdrawn only in furtherance of the business of the Company or for distribution to the Members pursuant to this Agreement. Pending withdrawal for such purposes, Company funds may be invested in such manner as the Members may determine."
+                },
+                "booksAndRecords": {
+                    "heading": "Books and Records.",
+                    "subclauses": [
+                        "The Members shall keep or cause to be kept books and records of the Company using a method consistent with that described in Treasury Regulation section 1.704-1(b). Income, gain, loss and deduction of the Company (including income and gain exempt from tax and expenditures not deductible in computing the Company’s taxable income) shall be computed based upon the book value of the Company’s property using the same methods (e.g., cash or accrual accounting, or straight line or accelerated depreciation) as are used in computing the Company’s taxable income. The books of the Company, for both tax and financial reporting purposes, shall be kept using the method of accounting selected by the Members.",
+                        "The books and records of the Company shall be maintained at the Company’s principal office, and each Member shall be allowed reasonable access to such records for a purpose reasonably related to the Member’s service to the Company in a management capacity.",
+                        "The Company shall provide an assignee of a membership interest access to the Company’s books and records to the extent and as provided by this Section. An assignee of a membership interest who desires to examine or copy any of the Company’s books and records (the “Requester”) shall give Written notice to the Company specifying the books and records that the Requester desires to examine or copy and stating a proper purpose for examining or copying the requested books and records. Subject to this subsection and Subsection 7.2(d), within five days after the Requester submits such a Written notice, the Company will make available at its principal office the requested books and records if the requested books and records are required to be maintained by the Company under the BOC or consist of other information regarding the business, affairs and financial condition of the Company that is reasonable for the Requester to examine and copy. The requested books and records will be made available during regular business hours, and the examination and copying shall be at the expense of the Requester. The Company may deny a Requester access to the Company’s books and records and information if the Requester: (i) has improperly used information obtained through a prior examination of the books and records of the Company or of any other entity; or (ii) was not acting in good faith or for a proper purpose in making the Requester’s request for information.",
+                        "The Company may keep confidential from a Requester, for such period of time as the Members deem reasonable, any information that the Members reasonably believe to be in the nature of trade secrets or other information the disclosure of which the Members in good faith believe is not in the best interest of the Company or could damage the Company or its business or which the Company by law is required by law or by agreement with a third party to keep confidential."
+                    ]
+                },
+                "financialInformation": {
+                    "heading": "Financial Information.",
+                    "clause": "As soon as is reasonably practicable after the end of each Company fiscal year, the Members shall cause to be prepared and furnished to each Member, at Company expense, a balance sheet of the Company (dated as of the end of the fiscal year then ended), and a related statement of income, loss and change in financial position for the Company (for the same year). Such financial information shall reflect the beginning balance in each Member’s Capital Account as of the first day of such year, all distributions of cash made to each Member during the year, and the ending balance in each Member’s Capital Account as of the last day of the year and is not required to be audited."
+                },
+                "taxReturnsAndInformationGoverningDocuments": {
+                    "heading": "Tax Returns and Information; Governing Documents.",
+                    "clause": "The Members intend for the Company to be treated as a partnership for tax purposes. The Members shall prepare or cause to be prepared all federal, state and local income and other tax returns which the Company is required to file and shall furnish each Member both a copy of such Member’s Schedule K-1 and the Company’s tax return as soon as is reasonably practicable after the end of each Company fiscal year. On Written request to the Company, the Company shall provide to a Member or an assignee of a membership interest a free copy of (a) the Company’s certificate of formation, including any amendments to or restatements of the certificate of formation; (b) this Agreement, including any amendments to or restatements of this Agreement; and (c) any federal, state and local tax returns of the Company for each of the preceding six years."
+                },
+                "fiscalYear": {
+                    "heading": "Fiscal Year.",
+                    "clause": "The Company fiscal year shall be the calendar year."
+                }
+            }
+        }
+    },
+    "article8": {
+        "article8SM": {
+            "article8Heading": "ARTICLE 8 ASSIGNMENT OF MEMBERSHIP INTEREST",
+            "article8Clauses": {
+                "assignmentPermitted": {
+                    "heading": "Assignment Permitted.",
+                    "clause": "The Member may transfer or assign (including as a pledge or other collateral assignment) in whole or in part the Member’s membership interest in the Company."
+                },
+                "assignmentOfEntireInterest": {
+                    "heading": "Assignment of Entire Interest.",
+                    "clause": "In connection with a voluntary transfer or assignment by the Member of the Member’s entire membership interest in the Company (not including a pledge or collateral assignment or any transfer as a result thereof): (a) the Member will cease to be a member of the Company; (b) the assignee will automatically and simultaneously be admitted as the successor Member without any further action at the time the voluntary transfer or assignment becomes effective under applicable law; and the Company shall be continued without requiring a winding up."
+                },
+                "assignmentofPartialInterest": {
+                    "heading": "Assignment of Partial Interest.",
+                    "clause": "In connection with a partial assignment or transfer by the Member of the Member’s membership interest in the Company (not including a pledge or collateral assignment or any transfer as a result thereof), unless this Agreement is amended to reflect the fact that the Company will have more than one Member, the assignee or transferee shall not be admitted as a Member of the Company and shall not have any rights as a Member other than the right to receive any distributions that are payable in respect of the interest transferred."
+                }
+            }
+        },
+        "article8MM": {
+            "article8Heading": "ARTICLE 8 TRANSFER RESTRICTIONS AND PUSH-PULL BUYOUYT",
+            "article8Clauses": {
+                "rightOfFirstRefusal": {
+                    "heading": "Right of First Refusal.",
+                    "clause": "Any Member who desires to sell, dispose of or otherwise transfer or assign all or any part of such Member’s membership interest in any transaction other than an Affiliate Transfer shall first offer to sell to the Company all of the membership interest which such Member desires to transfer. The Company shall have an option, for a period of thirty (30) days after the Company and all of the Members have been given Written notice of the Member’s desire to sell, dispose of or otherwise transfer and assign such membership interest, to elect to purchase such membership interest at the price and terms specified in the notice. If the Company does not so elect to purchase such membership interest, the selling Member shall offer the right to purchase such membership interest to the other Members, who shall have an option, for a period of thirty (30) days following the expiration of the Company’s thirty (30) day option period, to elect to purchase such membership interest at the price and terms specified in the notice. If all or any portion of the purchase price specified in the notice pursuant to this Section is not cash, the price shall be deemed cash equal to the fair market value of the noncash consideration and if the parties are unable to reach agreement as to such fair market value, then the fair market value shall be determined by appraisal using the same methodology for determination of Purchase Value set forth in Subsection 8.4(b). Any purchase by the Company or the Members pursuant to this Section shall be closed in the manner specified in Section 8.5 within thirty (30) days after (i) the end of the applicable option period or (ii) determination of the fair market value of the noncash consideration, if later. If more than one Member elect to purchase the offered membership interest pursuant to the option granted to them pursuant to this Section, they shall, absent a different agreement at the time, acquire the offered membership interest pro-rata in accordance with their respective Percentages prior to their purchase pursuant to such option. If neither the Company nor the Members elect to purchase the offered membership interest pursuant to the options granted to them pursuant to this Section, then the offering Member shall have sixty (60) days after expiration of the options of the Company and the other Members in which to sell the offered membership interest at the price and terms identified in the notice to the purchaser(s) identified in the notice; provided that such purchaser(s) shall be assignee(s) only of such membership interest unless and until such purchaser(s) are admitted as Member(s) of the Company in accordance with Article 2of this Agreement. In no event shall the offering Member be compelled to sell less than all of the membership interest offered by such Member. An assignee of a membership interest shall be subject to this Section in the same manner as a Member."
+                },
+                "deathOrDivocrceOfMemberOrSpouse": {
+                    "heading": "Death or Divorce of Member or Spouse.",
+                    "subclauses": [
+                        "On the death of a Member, the executor, administrator or personal representative (as applicable, the “Personal Representative”) of the Deceased Member shall be treated as an assignee. The Personal Representative of the Deceased Member shall have ninety (90) days after the Deceased Member’s date of death to cause the Company to purchase the Deceased Member’s membership interest for the Purchase Value (determined as set forth in Subsection 8.4(b)) (the “Put Option”). The purchase by the Company pursuant to the Put Option shall be closed in the manner specified in Section 8.5 within thirty (30) days after (i) the exercise of the Put Option or (ii) determination of the Purchase Value, if later. If the Personal Representative of the Deceased Member does not exercise its Put Option by notice to the Company within such ninety (90) day period or if a Personal Representative is not appointed within such ninety (90) day period, then the Company shall have the option within one hundred and twenty (120) days from date the Deceased Member’s date of death to elect to purchase the Deceased Member’s membership interest for the Purchase Value (determined as set forth in Subsection 8.4(b)). If the Company does not elect to purchase all of the Deceased Member’s membership interest, the remaining Member(s) shall have the option, for period of thirty (30) days following the expiration of the Company’s option period, to elect to purchase the Deceased Member’s membership interest not purchased by the Company for the Purchase Value (determined as set forth in Subsection 8.4(b)). Any purchase by the Company or the Members pursuant to this Subsection shall be closed in the manner specified in Section 8.5 within thirty (30) days after (i) the end of the applicable option period or (ii) determination of the Purchase Value, if later. If more than one Member elect to purchase the Deceased Member’s membership interest pursuant to the option granted to them pursuant to this Subsection, they shall, absent a different agreement at the time, acquire the Deceased Member’s membership interest pro-rata in accordance with their respective Percentages prior to their purchase pursuant to such option. During the pendency of such options following the Deceased Member’s death, the remaining Member(s) may continue the business of the Company, but the estate or Personal Representative of the Deceased Member shall not be liable for any obligations incurred by the Company beyond the amount includable in the Deceased Member’s estate already invested or involved in the Company on the date of the Deceased Member’s death.",
+                        "In the event a Member (the “Divorced Member”) becomes divorced and such divorced spouse becomes the owner of or becomes entitled to any membership interest, the spouse shall become an assignee of such membership interest, and the Divorced Member shall have an option, for a period beginning when the divorce decree becomes final and ending sixty (60) days after the Company and the remaining Member(s) of the Company have been notified of the final divorce decree, to elect to purchase the membership interest of such divorced spouse for its Purchase Value (determined as set forth in Subsection 8.4(b)). Any purchase by the Divorced Member pursuant to this Subsection shall be closed in the manner specified in Section 8.5 within thirty (30) days after (i) the end of the option period or (ii) determination of the Purchase Value, if later. If the Divorced Member does not elect to purchase all of the membership interest of the divorced spouse, then the Company shall have an option, for a period of thirty (30) days following the expiration of the Divorced Member’s sixty (60) day option period, to elect to purchase such membership interest for its Purchase Value (determined as set forth in Subsection 8.4(b)). If neither the Divorced Member nor the Company elects to purchase all of the membership interest of the divorced spouse, the remaining Member(s) shall have an option, for a period of thirty (30) days following the expiration of the Company’s thirty (30) day option period, to elect to purchase such membership interest for its Purchase Value (determined as set forth in Subsection 8.4(b)). Any purchase by the Company or the Members pursuant to this Subsection shall be closed in the manner specified in Section 8.5 within thirty (30) days after (i) the end of the applicable option period or (ii) determination of the Purchase Value, if later. If more than one Member elect to purchase the membership interest of the divorced spouse pursuant to the option granted to them pursuant to this Subsection, they shall, absent a different agreement at the time, acquire the membership interest pro-rata in accordance with their respective Percentages prior to their purchase pursuant to such option. If neither the Divorced Member nor the Company nor the remaining Member(s) elect to purchase the membership interest of the divorced spouse, then such membership interest may be retained by the divorced spouse, subject to the obligations of this Agreement as an assignee. In no event shall the divorced spouse be compelled to sell less than all of such divorced spouse’s membership interest.",
+                        "In the event of the death of a Member’s spouse and such Member (the “Surviving Member”) does not acquire by will or by operation of law all of the membership interest owned by the deceased spouse, the Surviving Member shall have an option, for a period beginning with the date of death and ending sixty (60) days after the Company and the remaining Member(s) have been notified of the death of the Surviving Member’s spouse and the name and address of the duly qualified and acting Personal Representative of the deceased spouse, to elect to purchase the membership interest of the deceased spouse for its Purchase Value (determined as set forth in Subsection 8.4(b)). If the Surviving Member does elect to purchase the membership interest of the decease spouse, then the Company shall have an option, for a period of thirty (30) days following the expiration of the Surviving Member’s sixty (60) day option period, to elect to purchase such membership interest for its Purchase Value (determined as set forth in Subsection 8.4(b)). If neither the Surviving Member nor the Company elects to purchase all of the membership interest owned by the deceased spouse, then the remaining Member(s) shall have an option, for a period of thirty (30) days following the expiration of the Company’s thirty (30) day option period, to elect to purchase such membership interest for its Purchase Value (determined as set forth in Subsection 8.4(b)). Any purchase by the Company or the Members pursuant to this Subsection shall be closed in the manner specified in Section 8.5 within thirty (30) days after (i) the end of the applicable option period or (ii) determination of the Purchase Value, if later. If more than one Member elects to purchase the membership interest owned by the deceased spouse pursuant to the option granted to them pursuant to this Subsection, they shall, absent a different agreement at the time, acquire the membership interest pro-rata in accordance with their respective Percentages prior to their purchase pursuant to such option. If neither the Surviving Member nor the Company nor the remaining Member(s) exercise their option to purchase the membership interest owned by the deceased spouse, then such membership interest may be retained by each devisee or heir subject to the obligations of this Agreement as an assignee. In no event shall the Personal Representative or estate of the Surviving Member’s deceased spouse be compelled to sell less than all of the membership interest owned by the deceased spouse.",
+                        "By executing this Agreement, the spouses of the Members, in addition to any other purposes for which they are executing this Agreement, agree to be bound by the terms of this Agreement with respect to any membership interests now owned or hereafter acquired in the Company. The execution of this Agreement by such spouses is not intended to alter, nor shall it be construed as altering, the existing status and characterization of the membership interests in the Company as the separate or community property of the Members."
+                    ]
+                },
+                "pushPullBuyout": {
+                    "heading": "Push-Pull Buyout.",
+                    "subclauses": [
+                        "Each Member (the “Offering Member”) may at any time give notice to all, but not less than all, of the other Members of the Offering Member’s desire to either (a) sell all of the Offering Member’s membership interest in the Company to the other Members or (b) buy all of the other Member’s membership interests in the Company, specifying therein the price per Percentage and the other terms and conditions upon which the Offering Member will buy or sell. The other Members shall have an option, for a period of sixty (60) days after receiving such notice, to elect to purchase the membership interest of the Offering Member at the same price per Percentage and upon the same terms and conditions that the Offering Member is offering to sell the Offering Member’s membership interest, the transaction to be closed in the manner specified in Section 8.5 within thirty (30) days after the end of such sixty (60) day period. If such option to purchase is not exercised by any Member within the aforementioned period of sixty (60) days, then the Offering Member shall be obligated to purchase the membership interests of the other Members at the price per Percentage and upon the terms and conditions specified in the aforementioned notice, and the Members receiving the notice shall be obligated to sell their membership interests to the Offering Member upon such terms and conditions, the transaction to be closed in the manner specified in Section 8.5 within thirty (30) days after the end of such sixty (60) day period.",
+                        "If more than one Member elect to purchase the Offering Member’s membership interest pursuant to the option granted to them hereunder, they shall, absent a different agreement at the time, acquire the Offering Member’s membership interest pro-rata in accordance with their respective Percentages prior to their purchase pursuant to such option. If some Members exercise their option to sell and others exercise their option to purchase, then those Members exercising the option to purchase the Offering Member’s membership interest may purchase all of the membership interests of Members opting to sell at the offered price, or, at their election, may purchase only the membership interest originally offered by the Offering Member.",
+                        "Any two or more Members may, if they so elect, institute the push-pull buyout under this Section as a block of membership interests by jointly commencing the offer to purchase or sell their membership interests to the other Member(s) as a block and conditioning the purchase and sale of the membership interests to the block of membership interests offered. In such event, the recipient Member(s) shall treat the membership interests as a block for purposes of exercising the offer to purchase or sell under this Section."
+                    ]
+                },
+                "determinationOfPurchaseValue": {
+                    "heading": "Determination of Purchase Value.",
+                    "subclauses": [
+                        "“Purchase Value” shall mean the amount of cash and fair market value of property which would be received by the holder of the membership interest to be sold hereunder if the Company sold its business and assets for cash at a purchase price equal to their fair market value as of the date of determination of the Purchase Value, and all remaining assets of the Company were distributed to the Members in accordance with this Agreement. Purchase Value shall be determined as of a date as near as reasonably practicable to the date of the occurrence of the event which results in the sale of the membership interest hereunder. The party whose membership interest is to be sold hereunder is hereafter referred to as the “Selling Party” and the party or parties acquiring that interest are hereafter referred to, individually or collectively, as the case may be, as the “Acquiring Party.” In exercising the right to purchase the membership interests of any party, the Acquiring Party shall develop a purchase price which it reasonably believes to be the Purchase Value for the membership interest and state the purchase price in its notice. If more than one Person is acquiring an interest, the decision of the holders of a majority of the Percentages held by all such parties shall be deemed the decision of the Acquiring Party. The Selling Party shall have thirty (30) days to notify the Acquiring Party in Writing of any objection to such purchase price. If the Selling Party fails to timely object to the purchase price, then the proposed purchase price shall be the purchase price of the membership interests.",
+                        "If the Selling Party does timely object, the Selling Party shall have the right to engage an independent certified public accountant or certified appraiser to perform a determination of the Purchase Value of the membership interest subject to the terms hereof. Such determination shall be completed within twenty (20) days after the Selling Party has delivered notice of objection to the Acquiring Party. The determination so rendered shall be the purchase price of the membership interests unless the Acquiring Party notifies the Selling Party in Writing of any objection to such purchase price within ten (10) days after the Selling Party has delivered notice of the determination to the Acquiring Party on behalf of the Company. If the Acquiring Party so objects to the purchase price, the Acquiring Party shall have the right to engage an independent certified public accountant or certified appraiser to perform another determination of the Purchase Value of the membership interests. Such determination shall be completed within twenty (20) days after the Acquiring Party has delivered notice of objection to the Selling Party. If the second determination differs from the first, the two firms shall meet and attempt to render a joint determination within five (5) days after delivery of the second determination. If for any reason such firms fail to agree on a joint determination during such five-day period, they shall mutually agree upon and appoint a third independent certified public accountant or certified appraiser within the next five (5) days who shall perform a determination of the Purchase Value of the membership interests within twenty (20) days of appointment, which determination shall be and constitute the purchase price of the membership interests. The determination of the purchase price pursuant to this Section shall be conclusive and binding upon the parties. Each party will bear any and all expenses incurred as the result of their objections to the purchase price and the employment of a suitable firm to render a determination pursuant thereto and the Selling Party and the Acquiring Party shall bear equally the costs of any third firm required to determine the Purchase Value of the membership interests. If the Acquiring Party consists of multiple Persons, such Persons shall bear such costs, absent a different agreement at the time, pro-rata in accordance with their respective Percentages."
+                    ]
+                },
+                "closingOfSalePaymentOfPurchasePrice": {
+                    "heading": "Closing of Sale; Payment of Purchase Price.",
+                    "clause": "At the closing of any sale of a membership interest pursuant to Section 8.1, 8.2 or 8.3, the Selling Party shall assign and deliver the membership interest to the Acquiring Party free and clear of all security interests, liens or other encumbrances. If the sale is pursuant to an option under Section 8.1, payment of the purchase price shall be as specified in the notice thereunder unless agreed by the parties. If the sale is being made pursuant to a Put Option of a Personal Representative pursuant to Subsection 8.2(c), unless otherwise agreed by the parties, the purchase price shall be payable ten percent (10%) in cash at the time of closing and the balance evidenced by a five-year promissory note executed by the Company, payable in annual amortized installments, including principal and interest, the first such installment being due one year following the closing, and bearing interest at the “Prime Rate” quoted in the “Money Rate” section of the Wall Street Journal on the last business day prior to the date of the note (or in the event that such prime rate quotation is not available, the prime rate quoted in another nationally distributed newspaper or periodical designated by the Selling Party), and secured by the membership interest being purchased. If the sale is pursuant to any other option, payment of the purchase price shall be in cash at the time of the closing unless agreed by the parties. Any transfer or similar taxes involved in such sale shall be paid by the Selling Party, and the Selling Party shall provide the Acquiring Party with such evidence of the Selling Party’s authority to sell hereunder and such additional instruments as the Acquiring Party may reasonably request."
+                },
+                "basisAdjustment": {
+                    "heading": "Basis Adjustment.",
+                    "clause": "Upon the transfer of all or part of a membership interest in the Company, at the request of the transferee of the interest, the Members may, in their sole discretion, cause the Company to elect, pursuant to section 754 of the Code or the corresponding provisions of subsequent law, to adjust the basis of the Company properties as provided in sections 734 and 743 of the Code."
+                }
+            }
+        }
+    },
+    "article9": {
+        "article9SM": {
+            "article9Heading": "ARTICLE 9 EXCULPATION, INDEMNIFICATION, AND ADVANCEMENT",
+            "article9Clauses": {
+                "exculpation": {
+                    "heading": "Exculpation.",
+                    "subclauses": [
+                        "For purposes of this Agreement, “Covered Person” means (i) the Member, whether acting in the capacity of owner, governing person, officer, employee, creditor or other relationship to the Company, and (ii) any Person with the power, whether through ownership of voting securities, by contract or otherwise, to direct the actions of the Member.",
+                        "No Covered Person shall be liable to the Company for any loss, damage or claim incurred by reason of any act or omission (whether or not constituting negligence) performed or omitted by the Covered Person in the Covered Person’s capacity as a Covered Person."
+                    ]
+                },
+                "scopeOfDutiesOfCoveredPersons": {
+                    "heading": "Scope of Duties of Covered Persons.",
+                    "clause": "No Covered Person shall owe any fiduciary duty to the Company. Without limiting the scope of the preceding sentence, a Covered Person is expressly permitted to engage in or possess an interest in any business venture of any nature or description, independently or with others, similar or dissimilar to the business of the Company, and the Company shall have no rights by virtue of this Agreement in and to such independent ventures or the income or profits derived therefrom, and the pursuit of any such venture, even if competitive with the business of the Company, shall not be deemed wrongful or improper. The Covered Person shall not be obligated to disclose or present any particular opportunity to the Company even if that opportunity is of a character that, if disclosed or presented to the Company, could be taken by the Company, and the Covered Person shall have the right to take for the Covered Person’s own account (individually or as a partner, shareholder, fiduciary or otherwise) or to recommend to others any such particular opportunity."
+                },
+                "indemnification": {
+                    "heading": "Indemnification.",
+                    "clause": "A Covered Person shall be entitled to indemnification from the Company for any loss, damage or claim incurred by that Covered Person by reason of any act or omission (whether or not constituting negligence) performed or omitted by that Covered Person in the capacity of a Covered Person. Any indemnity under this Section shall be provided out of and to the extent of Company assets only, and no Member shall have any personal liability on account thereof."
+                },
+                "expenses": {
+                    "heading": "Expenses.",
+                    "clause": "Expenses (including legal fees) incurred by a Covered Person in defending any claim, demand, action, suit or proceeding may, in the sole discretion of the Member, from time to time, be advanced by the Company before the final disposition of the claim, demand, action, suit or proceeding. The Company may enter into indemnity contracts with any Covered Person and the Member may adopt Written procedures pursuant to which arrangements are made for the advancement of expenses and the funding of obligations under this Section and containing other procedures regarding indemnification as are appropriate."
+                },
+                "insurance": {
+                    "heading": "Insurance.",
+                    "clause": "The Company may purchase and maintain insurance, to the extent and in amounts the Member deems reasonable, on behalf of Covered Persons and other Persons as the Member shall determine, against any liability that may be asserted against or expenses that may be incurred by that Person in connection with the activities of the Company, regardless of whether the Company would have the power to indemnify that Person against the liability under this Agreement. The Company shall have no obligation to fund indemnification of any Person to the extent the liability is covered by insurance. The Company’s obligation to fund indemnification of any Person shall commence only after all available insurance has been exhausted."
+                },
+                "durationOfProtection": {
+                    "heading": "Duration of Protection.",
+                    "clause": "All provisions of this Article shall apply to any former Member or other Covered Person for all actions or omissions taken while such Member was a Member to the same extent as if that person were still a Member."
+                }
+            }
+        },
+        "article9MM": {
+            "article9Heading": "ARTICLE 9 EXCULPATION, INDEMNIFICATION, AND ADVANCEMENT",
+            "article9Clauses": {
+                "exculpation": {
+                    "heading": "Exculpation.",
+                    "subclauses": [
+                        "For purposes of this Agreement, “Covered Person” means (i) any Member and (ii) any officer of the Company. The term “Covered Person” shall also mean any Person with the power, whether through ownership of voting securities, by contract or otherwise, to direct the actions of the Member (a “Control Person”).",
+                        "No Covered Person shall be liable to the Company or the Members for any loss, damage or claim incurred by reason of any act or omission (whether or not constituting negligence) performed or omitted by the Covered Person, provided that such act or omission did not constitute gross negligence, bad faith, willful misconduct, or a breach of this Agreement.",
+                        "The provisions of this Section are intended to limit liability with regard to duties, if any, owed or asserted to be owed by Covered Persons, and such provisions shall in no way be deemed to create or impose duties on Covered Persons."
+                    ]
+                },
+                "scopeOfDutiesOfCoveredPersons": {
+                    "heading": "Scope of Duties of Covered Persons.",
+                    "clause": "The fiduciary duties of the Members that are owed by reason of their capacity as Members are owed to the Company, and the Members shall owe no fiduciary duty to any individual Member. The fiduciary duty to the Company of a Member, and the fiduciary duty to the Company, if any, of a Control Person of a Member, shall be limited to refraining from gross negligence, bad faith or willful misconduct."
+                },
+                "indemnification": {
+                    "heading": "Indemnification.",
+                    "clause": "A Covered Person shall be entitled to indemnification from the Company for any loss, damage or claim incurred by that Covered Person by reason of any act or omission (whether or not constituting negligence) performed or omitted by that Covered Person in the capacity of a Covered Person, except that no Covered Person shall be entitled to be indemnified in respect of any loss, damage or claim incurred by that Covered Person by reason of that Covered Person’s bad faith, gross negligence, willful misconduct or breach of this Agreement. Any indemnity under this Section shall be provided out of and to the extent of Company assets only, and no Member shall have any personal liability on account thereof."
+                },
+                "expenses": {
+                    "heading": "Expenses.",
+                    "clause": "Expenses (including legal fees) incurred by a Covered Person in defending any claim, demand, action, suit or proceeding shall, from time to time, be advanced by the Company before the final disposition of the claim, demand, action, suit or proceeding upon receipt by the Company of a Written undertaking by or on behalf of the Covered Person to repay that amount if it shall be determined that the Covered Person is not entitled to be indemnified under Section 9.3. The Company may enter into indemnity contracts with any Covered Person and the Members may adopt Written procedures pursuant to which arrangements are made for the advancement of expenses and the funding of obligations under this Section 9.4 and containing other procedures regarding indemnification as are appropriate."
+                },
+                "insurance": {
+                    "heading": "Insurance.",
+                    "clause": "The Company may purchase and maintain insurance, to the extent and in amounts the Members deem reasonable, on behalf of Covered Persons and other Persons as the Members shall determine, against any liability that may be asserted against or expenses that may be incurred by that Person in connection with the activities of the Company, regardless of whether the Company would have the power to indemnify that Person against the liability under this Agreement. The Company shall have no obligation to fund indemnification of any Person to the extent the liability is covered by insurance. The Company’s obligation to fund indemnification of any Person shall commence only after all available insurance has been exhausted."
+                },
+                "durationOfProtection": {
+                    "heading": "Duration of Protection.",
+                    "clause": "All provisions of this Article shall apply to any former Member or Control Person thereof for all actions or omissions taken while such Member was a Member to the same extent as if that person were still a Member."
+                }
+            }
+        }
+    },
+    "article10": {
+        "article10SM": {
+            "article10Heading": "ARTICLE 10 WINDING UP",
+            "article10Clauses": {
+                "eventsRequiringWindingUp": {
+                    "heading": "Events Requiring Winding Up.",
+                    "clause": "The Company shall be wound up only on the first to occur of any one or more of the following: (a) the Written consent of the Member; (b) the occurrence of any event that terminates the continued membership of the Member in the Company unless the legal representative or successor of the Member agrees to continue the Company and appoints a successor Member in accordance with the BOC; or (c) entry of a judicial order to wind up the Company."
+                },
+                "revocationOrReinstatement": {
+                    "heading": "Revocation or Reinstatement.",
+                    "clause": "A consent to wind up as provided in Section 10.1(a) may only be revoked upon the consent of the Member. In the event of a termination of the Company under the BOC, the Company may be reinstated upon the Written consent of the Member."
+                },
+                "windingUpAffairsAndDistributionOfAssets": {
+                    "heading": "Winding Up Affairs and Distribution of Assets.",
+                    "subclauses": [
+                        "If an event requiring the winding up of the Company occurs and is not revoked, the Member, acting as “Liquidating Agent,” as soon as practicable shall wind up the affairs of the Company and sell and/or distribute the assets of the Company. The Liquidating Agent is expressly authorized and empowered to execute any and all documents necessary or desirable to effectuate the liquidation and termination of the Company and the transfer of any assets. The Liquidating Agent shall apply and distribute the proceeds of the sale or liquidation of the assets and property of the Company in the following order of priority, unless otherwise required by nonwaivable provisions of applicable law: (a) to pay (or to make provision for the payment of) all creditors of the Company (including Members who are creditors of the Company), in the order of priority provided by law or otherwise, in satisfaction of all debts, liabilities or obligations of the Company due its creditors; and (b) after the payment (or the provision for payment) of all debts, liabilities and obligations of the Company in accordance with clause (a) above, any balance remaining shall be distributed to the Member.",
+                        "The Liquidating Agent shall have sole discretion to determine whether to liquidate all or any portion of the assets and property of the Company and the consideration to be received for that property.",
+                        "If the Company’s property is not sufficient to discharge all of the Company’s liabilities and obligations, the Liquidating Agent shall apply its property, or make adequate provision for the application of its property, to the extent possible, to the just and equitable discharge of its liabilities and obligations, including liabilities and obligations owed to the Member other than for distributions."
+                    ]
+                },
+                "termination": {
+                    "heading": "Termination.",
+                    "clause": "On compliance with the distribution plan described in Section 10.3, the Liquidating Agent shall execute, acknowledge and cause to be filed a certificate of termination. Except at otherwise provided by the BOC, the Company shall cease to exist upon the filing of the certificate of termination with the Secretary of State of Texas."
+                }
+            }
+        },
+        "article10MM": {
+            "article10Heading": "ARTICLE 10 WINDING UP",
+            "article10Clauses": {
+                "eventsRequiringWindingUp": {
+                    "heading": "Events Requiring Winding Up.",
+                    "clause": "The Company shall be wound up only on the first to occur of any one or more of the following: (a) the Written consent of all of the Members; (b) the occurrence of any event that terminates the continued membership of the last remaining Member in the Company unless the legal representative or successor of the Member agrees to continue the Company and appoints a successor Member in accordance with the BOC; (c) entry of a judicial order to wind up the Company; or (d) the involuntary termination of the Company under the BOC or Texas Tax Code, unless the Company is reinstated as provided by law."
+                },
+                "revocationOrReinstatement": {
+                    "heading": "Revocation or Reinstatement.",
+                    "clause": "A vote or consent to wind up as provided in Subsection 10.1(a) may only be revoked upon the vote or consent of all of the Members. In the event of a termination of the Company under the BOC, the Company may only be reinstated upon the vote or Written consent of all of the Members."
+                },
+                "windingUpAffairsAndDistributionOfAssets": {
+                    "heading": "Winding Up Affairs and Distribution of Assets.",
+                    "subclauses": [
+                        "If an event requiring the winding up of the Company occurs and is not revoked, a Person designated for this purpose by the Members (the “Liquidating Agent”), as soon as practicable shall wind up the affairs of the Company and sell and/or distribute the assets of the Company. The Liquidating Agent is expressly authorized and empowered to execute any and all documents necessary or desirable to effectuate the liquidation and termination of the Company and the transfer of any assets. The Liquidating Agent shall apply and distribute the proceeds of the sale or liquidation of the assets and property of the Company in the following order of priority, unless otherwise required by nonwaivable provisions of applicable law: (a) to pay (or to make provision for the payment of) all creditors of the Company (including Members who are creditors of the Company), in the order of priority provided by law or otherwise, in satisfaction of all debts, liabilities or obligations of the Company due its creditors; and (b) after the payment (or the provision for payment) of all debts, liabilities and obligations of the Company in accordance with clause (a) above, any balance remaining shall be distributed to the Members having positive Capital Accounts in relative proportion to those Capital Accounts.",
+                        "The Liquidating Agent shall have sole discretion to determine whether to liquidate all or any portion of the assets and property of the Company and the consideration to be received for that property.",
+                        "If the Company’s property is not sufficient to discharge all of the Company’s liabilities and obligations, the Liquidating Agent shall apply its property, or make adequate provision for the application of its property, to the extent possible, to the just and equitable discharge of its liabilities and obligations, including liabilities and obligations owed to the Members other than for distributions.",
+                        "Except as required by nonwaivable provisions of the BOC, no Member shall have any obligation at any time to contribute any funds to replenish any negative balance in the Member’s Capital Account."
+                    ]
+                },
+                "termination": {
+                    "heading": "Termination.",
+                    "clause": "On compliance with the distribution plan described in Section 10.3, the Liquidating Agent shall execute, acknowledge and cause to be filed a certificate of termination. Except at otherwise provided by the BOC, the Company shall cease to exist upon the filing of the certificate of termination with the Secretary of State of Texas."
+                }
+            }
+        }
+    },
+    "article11": {
+        "article11SM": {
+            "article11Heading": "ARTICLE 11 MISCELLANEOUS PROVISIONS AND DEFINITIONS",
+            "article11Clauses": {
+                "entireAgreement": {
+                    "heading": "Entire Agreement.",
+                    "clause": "This Agreement supersedes all prior agreements and understandings among the Member with respect to the Company."
+                },
+                "amendments": {
+                    "heading": "Amendments.",
+                    "clause": "The vote or Written consent of the Member is required to amend the certificate of formation of the Company or this Agreement."
+                },
+                "governingLaw": {
+                    "heading": "Governing Law.",
+                    "clause": "This Agreement shall be governed by and construed in accordance with the law of Texas."
+                },
+                "bindingEffectNoThirdPartyBeneficiaries": {
+                    "heading": "Binding Effect; No Third-Party Beneficiaries.",
+                    "clause": "This Agreement shall be binding upon, and, to the extent provided herein, inure to the benefit of, the signatories of this Agreement and any Members subsequently admitted, their spouses, heirs, devisees, executors, legal representatives, successors, and assigns. Article 9 of this Agreement shall also inure to the benefit of Covered Persons as defined therein. The Members acknowledge and agree that this Agreement is intended to be binding upon and to inure to the benefit of the Company and that the provisions of this Agreement shall be enforceable by and against the Company. The obligations of the Company pursuant to this Agreement are the obligations of the Company only, and absent additional Written agreement, the Member has no personal liability for the obligations of the Company, including any obligations pursuant to Article 9 of this Agreement. No creditor of the Company or of a Member is entitled to or is intended to have third-party beneficiary status to enforce any obligation of any party under this Agreement."
+                },
+                "certainDefinitionsAndConstruction": {
+                    "heading": "Certain Definitions and Construction.",
+                    "clause1": "As used in this Agreement, the following terms have the following meanings:",
+                    "subclauses1": [
+                        "“Agreement” means this Company Agreement as it may be amended from time to time as provided herein.",
+                        "“Member” means any Person admitted to the Company as a member as provided in this Agreement but excludes any such Person that has ceased to be a member as provided in this Agreement or the BOC.",
+                        "“Person” means any individual, corporation, partnership, limited liability company, business trust or other entity, series of an entity, or government or governmental agency or instrumentality.",
+                        "“Writing” or “Written” means an expression of words, letters, characters, numbers, symbols, figures or other textual information that is inscribed on a tangible medium or that is stored in an electronic or other medium that is retrievable in a perceivable form. Unless the context requires otherwise, the term: (1) includes stored or transmitted electronic data, electronic transmissions, and reproductions of Writings; and (2) does not include sound or video recordings of speech other than transcriptions that are otherwise “Writings.”"
+                    ],
+                    "clause2": "In this Agreement:",
+                    "subclauses2": [
+                        "Terms defined in the singular have the corresponding meaning in the plural and vice versa.",
+                        "All pronouns and any variations thereof contained herein shall be deemed to refer to the masculine, feminine, neuter, singular or plural, as the identity of the Person or Persons may require.",
+                        "The word “include” and its derivatives means “include without limitation.”",
+                        "References to Articles, Sections and Exhibits are to the specified Articles and Sections of, and Exhibits to, this Agreement unless the context otherwise requires. Each Exhibit to this Agreement is made a part of this Agreement for all purposes.",
+                        "References to statutes or regulations are to those statutes or regulations as currently amended and to the corresponding provisions as they may be amended or superseded in the future."
+                    ]
+                }
+            }
+        },
+        "article11MM": {
+            "article11Heading": "ARTICLE 11 MISCELLANEOUS PROVISIONS AND DEFINITIONS",
+            "article11Clauses": {
+                "notices": {
+                    "heading": "Notices.",
+                    "clause": "Any notice to be given under this Agreement must be in Writing and mailed, transmitted by facsimile or by electronic message, or delivered personally (a) if to the Company, to the registered agent of the Company at the registered address of the Company, (b) if to any initial Member, to such Member at an address therefor set forth on Exhibit A or, (c) if to any Member subsequently admitted, to an address set forth in the document in which such Member agreed to be bound by this Agreement, or in each case at such other address as any Person entitled to notice hereunder may designate by notice to the Company and all of the Members. Notice of a meeting that is mailed is considered to be delivered on the date notice is deposited in the United States mail. Notice of a meeting that is transmitted by facsimile or electronic message is considered to be delivered when the facsimile or electronic message is successfully transmitted. Notice of a meeting that is personally delivered to the Person is considered to be delivered when received by the Person."
+                },
+                "entireAgreement": {
+                    "heading": "Entire Agreement.",
+                    "clause": "This Agreement supersedes all prior agreements and understandings among the Members with respect to the Company."
+                },
+                "amendments": {
+                    "heading": "Amendments.",
+                    "clause": "The vote or Written consent of all of the Members is required to amend the certificate of formation of the Company or this Agreement; provided that upon the admission of any new Member as authorized by this Agreement, amendment of Exhibit A of this Agreement to reflect the admission of the new Member shall be deemed approved by the Members."
+                },
+                "governingLaw": {
+                    "heading": "Governing Law.",
+                    "clause": "This Agreement shall be governed by and construed in accordance with the law of Texas."
+                },
+                "powerofAttorney": {
+                    "heading": "Power of Attorney.",
+                    "clause": "Each Member constitutes and appoints each other Member the true and lawful attorney of such Member with full power of substitution to make, execute, sign, acknowledge and file (a) all certificates and instruments necessary to form or qualify, or continue the existence or qualification of, the Company in any jurisdiction or before any governmental authority and (b) any amendments to Exhibit A to this Agreement to reflect the admission of any new Member if the same is authorized by this Agreement. This grant of a power of attorney is coupled with an interest and shall survive a Member’s disability, incompetence, death or assignment by such Member of the membership interest pursuant to this Agreement."
+                },
+                "bindingEffectNoThirdPartyBeneficiaries": {
+                    "heading": "Binding Effect; No Third-Party Beneficiaries.",
+                    "clause": "This Agreement shall be binding upon, and, to the extent provided herein, inure to the benefit of, the signatories of this Agreement and any Members subsequently admitted, their spouses, heirs, devisees, executors, legal representatives, successors, and assigns. Article 9 of this Agreement shall also inure to the benefit of Covered Persons as defined therein. The Members acknowledge and agree that this Agreement is intended to be binding upon and to inure to the benefit of the Company and that the provisions of this Agreement shall be enforceable by and against the Company. The obligations of the Company pursuant to this Agreement are the obligations of the Company only, and absent additional Written agreement, the Members have no personal liability for the obligations of the Company, including any obligations pursuant to Article 8 and Article 9 of this Agreement. No creditor of the Company or of a Member is entitled to or is intended to have third-party beneficiary status to enforce any obligation of any party under this Agreement."
+                },
+                "counterparts": {
+                    "heading": "Counterparts.",
+                    "clause": "This Agreement may be executed in any number of counterparts or with counterpart signature pages, each of which shall be deemed an original, but all of which shall constitute one and the same instrument."
+                },
+                "certainDefinitionsAndConstruction": {
+                    "heading": "Certain Definitions and Construction.",
+                    "clause1": "As used in this Agreement, the following terms have the following meanings:",
+                    "subclauses1": [
+                        "“Affiliate Transfer” means, if the transferor is an individual, a gift or contribution by the transferor prior to the transferor’s death to a member of the transferor’s immediate family (i.e. parents, descendants, siblings or spouse) or to a trust, partnership or other entity controlled by or for the benefit of such transferor or such transferor’s immediate family. If the transferor is an entity, “Affiliate Transfer” means the transfer or contribution of the membership interest to another entity so long as the Person or Persons with the power, whether through ownership of voting securities by contract or otherwise, to direct or cause the direction of the management and policies of the transferor entity have the power to direct or cause direction of the management and policies of the transferee entity.",
+                        "“Agreement” means this Company Agreement as it may be amended from time to time as provided herein.",
+                        "“Member” means any Person admitted to the Company as a member as provided in this Agreement but excludes any such Person that has ceased to be a member as provided in this Agreement or the BOC.",
+                        "“Available Cash” means cash on hand held by the Company that the Members determine is not required by operations or as a reasonable reserve for capital replacements.",
+                        "“Capital Account” means the capital account of a Member in the Company pursuant to Section 4.3.",
+                        "“Code” means the Internal Revenue Code of 1986.",
+                        "“Member” means any Person admitted to the Company as a member as provided in this Agreement but excludes any such Person that has ceased to be a member as provided in this Agreement or the BOC.",
+                        "“Percentage” for any Member means the membership interest of the Member expressed as a percentage. The Percentages of the initial Members as of the formation of the Company are set forth in Exhibit A. Exhibit A shall be amended as necessary to reflect any changes in Percentages as provided herein. The total Percentages of membership interests owned by all Members and assignees at any point in time shall equal 100%. Upon the purchase by the Company of a membership interest, the Percentage of the purchased membership interest shall no longer be included in the total Percentages, and the Percentages of membership interests owned by Members and assignees shall be adjusted accordingly. Upon the issuance of an additional membership interest, the Percentages of Members and assignees who have not been issued an additional interest shall be decreased accordingly. For purposes of Section 3.10, the Percentage representing all or any portion of a membership interest assigned by a Member shall be attributed to the assignor Member if the assignor Member has not ceased to be a Member. If the assignor Member has ceased to be a Member and the Member’s assignee has not been admitted as a Member, the Percentage of the assignee shall not be included for purposes of Section 3.10, and the determination of a “majority” of the Percentages referenced in that Section shall be made on the basis of Percentages held or attributed to Persons who are at the time Members.",
+                        "“Person” means any individual, corporation, partnership, limited liability company, business trust or other entity, series of an entity, or government or governmental agency or instrumentality.",
+                        "“Writing” or “Written” means an expression of words, letters, characters, numbers, symbols, figures or other textual information that is inscribed on a tangible medium or that is stored in an electronic or other medium that is retrievable in a perceivable form. Unless the context requires otherwise, the term: (1) includes stored or transmitted electronic data, electronic transmissions, and reproductions of Writings; and (2) does not include sound or video recordings of speech other than transcriptions that are otherwise “Writings.”"
+                    ],
+                    "clause2": "In this Agreement:",
+                    "subclauses2": [
+                        "Terms defined in the singular have the corresponding meaning in the plural and vice versa.",
+                        "All pronouns and any variations thereof contained herein shall be deemed to refer to the masculine, feminine, neuter, singular or plural, as the identity of the Person or Persons may require.",
+                        "The word “include” and its derivatives means “include without limitation.”",
+                        "References to Articles, Sections and Exhibits are to the specified Articles and Sections of, and Exhibits to, this Agreement unless the context otherwise requires. Each Exhibit to this Agreement is made a part of this Agreement for all purposes.",
+                        "References to statutes or regulations are to those statutes or regulations as currently amended and to the corresponding provisions as they may be amended or superseded in the future."
+                    ]
+                }
+            }
+        }
+    },
+    "signatureBlock": {
+        "signatureBlockSM": {
+            "clause": "IN WITNESS WHEREOF, the undersigned Member has duly executed this Agreement as of the day and year first above written.",
+            "blockHeading": "MEMBER:"
+        },
+        "signatureBlockMM": {
+            "clause": "IN WITNESS WHEREOF, the undersigned Members have duly executed this Agreement as of the day and year first above written.",
+            "blockHeader": "MEMBERS:",
+            "spousalAcknowledgement": {
+                "header": "ACKNOWLEDGMENT AND CONSENT OF SPOUSES",
+                "clause": "The undersigned are the spouses of the Members and are executing this Agreement in connection with the execution of this Agreement by the Members. Each of the undersigned acknowledges and represents as follows: I have been provided a copy of the Agreement and have had the opportunity to read and review the Agreement. I approve of all of the provisions of the Agreement and agree to be bound by and accept the terms of the Agreement, but I understand that I am not a Member of the Company. My execution of this Agreement does not alter the legal status, characterization or rights of management of any membership interests now or hereafter acquired by my spouse, and my spouse’s membership interests are subject to my spouse’s sole management, control and disposition. I understand that the Company and the Members will rely on this acknowledgment and consent in conducting the Company’s activities and operations.",
+                "blockHeading": "SPOUSES:"
+            }
+        }
+    },
+    "exhibitA": {
+        "heading": "EXHIBIT A",
+        "memberNameAndAddress": {
+            "heading": "Member Name and Address"
+        },
+        "capitalContribution": {
+            "heading": "Capital Contribution"
+        },
+        "percentage": {
+            "heading": "Percentage"
+        }
+    }
+}
