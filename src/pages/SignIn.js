@@ -109,6 +109,16 @@ export default function SignInSide() {
             >
               Use as Guest
             </Button>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              href="/SignUp"
+            >
+              Sign Up
+            </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
@@ -117,9 +127,7 @@ export default function SignInSide() {
               {/* To DO - Sign Up */}
               </Grid>
               <Grid item m>
-                <Link href="#" variant="body2">
-                  {"Sign Up"}
-                </Link>
+            
               </Grid>
             </Grid>
             <Box mt={6}>
