@@ -1,0 +1,2 @@
+export const PARAGRAPH_INDENT_LEVEL = 700;
+export const LIST_INDET_LEVEL = 1400;
