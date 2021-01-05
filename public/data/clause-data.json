@@ -106,65 +106,63 @@
             }
         },
         "article2MM": {
-            "article2SM": {
-                "article2Heading": "ARTICLE 2 MEMBERS AND MEMBERSHIP INTERESTS",
-                "article2Clauses": {
-                    "initialMembers": {
-                        "heading": "Initial Members.",
-                        "clause": "In connection with the formation of the Company, the Persons executing this Agreement as Members are admitted to the Company as Members effective as of the date of the Company’s formation. The Percentage held by each of the Members is set forth next to such Member’s name on Exhibit A."
-                    },
-                    "issuanceOfMembershipInterestsAfterFormationOfCompany": {
-                        "heading": "Issuance of Membership Interests After Formation of Company.",
-                        "clause": "The Company, after the formation of the Company, may issue membership interests in the Company to any Person with the approval of all of the Members of the Company. Any such approval shall include the Capital Contribution, if any, required in connection with the new membership interest, the Percentage represented by the newly issued membership interest and all changes in the Percentages represented by the membership interests outstanding prior to the issuance of the new membership interest."
-                    },
-                    "natureOfMembershipInterest": {
-                        "heading": "Nature of Membership Interest.",
-                        "clause": "A membership interest in the Company is personal property. A Member of the Company or an assignee of a membership interest in the Company does not have an interest in any specific property of the Company. A membership interest includes a Member’s or assignee’s share of profits and losses or similar items and the right to receive distributions as provided in this Agreement, but does not include a Member’s right to participate in management."
-                    },
-                    "withdrawalOrExpulsionOfMember": {
-                        "heading": "Withdrawal or Expulsion of Member.",
-                        "subclauses": [
-                            "A Member of the Company may withdraw as a Member at any time by providing Written notice of the Member’s withdrawal to the Company. The withdrawal shall take effect at the time specified in the notice, and unless otherwise specified in the notice, acceptance of the withdrawal shall not be necessary to make it effective. When the withdrawal takes effect, the withdrawing Member shall cease to be a Member and thereafter shall be deemed an assignee of any membership interest owned by the withdrawn Member. The withdrawal of a Member shall not entitle the withdrawn Member to any distribution or payment for the withdrawn Member’s membership interest other than distributions that an assignee would be entitled to receive under Section 2.7.",
-                            "A Member of the Company may be expelled by unanimous vote of all other Members (not including the Member to be expelled) if that Member has (i) materially breached this Agreement, (ii) committed fraud, theft, or gross negligence injuring the Company or one or more Members of the Company; or (iii) engaged in wrongful conduct that adversely and materially affects the business or operation of the Company. When the expulsion takes effect, the expelled Member shall cease to be a Member and thereafter shall be deemed an assignee of any membership interest owned by the expelled Member. The expulsion of the expelled Member shall not entitle the expelled Member to any distribution or payment for the expelled Member’s membership interest other than distributions that an assignee would be entitled to receive under Section 2.7. Expulsion shall be in addition to, and not in lieu of, any remedies otherwise available against the expelled Member in connection with the acts or omissions constituting grounds for expulsion."
-                        ]
-                    },
-                    "assignmentOfMembershipInterest": {
-                        "heading": "Assignment of Membership Interest.",
-                        "clause": "Subject to the requirements of Article 8, a membership interest in the Company may be wholly or partly assigned. An assignment of a membership interest in the Company is not an event requiring the winding up of the Company and does not entitle an assignee who is not already a Member of the Company to participate in the management and affairs of the Company, become a Member of the Company or exercise any rights of a Member of the Company."
-                    },
-                    "admissionOfNewMembers": {
-                        "heading": "Admission of New Members.",
-                        "clause": "Any Member of the Company who is issued a new membership interest as provided in Section 2.2 or who acquires a membership interest by assignment (including by reason of death or divorce) shall become a Member of the Company with respect to the new or assigned membership interest immediately upon the issuance or assignment of the membership interest. Approval by the Members pursuant to Section 2.2 of the issuance of a new membership interest in the Company to a Person who is not already a Member shall be deemed approval of the admission of such Person as a Member. An assignee of a membership interest in the Company who is not already a Member of the Company is entitled to become a Member of the Company on the approval of all of the Company’s Members. Any Person who desires to become a Member after the formation of the Company shall, as a condition to becoming a Member and in addition to any other conditions set forth herein or established by the Members, execute and deliver an agreement to be bound by the terms and provisions of the Agreement. Such agreement shall also state an address for the Member for notice hereunder."
-                    },
-                    "rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership": {
-                        "heading": "Rights and Duties of Assignee of Membership Interest Before Membership.",
-                        "subclauses": [
-                            "A Person who is assigned a membership interest in the Company is entitled to: (a) receive any allocation of income, gain, loss, deduction, credit, or a similar item that the assignor is entitled to receive to the extent the allocation of the item is assigned; (b) receive any distribution the assignor is entitled to receive to the extent the distribution is assigned; (c) subject to Article 7, require, for any proper purpose, reasonable information or a reasonable account of the transactions of the Company; and (d) subject to Article 7, make, for any proper purpose, reasonable inspections of the books and records of the Company.",
-                            "An assignee of a membership interest in the Company is not liable as a Member of the Company until the assignee becomes a Member of the Company."
-                        ]
-                    },
-                    "rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember": {
-                        "heading": "Rights and Liabilities of Assignee of Membership Interest After Becoming Member.",
-                        "subclauses": [
-                            "An assignee of a membership interest in the Company, after becoming a Member of the Company, is: (a) entitled to the same rights and powers granted or provided to a Member of the Company by this Agreement; (b) subject to the same restrictions and liabilities placed or imposed on a Member of the Company by this Agreement; and (c) except as provided by Subsection 2.8(b), liable for the assignor’s obligation to make contributions to the Company.",
-                            "An assignee of a membership interest in the Company, after becoming a Member of the Company, is not obligated for a liability of the assignor that: (a) the assignee did not have knowledge of on the date the assignee became a Member of the Company; and (b) could not be ascertained from this Agreement."
-                        ]
-                    },
-                    "rightsAndDutiesOfAssignorOfMembershipInterest": {
-                        "heading": "Rights and Duties of Assignor of Membership Interest.",
-                        "clause": "An assignor of a membership interest in the Company continues to be a Member of the Company and is entitled to exercise any rights or powers of the Member not vested in the assignee by virtue of the assignment (including the right to on or consent to any matters requiring approval or consent of the Members under this Agreement) until the assignee becomes a Member of the Company. Upon admission of an assignee as a Member, the assignor shall cease to be a Member with respect to the membership interest assigned."
-                    },
-                    "certificates": {
-                        "heading": "Certificates.",
-                        "clause": {
-                            "uncertificated": "Membership interests in the Company shall be uncertificated.",
-                            "certificated": "Membership interests in the Company shall be certificated."
-                        }
-                    },
-                    "representationsAndWarranties": {
-                        "heading": "Representations and Warranties.",
-                        "clause": "Each Member hereby represents and warrants to the Company and each other Member that (a) the Member has duly executed and delivered this Agreement; and (b) the Member’s authorization, execution, delivery, and performance of this Agreement do not conflict with any other agreement or arrangement to which that Member is a party or by which that Member is bound."
+            "article2Heading": "ARTICLE 2 MEMBERS AND MEMBERSHIP INTERESTS",
+            "article2Clauses": {
+                "initialMembers": {
+                    "heading": "Initial Members.",
+                    "clause": "In connection with the formation of the Company, the Persons executing this Agreement as Members are admitted to the Company as Members effective as of the date of the Company’s formation. The Percentage held by each of the Members is set forth next to such Member’s name on Exhibit A."
+                },
+                "issuanceOfMembershipInterestsAfterFormationOfCompany": {
+                    "heading": "Issuance of Membership Interests After Formation of Company.",
+                    "clause": "The Company, after the formation of the Company, may issue membership interests in the Company to any Person with the approval of all of the Members of the Company. Any such approval shall include the Capital Contribution, if any, required in connection with the new membership interest, the Percentage represented by the newly issued membership interest and all changes in the Percentages represented by the membership interests outstanding prior to the issuance of the new membership interest."
+                },
+                "natureOfMembershipInterest": {
+                    "heading": "Nature of Membership Interest.",
+                    "clause": "A membership interest in the Company is personal property. A Member of the Company or an assignee of a membership interest in the Company does not have an interest in any specific property of the Company. A membership interest includes a Member’s or assignee’s share of profits and losses or similar items and the right to receive distributions as provided in this Agreement, but does not include a Member’s right to participate in management."
+                },
+                "withdrawalOrExpulsionOfMember": {
+                    "heading": "Withdrawal or Expulsion of Member.",
+                    "subclauses": [
+                        "A Member of the Company may withdraw as a Member at any time by providing Written notice of the Member’s withdrawal to the Company. The withdrawal shall take effect at the time specified in the notice, and unless otherwise specified in the notice, acceptance of the withdrawal shall not be necessary to make it effective. When the withdrawal takes effect, the withdrawing Member shall cease to be a Member and thereafter shall be deemed an assignee of any membership interest owned by the withdrawn Member. The withdrawal of a Member shall not entitle the withdrawn Member to any distribution or payment for the withdrawn Member’s membership interest other than distributions that an assignee would be entitled to receive under Section 2.7.",
+                        "A Member of the Company may be expelled by unanimous vote of all other Members (not including the Member to be expelled) if that Member has (i) materially breached this Agreement, (ii) committed fraud, theft, or gross negligence injuring the Company or one or more Members of the Company; or (iii) engaged in wrongful conduct that adversely and materially affects the business or operation of the Company. When the expulsion takes effect, the expelled Member shall cease to be a Member and thereafter shall be deemed an assignee of any membership interest owned by the expelled Member. The expulsion of the expelled Member shall not entitle the expelled Member to any distribution or payment for the expelled Member’s membership interest other than distributions that an assignee would be entitled to receive under Section 2.7. Expulsion shall be in addition to, and not in lieu of, any remedies otherwise available against the expelled Member in connection with the acts or omissions constituting grounds for expulsion."
+                    ]
+                },
+                "assignmentOfMembershipInterest": {
+                    "heading": "Assignment of Membership Interest.",
+                    "clause": "Subject to the requirements of Article 8, a membership interest in the Company may be wholly or partly assigned. An assignment of a membership interest in the Company is not an event requiring the winding up of the Company and does not entitle an assignee who is not already a Member of the Company to participate in the management and affairs of the Company, become a Member of the Company or exercise any rights of a Member of the Company."
+                },
+                "admissionOfNewMembers": {
+                    "heading": "Admission of New Members.",
+                    "clause": "Any Member of the Company who is issued a new membership interest as provided in Section 2.2 or who acquires a membership interest by assignment (including by reason of death or divorce) shall become a Member of the Company with respect to the new or assigned membership interest immediately upon the issuance or assignment of the membership interest. Approval by the Members pursuant to Section 2.2 of the issuance of a new membership interest in the Company to a Person who is not already a Member shall be deemed approval of the admission of such Person as a Member. An assignee of a membership interest in the Company who is not already a Member of the Company is entitled to become a Member of the Company on the approval of all of the Company’s Members. Any Person who desires to become a Member after the formation of the Company shall, as a condition to becoming a Member and in addition to any other conditions set forth herein or established by the Members, execute and deliver an agreement to be bound by the terms and provisions of the Agreement. Such agreement shall also state an address for the Member for notice hereunder."
+                },
+                "rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership": {
+                    "heading": "Rights and Duties of Assignee of Membership Interest Before Membership.",
+                    "subclauses": [
+                        "A Person who is assigned a membership interest in the Company is entitled to: (a) receive any allocation of income, gain, loss, deduction, credit, or a similar item that the assignor is entitled to receive to the extent the allocation of the item is assigned; (b) receive any distribution the assignor is entitled to receive to the extent the distribution is assigned; (c) subject to Article 7, require, for any proper purpose, reasonable information or a reasonable account of the transactions of the Company; and (d) subject to Article 7, make, for any proper purpose, reasonable inspections of the books and records of the Company.",
+                        "An assignee of a membership interest in the Company is not liable as a Member of the Company until the assignee becomes a Member of the Company."
+                    ]
+                },
+                "rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember": {
+                    "heading": "Rights and Liabilities of Assignee of Membership Interest After Becoming Member.",
+                    "subclauses": [
+                        "An assignee of a membership interest in the Company, after becoming a Member of the Company, is: (a) entitled to the same rights and powers granted or provided to a Member of the Company by this Agreement; (b) subject to the same restrictions and liabilities placed or imposed on a Member of the Company by this Agreement; and (c) except as provided by Subsection 2.8(b), liable for the assignor’s obligation to make contributions to the Company.",
+                        "An assignee of a membership interest in the Company, after becoming a Member of the Company, is not obligated for a liability of the assignor that: (a) the assignee did not have knowledge of on the date the assignee became a Member of the Company; and (b) could not be ascertained from this Agreement."
+                    ]
+                },
+                "rightsAndDutiesOfAssignorOfMembershipInterest": {
+                    "heading": "Rights and Duties of Assignor of Membership Interest.",
+                    "clause": "An assignor of a membership interest in the Company continues to be a Member of the Company and is entitled to exercise any rights or powers of the Member not vested in the assignee by virtue of the assignment (including the right to on or consent to any matters requiring approval or consent of the Members under this Agreement) until the assignee becomes a Member of the Company. Upon admission of an assignee as a Member, the assignor shall cease to be a Member with respect to the membership interest assigned."
+                },
+                "certificates": {
+                    "heading": "Certificates.",
+                    "clause": {
+                        "uncertificated": "Membership interests in the Company shall be uncertificated.",
+                        "certificated": "Membership interests in the Company shall be certificated."
                     }
+                },
+                "representationsAndWarranties": {
+                    "heading": "Representations and Warranties.",
+                    "clause": "Each Member hereby represents and warrants to the Company and each other Member that (a) the Member has duly executed and delivered this Agreement; and (b) the Member’s authorization, execution, delivery, and performance of this Agreement do not conflict with any other agreement or arrangement to which that Member is a party or by which that Member is bound."
                 }
             }
         }
