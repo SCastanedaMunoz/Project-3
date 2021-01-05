@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import "./orderedlist.css"
 import Typography from '@material-ui/core/Typography';
 
@@ -10,23 +10,29 @@ export default function ClauseListItem({ article }) {
                 {article[0].heading}
             </Typography>
             <ol>
-                {article.slice(1).map((clause) => (
-                    <li>
-                        {Array.isArray(clause) ? (
-                            <ol>
-                                {clause.map((subclause) => (
-                                    <li>
-                                        {subclause}
-                                    </li>
-                                ))}
-                            </ol>
+                {article.slice(1).map((clause, index) => (
+                    <Fragment>
+                        {Array.isArray(article[index + 2]) ? (
+                            <li>
+                                {Object.values(clause)}
+                                <ol>
+                                    {article[index + 2].map((subclause) => (
+                                        <li>
 
+                                            {subclause}
+                                        </li>
+                                    ))}
+                                </ol>
+                            </li>
                         ) : (
-
-                                Object.values(clause)
+                                Array.isArray(clause) === false ? (
+                                    <li>
+                                        {Object.values(clause)}
+                                    </li>
+                                ) : null
 
                             )}
-                    </li>
+                    </Fragment>
                 ))}
             </ol>
         </li>

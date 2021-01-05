@@ -305,7 +305,7 @@ function Dashboard() {
                         { quorumAndActOfMembersOrCommittee: `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause}` },
                         { votesRequiredToApproveCertainActions: `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause}` },
                         { mannerOfVoting: `${article3Clauses.mannerOfVoting.heading} ${article3Clauses.mannerOfVoting.clause}` },
-                        { actionByWrittenConsent: `${article3Clauses.actionByWrittenConsent.heading} ${article3Clauses.qactionByWrittenConsent.clause}` },
+                        { actionByWrittenConsent: `${article3Clauses.actionByWrittenConsent.heading} ${article3Clauses.actionByWrittenConsent.clause}` },
                         { explicitVoteOrConsentRequired: `${article3Clauses.explicitVoteOrConsentRequired.heading} ${article3Clauses.explicitVoteOrConsentRequired.clause}` },
 
                     ])
@@ -407,10 +407,12 @@ function Dashboard() {
                         { noDistributionUponWithdrawal: `${article6Clauses.noDistributionUponWithdrawal.heading} ${article6Clauses.noDistributionUponWithdrawal.clause}` }
                     ])
                 } else {
-                    let { article6SM } = article6;
-                    let { article6Heading, article6Clauses } = article6SM;
+                    let { article6MM } = article6;
+                    let { article6Heading, article6Clauses } = article6MM;
+                    console.log(article6Clauses);
                     setArticle6([
                         { heading: `${article6Heading}` },
+                        { distributions: `${article6Clauses.distributions.heading} ${article6Clauses.distributions.clause}` },
                         { requiredAnnualTaxDistribution: `${article6Clauses.requiredAnnualTaxDistribution.heading} ${article6Clauses.requiredAnnualTaxDistribution.clause}` }
                     ])
                 }
@@ -561,7 +563,7 @@ function Dashboard() {
                         { heading: `${article10Heading}` },
                         { eventsRequiringWindingUp: `${article10Clauses.eventsRequiringWindingUp.heading} ${article10Clauses.eventsRequiringWindingUp.clause}` },
                         { revocationOrReinstatement: `${article10Clauses.revocationOrReinstatement.heading} ${article10Clauses.revocationOrReinstatement.clause}` },
-                        { windingUpAffairsAndDistributionOfAssets: `${article10Clauses.windingUpAffairsAndDistributionOfAssets.heading}` }, article10Clauses.windingUpAffairsAndDistributionOfAssets.subclauses,
+                        { windingUpAffairsAndDistributionOfAssets: [`${article10Clauses.windingUpAffairsAndDistributionOfAssets.heading}`, article10Clauses.windingUpAffairsAndDistributionOfAssets.subclauses] },
                         { termination: `${article10Clauses.termination.heading} ${article10Clauses.termination.clause}` },
                     ])
                 } else {
@@ -602,7 +604,8 @@ function Dashboard() {
                         { amendments: `${article11Clauses.amendments.heading} ${article11Clauses.amendments.clause}` },
                         { governingLaw: `${article11Clauses.governingLaw.heading} ${article11Clauses.governingLaw.clause}` },
                         { bindingEffectNoThirdPartyBeneficiaries: `${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.heading} ${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.clause}` },
-                        { certainDefinitionsAndConstruction: `${article11Clauses.certainDefinitionsAndConstruction.heading} ${article11Clauses.certainDefinitionsAndConstruction.clause1}` }, article11Clauses.certainDefinitionsAndConstruction.subclauses1, `${article11Clauses.certainDefinitionsAndConstruction.clause2}`, article11Clauses.certainDefinitionsAndConstruction.subclauses2,
+                        { certainDefinitionsAndConstruction1: `${article11Clauses.certainDefinitionsAndConstruction.heading} ${article11Clauses.certainDefinitionsAndConstruction.clause1}` }, article11Clauses.certainDefinitionsAndConstruction.subclauses1,
+                        { certainDefinitionsAndConstruction2: `${article11Clauses.certainDefinitionsAndConstruction.clause2}` }, article11Clauses.certainDefinitionsAndConstruction.subclauses2
                     ])
                 } else {
                     let { article11MM } = article11;
@@ -616,7 +619,8 @@ function Dashboard() {
                         { powerofAttorney: `${article11Clauses.powerofAttorney.heading} ${article11Clauses.powerofAttorney.clause}` },
                         { bindingEffectNoThirdPartyBeneficiaries: `${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.heading} ${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.clause}` },
                         { counterparts: `${article11Clauses.counterparts.heading} ${article11Clauses.counterparts.clause}` },
-                        { certainDefinitionsAndConstruction: `${article11Clauses.certainDefinitionsAndConstruction.heading} ${article11Clauses.certainDefinitionsAndConstruction.clause1}` }, article11Clauses.certainDefinitionsAndConstruction.subclauses1, `${article11Clauses.certainDefinitionsAndConstruction.clause2}`, article11Clauses.certainDefinitionsAndConstruction.subclauses2,
+                        { certainDefinitionsAndConstruction1: `${article11Clauses.certainDefinitionsAndConstruction.heading} ${article11Clauses.certainDefinitionsAndConstruction.clause1}` }, article11Clauses.certainDefinitionsAndConstruction.subclauses1,
+                        { certainDefinitionsAndConstruction2: `${article11Clauses.certainDefinitionsAndConstruction.clause2}` }, article11Clauses.certainDefinitionsAndConstruction.subclauses2
                     ])
                 }
             })
@@ -721,8 +725,17 @@ function Dashboard() {
     // We only need to re-generate Exhibit A for member state changes
 
     useEffect(() => {
-        console.log(members);
-        console.log(exhibitAState);
+        generateArticle1();
+        generateArticle2();
+        generateArticle3();
+        generateArticle4();
+        generateArticle5();
+        generateArticle6();
+        generateArticle7();
+        generateArticle8();
+        generateArticle9();
+        generateArticle10();
+        generateArticle11();
         generateExhibitA();
     }, [members])
 
@@ -806,5 +819,6 @@ function Dashboard() {
         </main>
     );
 }
+
 
 export default Dashboard;
