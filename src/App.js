@@ -1,14 +1,21 @@
 import "./App.css";
-import Button from "@material-ui/core/Button";
-import generate from "./components/FOCA_SM";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Dashboard from "./pages/dashboard"
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 function App() {
+
   return (
-    <div className="App">
-      <Button variant="contained" color="primary" onClick={generate}>
-        Generate
-      </Button>
-    </div>
+    <Router >
+      <div className="App">
+        <Switch>
+          <Route path="/dashboard" exact component={Dashboard}><Dashboard /></Route>
+          <Route path="/" exact component={SignIn}><SignIn /></Route>
+          <Route path="/SignUp" exact component={SignUp}><SignUp /></Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
