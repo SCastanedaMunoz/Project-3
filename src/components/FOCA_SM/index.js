@@ -7,6 +7,11 @@ import {
   HeadingLevel,
   AlignmentType,
   PageBreak,
+  Table,
+  TableRow,
+  TableCell,
+  WidthType,
+  BorderStyle,
 } from "docx";
 import {
   PARAGRAPH_INDENT_LEVEL,
@@ -28,7 +33,7 @@ function createHeading(content) {
         bold: true,
         text: content,
       }),
-      addBreak()
+      addBreak(),
     ],
     alignment: AlignmentType.CENTER,
     heading: HeadingLevel.HEADING_3,
@@ -48,28 +53,25 @@ function createSimpleParagraph(number, heading, content) {
         underline: {},
       }),
       new TextRun(` ${content}.`),
-      addBreak()
+      addBreak(),
     ],
   });
 }
 
-function createUnderlinedQuotes(content) { 
+function createUnderlinedQuotes(content) {
   return [
-    new TextRun('“'),
+    new TextRun("“"),
     new TextRun({ text: content, underline: {} }),
-    new TextRun('”'),
+    new TextRun("”"),
   ];
 }
 
-function addBreak(){ 
+function addBreak() {
   return new TextRun({}).break();
 }
 
-function addDoubleBreak() { 
-  return [
-    addBreak(),
-    addBreak()
-  ]
+function addDoubleBreak() {
+  return [addBreak(), addBreak()];
 }
 
 function getArticleOne() {
@@ -100,7 +102,7 @@ function getArticleOne() {
         new TextRun(
           "”) and other relevant laws of the State of Texas by filing a certificate of formation with the Secretary of State of the State of Texas on _______________ ____, 20____ [FILING DATE]."
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -118,7 +120,7 @@ function getArticleOne() {
         new TextRun(
           " The name of the Company shall be ____________ [NAME]. The Company shall conduct business under that name or such other names complying with applicable law as the Members may determine from time to time."
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     createSimpleParagraph(
@@ -141,7 +143,7 @@ function getArticleOne() {
         new TextRun(
           " The purpose of the Company shall be to engage in the business of ____________ [BUSINESS] and to engage in any other lawful business or activity necessary or convenient in pursuit of the foregoing purposes."
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -177,7 +179,7 @@ function getArticleOne() {
         new TextRun(
           " The initial address of the registered office of the Company in the State of Texas shall be ____________, ________________ ________ [REGISTERED OFFICE], and the name of the Company’s initial registered agent at that address shall be ________________ [REGISTERED AGENT]. The Members may change the registered office and the registered agent of the Company from time to time. The Members may cause the Company to qualify to do business as a limited liability company (or other entity in which the Members have limited liability) in any other jurisdiction and to designate any registered office or registered agent in any such jurisdiction."
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     createSimpleParagraph(
@@ -329,7 +331,7 @@ function getArticleEight() {
         new TextRun(
           ` In connection with a voluntary transfer or assignment by the Member of the Member’s entire membership interest in the Company (not including a pledge or collateral assignment or any transfer as a result thereof):`
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -338,7 +340,7 @@ function getArticleEight() {
       },
       children: [
         new TextRun(`(a)	the Member will cease to be a member of the Company.`),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -349,7 +351,7 @@ function getArticleEight() {
         new TextRun(
           `(b)	the assignee will automatically and simultaneously be admitted as the successor Member without any further action at the time the voluntary transfer or assignment becomes effective under applicable law; and`
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -360,7 +362,7 @@ function getArticleEight() {
         new TextRun(
           `(c)	the Company shall be continued without requiring a winding up.`
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     createSimpleParagraph(
@@ -385,7 +387,7 @@ function getArticleNine() {
           bold: true,
           underline: {},
         }),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -402,7 +404,7 @@ function getArticleNine() {
         new TextRun(
           `” means (i) the Member, whether acting in the capacity of owner, governing person, officer, employee, creditor or other relationship to the Company, and (ii) any Person with the power, whether through ownership of voting securities, by contract or otherwise, to direct the actions of the Member.`
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -413,7 +415,7 @@ function getArticleNine() {
         new TextRun(
           `(b)	No Covered Person shall be liable to the Company for any loss, damage or claim incurred by reason of any act or omission (whether or not constituting negligence) performed or omitted by the Covered Person in the Covered Person’s capacity as a Covered Person.`
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     createSimpleParagraph(
@@ -461,7 +463,7 @@ function getArticleTen() {
         new TextRun(
           ` The Company shall be wound up only on the first to occur of any one or more of the following:`
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -469,10 +471,8 @@ function getArticleTen() {
         firstLine: LIST_INDENT_LEVEL,
       },
       children: [
-        new TextRun(
-          `(a)	the Written consent of the Member.`
-        ),
-        addBreak()
+        new TextRun(`(a)	the Written consent of the Member.`),
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -483,7 +483,7 @@ function getArticleTen() {
         new TextRun(
           `(b)	the occurrence of any event that terminates the continued membership of the Member in the Company unless the legal representative or successor of the Member agrees to continue the Company and appoints a successor Member in accordance with the BOC; or`
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -491,13 +491,15 @@ function getArticleTen() {
         firstLine: LIST_INDENT_LEVEL,
       },
       children: [
-        new TextRun(
-          `(c)	entry of a judicial order to wind up the Company.`
-        ),
-        addBreak()
+        new TextRun(`(c)	entry of a judicial order to wind up the Company.`),
+        addBreak(),
       ],
     }),
-    createSimpleParagraph("10.2", "Revocation or Reinstatement", "A consent to wind up as provided in Section 10.1(a) may only be revoked upon the consent of the Member. In the event of a termination of the Company under the BOC, the Company may be reinstated upon the Written consent of the Member"),
+    createSimpleParagraph(
+      "10.2",
+      "Revocation or Reinstatement",
+      "A consent to wind up as provided in Section 10.1(a) may only be revoked upon the consent of the Member. In the event of a termination of the Company under the BOC, the Company may be reinstated upon the Written consent of the Member"
+    ),
     new Paragraph({
       indent: {
         firstLine: PARAGRAPH_INDENT_LEVEL,
@@ -509,7 +511,7 @@ function getArticleTen() {
           bold: true,
           underline: {},
         }),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -522,10 +524,12 @@ function getArticleTen() {
         ),
         new TextRun({
           text: "Liquidating Agent",
-          underline: {}
+          underline: {},
         }),
-        new TextRun(",” as soon as practicable shall wind up the affairs of the Company and sell and/or distribute the assets of the Company. The Liquidating Agent is expressly authorized and empowered to execute any and all documents necessary or desirable to effectuate the liquidation and termination of the Company and the transfer of any assets. The Liquidating Agent shall apply and distribute the proceeds of the sale or liquidation of the assets and property of the Company in the following order of priority, unless otherwise required by nonwaivable provisions of applicable law:"),
-        addBreak()
+        new TextRun(
+          ",” as soon as practicable shall wind up the affairs of the Company and sell and/or distribute the assets of the Company. The Liquidating Agent is expressly authorized and empowered to execute any and all documents necessary or desirable to effectuate the liquidation and termination of the Company and the transfer of any assets. The Liquidating Agent shall apply and distribute the proceeds of the sale or liquidation of the assets and property of the Company in the following order of priority, unless otherwise required by nonwaivable provisions of applicable law:"
+        ),
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -533,10 +537,14 @@ function getArticleTen() {
         left: LIST_INDENT_LEVEL,
       },
       children: [
-        new TextRun("(i)	to pay (or to make provision for the payment of) all creditors of the Company (including Members who are creditors of the Company), in the order of priority provided by law or otherwise, in satisfaction of all debts, liabilities or obligations of the Company due its creditors;"),
+        new TextRun(
+          "(i)	to pay (or to make provision for the payment of) all creditors of the Company (including Members who are creditors of the Company), in the order of priority provided by law or otherwise, in satisfaction of all debts, liabilities or obligations of the Company due its creditors;"
+        ),
         ...addDoubleBreak(),
-        new TextRun("(ii)	after the payment (or the provision for payment) of all debts, liabilities and obligations of the Company in accordance with clause (i) above, any balance remaining shall be distributed to the Member."),
-        addBreak()
+        new TextRun(
+          "(ii)	after the payment (or the provision for payment) of all debts, liabilities and obligations of the Company in accordance with clause (i) above, any balance remaining shall be distributed to the Member."
+        ),
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -544,8 +552,10 @@ function getArticleTen() {
         firstLine: LIST_INDENT_LEVEL,
       },
       children: [
-        new TextRun("(b)	The Liquidating Agent shall have sole discretion to determine whether to liquidate all or any portion of the assets and property of the Company and the consideration to be received for that property."),
-        addBreak()
+        new TextRun(
+          "(b)	The Liquidating Agent shall have sole discretion to determine whether to liquidate all or any portion of the assets and property of the Company and the consideration to be received for that property."
+        ),
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -553,21 +563,43 @@ function getArticleTen() {
         firstLine: LIST_INDENT_LEVEL,
       },
       children: [
-        new TextRun("(c)	If the Company’s property is not sufficient to discharge all of the Company’s liabilities and obligations, the Liquidating Agent shall apply its property, or make adequate provision for the application of its property, to the extent possible, to the just and equitable discharge of its liabilities and obligations, including liabilities and obligations owed to the Member other than for distributions."),
-        addBreak()
+        new TextRun(
+          "(c)	If the Company’s property is not sufficient to discharge all of the Company’s liabilities and obligations, the Liquidating Agent shall apply its property, or make adequate provision for the application of its property, to the extent possible, to the just and equitable discharge of its liabilities and obligations, including liabilities and obligations owed to the Member other than for distributions."
+        ),
+        addBreak(),
       ],
     }),
-    createSimpleParagraph("10.4", "Termination", "On compliance with the distribution plan described in Section 10.3, the Liquidating Agent shall execute, acknowledge and cause to be filed a certificate of termination. Except at otherwise provided by the BOC, the Company shall cease to exist upon the filing of the certificate of termination with the Secretary of State of Texas")
+    createSimpleParagraph(
+      "10.4",
+      "Termination",
+      "On compliance with the distribution plan described in Section 10.3, the Liquidating Agent shall execute, acknowledge and cause to be filed a certificate of termination. Except at otherwise provided by the BOC, the Company shall cease to exist upon the filing of the certificate of termination with the Secretary of State of Texas"
+    ),
   ];
 }
 
-function getArticleEleven() { 
+function getArticleEleven() {
   return [
     createHeading("ARTICLE 11 MISCELLANEOUS PROVISIONS AND DEFINITIONS"),
-    createSimpleParagraph("11.1", "Entire Agreement", "This Agreement supersedes all prior agreements and understandings among the Member with respect to the Company"),
-    createSimpleParagraph("11.2", "Amendments", "The vote or Written consent of the Member is required to amend the certificate of formation of the Company or this Agreement"),
-    createSimpleParagraph("11.3", "Governing Law", "This Agreement shall be governed by and construed in accordance with the law of Texas"),
-    createSimpleParagraph("11.4", "Binding Effect; No Third-Party Beneficiaries", "This Agreement shall be binding upon, and, to the extent provided herein, inure to the benefit of, the signatories of this Agreement and any Members subsequently admitted, their spouses, heirs, devisees, executors, legal representatives, successors, and assigns. Article 9 of this Agreement shall also inure to the benefit of Covered Persons as defined therein. The Members acknowledge and agree that this Agreement is intended to be binding upon and to inure to the benefit of the Company and that the provisions of this Agreement shall be enforceable by and against the Company. The obligations of the Company pursuant to this Agreement are the obligations of the Company only, and absent additional Written agreement, the Member has no personal liability for the obligations of the Company, including any obligations pursuant to Article 9 of this Agreement. No creditor of the Company or of a Member is entitled to or is intended to have third-party beneficiary status to enforce any obligation of any party under this Agreement"),
+    createSimpleParagraph(
+      "11.1",
+      "Entire Agreement",
+      "This Agreement supersedes all prior agreements and understandings among the Member with respect to the Company"
+    ),
+    createSimpleParagraph(
+      "11.2",
+      "Amendments",
+      "The vote or Written consent of the Member is required to amend the certificate of formation of the Company or this Agreement"
+    ),
+    createSimpleParagraph(
+      "11.3",
+      "Governing Law",
+      "This Agreement shall be governed by and construed in accordance with the law of Texas"
+    ),
+    createSimpleParagraph(
+      "11.4",
+      "Binding Effect; No Third-Party Beneficiaries",
+      "This Agreement shall be binding upon, and, to the extent provided herein, inure to the benefit of, the signatories of this Agreement and any Members subsequently admitted, their spouses, heirs, devisees, executors, legal representatives, successors, and assigns. Article 9 of this Agreement shall also inure to the benefit of Covered Persons as defined therein. The Members acknowledge and agree that this Agreement is intended to be binding upon and to inure to the benefit of the Company and that the provisions of this Agreement shall be enforceable by and against the Company. The obligations of the Company pursuant to this Agreement are the obligations of the Company only, and absent additional Written agreement, the Member has no personal liability for the obligations of the Company, including any obligations pursuant to Article 9 of this Agreement. No creditor of the Company or of a Member is entitled to or is intended to have third-party beneficiary status to enforce any obligation of any party under this Agreement"
+    ),
     new Paragraph({
       indent: {
         firstLine: PARAGRAPH_INDENT_LEVEL,
@@ -579,7 +611,7 @@ function getArticleEleven() {
           bold: true,
           underline: {},
         }),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -590,7 +622,7 @@ function getArticleEleven() {
         new TextRun(
           `(a)	As used in this Agreement, the following terms have the following meanings:`
         ),
-        addBreak()
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -600,50 +632,63 @@ function getArticleEleven() {
       children: [
         new TextRun("(i)	"),
         ...createUnderlinedQuotes("Agreement"),
-        new TextRun(" means this Company Agreement as it may be amended from time to time as provided herein."),
+        new TextRun(
+          " means this Company Agreement as it may be amended from time to time as provided herein."
+        ),
         ...addDoubleBreak(),
         new TextRun("(ii)	"),
         ...createUnderlinedQuotes("Member"),
-        new TextRun(" means any Person admitted to the Company as a member as provided in this Agreement but excludes any such Person that has ceased to be a member as provided in this Agreement or the BOC."),
+        new TextRun(
+          " means any Person admitted to the Company as a member as provided in this Agreement but excludes any such Person that has ceased to be a member as provided in this Agreement or the BOC."
+        ),
         ...addDoubleBreak(),
         new TextRun("(iii)	"),
         ...createUnderlinedQuotes("Person"),
-        new TextRun(" means any individual, corporation, partnership, limited liability company, business trust or other entity, series of an entity, or government or governmental agency or instrumentality."),
+        new TextRun(
+          " means any individual, corporation, partnership, limited liability company, business trust or other entity, series of an entity, or government or governmental agency or instrumentality."
+        ),
         ...addDoubleBreak(),
         new TextRun("(iv)	"),
         ...createUnderlinedQuotes("Writing"),
         new TextRun(" or "),
         ...createUnderlinedQuotes("Written"),
-        new TextRun(" means an expression of words, letters, characters, numbers, symbols, figures or other textual information that is inscribed on a tangible medium or that is stored in an electronic or other medium that is retrievable in a perceivable form. Unless the context requires otherwise, the term: (1) includes stored or transmitted electronic data, electronic transmissions, and reproductions of Writings; and (2) does not include sound or video recordings of speech other than transcriptions that are otherwise “Writings.”"),
-        addBreak()
+        new TextRun(
+          " means an expression of words, letters, characters, numbers, symbols, figures or other textual information that is inscribed on a tangible medium or that is stored in an electronic or other medium that is retrievable in a perceivable form. Unless the context requires otherwise, the term: (1) includes stored or transmitted electronic data, electronic transmissions, and reproductions of Writings; and (2) does not include sound or video recordings of speech other than transcriptions that are otherwise “Writings.”"
+        ),
+        addBreak(),
       ],
     }),
     new Paragraph({
       indent: {
         firstLine: LIST_INDENT_LEVEL,
       },
-      children: [
-        new TextRun(
-          `(b)	In this Agreement:`
-        ),
-        addBreak()
-      ],
+      children: [new TextRun(`(b)	In this Agreement:`), addBreak()],
     }),
     new Paragraph({
       indent: {
         left: LIST_INDENT_LEVEL,
       },
       children: [
-        new TextRun("(i)	Terms defined in the singular have the corresponding meaning in the plural and vice versa."),
+        new TextRun(
+          "(i)	Terms defined in the singular have the corresponding meaning in the plural and vice versa."
+        ),
         ...addDoubleBreak(),
-        new TextRun("(ii)	All pronouns and any variations thereof contained herein shall be deemed to refer to the masculine, feminine, neuter, singular or plural, as the identity of the Person or Persons may require."),
+        new TextRun(
+          "(ii)	All pronouns and any variations thereof contained herein shall be deemed to refer to the masculine, feminine, neuter, singular or plural, as the identity of the Person or Persons may require."
+        ),
         ...addDoubleBreak(),
-        new TextRun("(iii)	The word “include” and its derivatives means “include without limitation.”"),
+        new TextRun(
+          "(iii)	The word “include” and its derivatives means “include without limitation.”"
+        ),
         ...addDoubleBreak(),
-        new TextRun("(iv)	References to Articles, Sections and Exhibits are to the specified Articles and Sections of, and Exhibits to, this Agreement unless the context otherwise requires. Each Exhibit to this Agreement is made a part of this Agreement for all purposes."),
+        new TextRun(
+          "(iv)	References to Articles, Sections and Exhibits are to the specified Articles and Sections of, and Exhibits to, this Agreement unless the context otherwise requires. Each Exhibit to this Agreement is made a part of this Agreement for all purposes."
+        ),
         ...addDoubleBreak(),
-        new TextRun("(v)	References to statutes or regulations are to those statutes or regulations as currently amended and to the corresponding provisions as they may be amended or superseded in the future."),
-        addBreak()
+        new TextRun(
+          "(v)	References to statutes or regulations are to those statutes or regulations as currently amended and to the corresponding provisions as they may be amended or superseded in the future."
+        ),
+        addBreak(),
       ],
     }),
     new Paragraph({
@@ -658,20 +703,22 @@ function getArticleEleven() {
   ];
 }
 
-function getSignaturePage() { 
+function getSignaturePage() {
   return [
     new Paragraph({
       indent: {
         firstLine: PARAGRAPH_INDENT_LEVEL,
       },
       children: [
-        new TextRun("IN WITNESS WHEREOF, the undersigned Member has duly executed this Agreement as of the day and year first above written."),
-        addBreak()
+        new TextRun(
+          "IN WITNESS WHEREOF, the undersigned Member has duly executed this Agreement as of the day and year first above written."
+        ),
+        addBreak(),
       ],
     }),
     new Paragraph({
       indent: {
-        left: LIST_INDENT_LEVEL * 3
+        left: LIST_INDENT_LEVEL * 3,
       },
       children: [
         new TextRun("MEMBER:"),
@@ -682,8 +729,115 @@ function getSignaturePage() {
         new TextRun("Print:"),
         addBreak(),
         new PageBreak(),
-      ]
-    })
+      ],
+    }),
+  ];
+}
+
+function getExhibitA() {
+  return [
+    createHeading("EXHIBIT A"),
+    new Table({
+      alignment: AlignmentType.CENTER,
+      width: {
+        size: 100,
+        type: WidthType.PERCENTAGE,
+      },
+      rows: [
+        new TableRow({
+          tableHeader: true,
+          children: [
+            new TableCell({
+              width: {
+                size: 50,
+                type: WidthType.PERCENTAGE,
+              },
+              borders: {
+                top: {
+                  style: BorderStyle.NONE,
+                  size: 0,
+                  color: "white",
+                },
+                bottom: {
+                  style: BorderStyle.SINGLE,
+                  size: 3,
+                  color: "black",
+                },
+                left: {
+                  style: BorderStyle.NONE,
+                  size: 0,
+                  color: "white",
+                },
+                right: {
+                  style: BorderStyle.NONE,
+                  size: 0,
+                  color: "white",
+                },
+              },
+              children: [new Paragraph("Member Name and Address")],
+            }),
+            new TableCell({
+              width: {
+                size: 25,
+                type: WidthType.PERCENTAGE,
+              },
+              borders: {
+                top: {
+                  style: BorderStyle.NONE,
+                  size: 0,
+                  color: "white",
+                },
+                bottom: {
+                  style: BorderStyle.SINGLE,
+                  size: 3,
+                  color: "black",
+                },
+                left: {
+                  style: BorderStyle.NONE,
+                  size: 0,
+                  color: "white",
+                },
+                right: {
+                  style: BorderStyle.NONE,
+                  size: 0,
+                  color: "white",
+                },
+              },
+              children: [new Paragraph("Percentage")],
+            }),
+            new TableCell({
+              width: {
+                size: 25,
+                type: WidthType.PERCENTAGE,
+              },
+              borders: {
+                top: {
+                  style: BorderStyle.NONE,
+                  size: 0,
+                  color: "white",
+                },
+                bottom: {
+                  style: BorderStyle.SINGLE,
+                  size: 3,
+                  color: "black",
+                },
+                left: {
+                  style: BorderStyle.NONE,
+                  size: 0,
+                  color: "white",
+                },
+                right: {
+                  style: BorderStyle.NONE,
+                  size: 0,
+                  color: "white",
+                },
+              },
+              children: [new Paragraph("Capital Contribution")],
+            }),
+          ],
+        }),
+      ],
+    }),
   ];
 }
 
@@ -710,7 +864,7 @@ function generate() {
             text: "[NAME]",
             bold: true,
           }).break(),
-          addBreak()
+          addBreak(),
         ],
         alignment: AlignmentType.CENTER,
         heading: HeadingLevel.HEADING_3,
@@ -757,7 +911,9 @@ function generate() {
       // ARTICLE 11
       ...getArticleEleven(),
       // SIGNATURE PAGE
-      ...getSignaturePage()
+      ...getSignaturePage(),
+      // EXHIBIT A
+      ...getExhibitA(),
     ],
   });
 
