@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
             marginBottom: theme.spacing(6),
             padding: theme.spacing(3),
         },
-        minHeight: 400,
-        maxHeight: 800,
+        minHeight: 500,
+        maxHeight: 500,
         overflow: "auto"
     },
     table: {
