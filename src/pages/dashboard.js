@@ -31,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     paper: {
-        marginTop: theme.spacing(3),
+        marginTop: theme.spacing(10),
         marginBottom: theme.spacing(3),
         padding: theme.spacing(2),
         [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
-            marginTop: theme.spacing(6),
+            marginTop: theme.spacing(10),
             marginBottom: theme.spacing(6),
             padding: theme.spacing(3),
         },
@@ -252,12 +252,12 @@ function Dashboard() {
                     setArticle2([
                         { heading: `${article2Heading}` },
                         { initialMembers: `${article2Clauses.initialMembers.heading} ${article2Clauses.initialMembers.clause}` },
-                        { issuanceOfMembershipInterestsAfterFormationOfCompany: `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading} ${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.clause}` },
+                        // { issuanceOfMembershipInterestsAfterFormationOfCompany: `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading} ${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.clause}` },
                         { natureOfMembershipInterest: `${article2Clauses.natureOfMembershipInterest.heading} ${article2Clauses.natureOfMembershipInterest.clause}` },
                         { withdrawalOrExpulsionOfMember: `${article2Clauses.withdrawalOrExpulsionOfMember.heading}` },
                         article2Clauses.withdrawalOrExpulsionOfMember.subclauses,
                         { assignmentOfMembershipInterest: `${article2Clauses.assignmentOfMembershipInterest.heading} ${article2Clauses.assignmentOfMembershipInterest.clause}` },
-                        { admissionOfNewMembers: `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause}` },
+                        // { admissionOfNewMembers: `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause}` },
                         { rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership: `${article2Clauses.rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership.heading}` },
                         article2Clauses.rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership.subclauses,
                         { rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember: `${article2Clauses.rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember.heading}` }, article2Clauses.rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember.subclauses,
@@ -303,8 +303,8 @@ function Dashboard() {
                         { noticeOfMeetings: `${article3Clauses.noticeOfMeetings.heading} ${article3Clauses.noticeOfMeetings.clause}` },
                         { waiverOfNotice: `${article3Clauses.waiverOfNotice.heading} ${article3Clauses.waiverOfNotice.clause}` },
                         { whoMayCall: `${article3Clauses.whoMayCall.heading} ${article3Clauses.whoMayCall.clause}` },
-                        { quorumAndActOfMembersOrCommittee: `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause}` },
-                        { votesRequiredToApproveCertainActions: `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause}` },
+                        // { quorumAndActOfMembersOrCommittee: `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause}` },
+                        // { votesRequiredToApproveCertainActions: `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause}` },
                         { mannerOfVoting: `${article3Clauses.mannerOfVoting.heading} ${article3Clauses.mannerOfVoting.clause}` },
                         { actionByWrittenConsent: `${article3Clauses.actionByWrittenConsent.heading} ${article3Clauses.actionByWrittenConsent.clause}` },
                         { explicitVoteOrConsentRequired: `${article3Clauses.explicitVoteOrConsentRequired.heading} ${article3Clauses.explicitVoteOrConsentRequired.clause}` },
@@ -414,7 +414,7 @@ function Dashboard() {
                     setArticle6([
                         { heading: `${article6Heading}` },
                         { distributions: `${article6Clauses.distributions.heading} ${article6Clauses.distributions.clause}` },
-                        { requiredAnnualTaxDistribution: `${article6Clauses.requiredAnnualTaxDistribution.heading} ${article6Clauses.requiredAnnualTaxDistribution.clause}` }
+                        // { requiredAnnualTaxDistribution: `${article6Clauses.requiredAnnualTaxDistribution.heading} ${article6Clauses.requiredAnnualTaxDistribution.clause}` }
                     ])
                 }
             })
@@ -490,7 +490,7 @@ function Dashboard() {
                         { heading: `${article8Heading}` },
                         { rightOfFirstRefusal: `${article8Clauses.rightOfFirstRefusal.heading} ${article8Clauses.rightOfFirstRefusal.clause}` },
                         { deathOrDivocrceOfMemberOrSpouse: `${article8Clauses.deathOrDivocrceOfMemberOrSpouse.heading}` }, article8Clauses.deathOrDivocrceOfMemberOrSpouse.subclauses,
-                        { pushPullBuyout: `${article8Clauses.pushPullBuyout.heading}` }, article8Clauses.pushPullBuyout.subclauses,
+                        // { pushPullBuyout: `${article8Clauses.pushPullBuyout.heading}` }, article8Clauses.pushPullBuyout.subclauses,
                         { determinationOfPurchaseValue: `${article8Clauses.determinationOfPurchaseValue.heading}` }, article8Clauses.determinationOfPurchaseValue.subclauses,
                         { closingOfSalePaymentOfPurchasePrice: `${article8Clauses.closingOfSalePaymentOfPurchasePrice.heading} ${article8Clauses.closingOfSalePaymentOfPurchasePrice.clause}` },
                         { basisAdjustment: `${article8Clauses.basisAdjustment.heading} ${article8Clauses.basisAdjustment.clause}` }
@@ -532,8 +532,8 @@ function Dashboard() {
                     setArticle9([
                         { heading: `${article9Heading}` },
                         { exculpation: `${article9Clauses.exculpation.heading}` }, article9Clauses.exculpation.subclauses,
-                        { scopeOfDutiesOfCoveredPersons: `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause}` },
-                        { indemnification: `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause}` },
+                        // { scopeOfDutiesOfCoveredPersons: `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause}` },
+                        // { indemnification: `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause}` },
                         { expenses: `${article9Clauses.expenses.heading} ${article9Clauses.expenses.clause}` },
                         { insurance: `${article9Clauses.insurance.heading} ${article9Clauses.insurance.clause}` },
                         { durationOfProtection: `${article9Clauses.durationOfProtection.heading} ${article9Clauses.durationOfProtection.clause}` },
