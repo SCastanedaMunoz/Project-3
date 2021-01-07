@@ -1,4 +1,4 @@
-# Logs
+git push --set-upstream origin Template-Testing# Logs
 logs
 *.log
 npm-debug.log*
