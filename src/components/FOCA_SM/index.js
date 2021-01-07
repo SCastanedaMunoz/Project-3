@@ -10,7 +10,7 @@ import {
 } from "docx";
 import {
   PARAGRAPH_INDENT_LEVEL,
-  LIST_INDET_LEVEL,
+  LIST_INDENT_LEVEL,
 } from "../../utils/constants";
 // import axios from "axios";
 // TODO use this to load XML Styling for Document
@@ -334,7 +334,7 @@ function getArticleEight() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(`(a)	the Member will cease to be a member of the Company.`),
@@ -343,7 +343,7 @@ function getArticleEight() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(
@@ -354,7 +354,7 @@ function getArticleEight() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(
@@ -390,7 +390,7 @@ function getArticleNine() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(`(a)	For purposes of this Agreement, “`),
@@ -407,7 +407,7 @@ function getArticleNine() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(
@@ -466,7 +466,7 @@ function getArticleTen() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(
@@ -477,7 +477,7 @@ function getArticleTen() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(
@@ -488,7 +488,7 @@ function getArticleTen() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(
@@ -514,7 +514,7 @@ function getArticleTen() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(
@@ -530,7 +530,7 @@ function getArticleTen() {
     }),
     new Paragraph({
       indent: {
-        left: LIST_INDET_LEVEL,
+        left: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun("(i)	to pay (or to make provision for the payment of) all creditors of the Company (including Members who are creditors of the Company), in the order of priority provided by law or otherwise, in satisfaction of all debts, liabilities or obligations of the Company due its creditors;"),
@@ -541,7 +541,7 @@ function getArticleTen() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun("(b)	The Liquidating Agent shall have sole discretion to determine whether to liquidate all or any portion of the assets and property of the Company and the consideration to be received for that property."),
@@ -550,7 +550,7 @@ function getArticleTen() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun("(c)	If the Company’s property is not sufficient to discharge all of the Company’s liabilities and obligations, the Liquidating Agent shall apply its property, or make adequate provision for the application of its property, to the extent possible, to the just and equitable discharge of its liabilities and obligations, including liabilities and obligations owed to the Member other than for distributions."),
@@ -584,7 +584,7 @@ function getArticleEleven() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(
@@ -595,7 +595,7 @@ function getArticleEleven() {
     }),
     new Paragraph({
       indent: {
-        left: LIST_INDET_LEVEL,
+        left: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun("(i)	"),
@@ -620,7 +620,7 @@ function getArticleEleven() {
     }),
     new Paragraph({
       indent: {
-        firstLine: LIST_INDET_LEVEL,
+        firstLine: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun(
@@ -631,7 +631,7 @@ function getArticleEleven() {
     }),
     new Paragraph({
       indent: {
-        left: LIST_INDET_LEVEL,
+        left: LIST_INDENT_LEVEL,
       },
       children: [
         new TextRun("(i)	Terms defined in the singular have the corresponding meaning in the plural and vice versa."),
@@ -655,6 +655,35 @@ function getArticleEleven() {
       ],
       alignment: AlignmentType.CENTER,
     }),
+  ];
+}
+
+function getSignaturePage() { 
+  return [
+    new Paragraph({
+      indent: {
+        firstLine: PARAGRAPH_INDENT_LEVEL,
+      },
+      children: [
+        new TextRun("IN WITNESS WHEREOF, the undersigned Member has duly executed this Agreement as of the day and year first above written."),
+        addBreak()
+      ],
+    }),
+    new Paragraph({
+      indent: {
+        left: LIST_INDENT_LEVEL * 3
+      },
+      children: [
+        new TextRun("MEMBER:"),
+        addBreak(),
+        ...addDoubleBreak(),
+        new TextRun({ text: "							", underline: {} }),
+        ...addDoubleBreak(),
+        new TextRun("Print:"),
+        addBreak(),
+        new PageBreak(),
+      ]
+    })
   ];
 }
 
@@ -727,6 +756,8 @@ function generate() {
       ...getArticleTen(),
       // ARTICLE 11
       ...getArticleEleven(),
+      // SIGNATURE PAGE
+      ...getSignaturePage()
     ],
   });
 
