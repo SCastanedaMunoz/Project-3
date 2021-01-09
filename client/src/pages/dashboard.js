@@ -17,6 +17,8 @@ import ExhibitAView from '../components/ContractViews/ExhibitAView';
 import BlankExhibitAView from '../components/ContractViews/BlankExhibitAView';
 import AppBar from '../components/MaterialAppBar';
 
+import SMGenerator from '../components/WordGenerators/SMGenerator';
+
 const useStyles = makeStyles((theme) => ({
 
     layout: {
@@ -740,6 +742,12 @@ function Dashboard() {
         generateExhibitA();
     }, [members])
 
+    const generateWordDocument = (companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article9State, article10State, article11State) => {
+        if (members.length < 2) {
+            SMGenerator(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article9State, article10State, article11State)
+        }
+    }
+
     return (
         <main className={classes.layout}>
             <AppBar />
@@ -775,7 +783,7 @@ function Dashboard() {
                                             onClick={handleNext}
                                             className={classes.button}
                                         >
-                                            {/* On the last step, the bottom button text changes from "Next" to "Finish." On Finish click, the form paper will dissapear because the step exceeds steps.lenght */}
+                                            {/* On the last step, the bottom button text changes from "Next" to "Finish." On Finish click, the form paper will dissapear because the step exceeds steps.length */}
                                             {activeStep === steps.length - 1 ?
                                                 'Finish' : 'Next'}
                                         </Button>
@@ -784,10 +792,30 @@ function Dashboard() {
                             </Fragment>
                         </Paper>
                     </Grid>
-                ) : null}
+                ) : (
+                        <Grid item xs={12} sm={8} md={6}>
+                            <Paper className={classes.paper}>
+                                <Typography component="h1" variant="h4" align="center">
+                                    Download or Save Your Document
+                                </Typography>
+                                <div className={classes.buttons}>
+                                    {console.log(contractHead)}
+                                    <Button className={classes.button} onClick={() => generateWordDocument(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article9State, article10State, article11State)}>
+                                        Word
+                                    </Button>
+                                    <Button className={classes.button}>
+                                        PDF
+                                    </Button>
+                                    <Button className={classes.button}>
+                                        Save
+                                    </Button>
+                                </div>
+                            </Paper>
+                        </Grid>
+                    )}
                 {/* This is the Company Agreement paper with all needed states being passed into the applicable view */}
                 <Grid xs={12} sm={8} md={6}>
-                    {/* This ensure that the Company Agreement will only render once companyDetails start populating. Otherwise, there is a very prominant "undefined" rendering at the top of the Company Agreement */}
+                    {/* This ensures that the Company Agreement will only render once companyDetails start populating. Otherwise, there is a very prominant "undefined" rendering at the top of the Company Agreement */}
                     {companyDetails.name !== undefined ? (
                         <CompanyAgreementView
                             contractHead={contractHead}
