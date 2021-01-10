@@ -14,8 +14,8 @@ import {
     BorderStyle,
 } from "docx";
 import {
-    PARAGRAPH_INDENT_LEVEL,
-    LIST_INDENT_LEVEL,
+    CLAUSE_INDENT_LEVEL,
+    SUBCLAUSE_INDENT_LEVEL,
 } from "../../utils/constants";
 
 function createHeading(content) {
@@ -32,25 +32,30 @@ function createHeading(content) {
     });
 }
 
-function createSimpleParagraph(number, content) {
+function createClauseParagraph(number, content) {
     return new Paragraph({
         indent: {
-            firstLine: PARAGRAPH_INDENT_LEVEL,
+            firstLine: CLAUSE_INDENT_LEVEL,
         },
         children: [
             new TextRun(`${number}	`),
-            new TextRun(` ${content}.`),
+            new TextRun(` ${content}`),
             addBreak(),
         ],
     });
 }
 
-function createUnderlinedQuotes(content) {
-    return [
-        new TextRun("“"),
-        new TextRun({ text: content, underline: {} }),
-        new TextRun("”"),
-    ];
+function createSubclauseParagraph(number, content) {
+    return new Paragraph({
+        indent: {
+            firstLine: SUBCLAUSE_INDENT_LEVEL,
+        },
+        children: [
+            new TextRun(`${number}	`),
+            new TextRun(` ${content}`),
+            addBreak(),
+        ],
+    });
 }
 
 function addBreak() {
@@ -61,29 +66,8 @@ function addDoubleBreak() {
     return [addBreak(), addBreak()];
 }
 
-function getArticleTwo() {
-    return [
-        createHeading("ARTICLE 2 MEMBERS AND MEMBERSHIP INTERESTS"),
-        createSimpleParagraph(
-            "2.1",
-            "Initial Member",
-            "In connection with the formation of the Company, the Person executing this Agreement as Member is admitted to the Company as of the date of formation of the Company"
-        ),
-        createSimpleParagraph(
-            "2.2",
-            "Nature of Membership Interest",
-            "A membership interest in the Company is personal property. A Member of the Company or an assignee of a membership interest in the Company does not have an interest in any specific property of the Company. A membership interest includes a Member’s or assignee’s share of profits and losses or similar items and the right to receive distributions as provided in this agreement but does not include a Member’s right to participate in management"
-        ),
-        createSimpleParagraph(
-            "2.3",
-            "Certificates",
-            "Membership interests in the Company shall be uncertificated"
-        ),
-    ];
-}
-
-function SMGenerator(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article9State, article10State, article11State) {
-    console.log(article1State)
+function SMGenerator(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) {
+    console.log(article9State)
     const doc = new Document({
         // externalStyles: data,
     });
@@ -91,113 +75,71 @@ function SMGenerator(companyDetails, contractHead, article1State, article2State,
     doc.addSection({
         properties: {},
         children: [
-            new Paragraph({
-                children: [
-                    new TextRun({
-                        text: "COMPANY AGREEMENT",
-                        bold: true,
-                    }),
-                    new TextRun({
-                        text: "OF",
-                        bold: true,
-                    }).break(),
-                    new TextRun({
-                        text: companyDetails.name,
-                        bold: true,
-                    }).break(),
-                    addBreak(),
-                ],
-                alignment: AlignmentType.CENTER,
-                heading: HeadingLevel.HEADING_3,
-            }),
-            new Paragraph({
-                indent: {
-                    firstLine: PARAGRAPH_INDENT_LEVEL,
-                },
-                children: [
-                    new TextRun({
-                        text: contractHead.intro,
-                    })
-                ],
-            }),
+            createHeading(contractHead.heading),
+            createClauseParagraph(contractHead.intro),
             createHeading(article1State[0].heading),
-            article1State.forEach((clause, index) => {
-                createSimpleParagraph(`1.${index}`, Object.values(clause));
-            }),
-            // createSimpleParagraph("1.1", article1State[1].formation),
-            // createSimpleParagraph("1.2", article1State[2].name),
-            // createSimpleParagraph("1.3", article1State[3].duration),
-            // createSimpleParagraph("1.4", article1State[4].purpose),
-            // createSimpleParagraph("1.5", article1State[5].principalOffice),
-
-            // new Paragraph({
-            //     indent: {
-            //         firstLine: PARAGRAPH_INDENT_LEVEL,
-            //     },
-            //     children: [
-            //         new TextRun("1.1	"),
-            //         new TextRun({
-            //             text: article1State.formation,
-            //         }),
-            //         addBreak(),
-            //     ],
-            // }),
-            // new Paragraph({
-            //     indent: {
-            //         firstLine: PARAGRAPH_INDENT_LEVEL,
-            //     },
-            //     children: [
-            //         new TextRun("1.2	"),
-            //         new TextRun({
-            //             text: article1State.name,
-            //         }),
-            //         addBreak(),
-            //     ],
-            // }),
-            // // createSimpleParagraph(
-            // //     "1.3",
-            // //     article1State.duration
-            // // ),
-            // new Paragraph({
-            //     indent: {
-            //         firstLine: PARAGRAPH_INDENT_LEVEL,
-            //     },
-            //     children: [
-            //         new TextRun("1.4	"),
-            //         new TextRun({
-            //             text: article1State.purpose,
-            //         }),
-            //         addBreak(),
-            //     ],
-            // }),
-            // new Paragraph({
-            //     indent: {
-            //         firstLine: PARAGRAPH_INDENT_LEVEL,
-            //     },
-            //     children: [
-            //         new TextRun("1.5	"),
-            //         new TextRun({
-            //             text: article1State.principalOffice,
-            //         }),
-            //         addBreak(),
-            //     ],
-            // }),
-            // new Paragraph({
-            //     indent: {
-            //         firstLine: PARAGRAPH_INDENT_LEVEL,
-            //     },
-            //     children: [
-            //         new TextRun("1.6	"),
-            //         new TextRun({
-            //             text: article1State.registeredAgent,
-            //         }),
-            //         addBreak(),
-            //     ],
-            // }),
-            // createSimpleParagraph(
-            //     "1.7",
-            //     article1State.definitions
-            // ),
+            createClauseParagraph("1.1", article1State[1].formation),
+            createClauseParagraph("1.2", article1State[2].name),
+            createClauseParagraph("1.3", article1State[3].duration),
+            createClauseParagraph("1.4", article1State[4].purpose),
+            createClauseParagraph("1.5", article1State[5].principalOffice),
+            createClauseParagraph("1.6", article1State[6].registeredAgent),
+            createClauseParagraph("1.7", article1State[7].definitions),
+            createHeading(article2State[0].heading),
+            createClauseParagraph("2.1", article2State[1].initialMember),
+            createClauseParagraph("2.2", article2State[2].natureOfMembershipInterest),
+            createHeading(article3State[0].heading),
+            createClauseParagraph("3.1", article3State[1].management),
+            createClauseParagraph("3.2", article3State[2].officers),
+            createHeading(article4State[0].heading),
+            createClauseParagraph("4.1", article4State[1].agreedCapitalContributions),
+            createClauseParagraph("4.2", article4State[2].additionalCapitalContributions),
+            createHeading(article5State[0].heading),
+            createClauseParagraph("5.1", article5State[1].taxStatus),
+            createHeading(article6State[0].heading),
+            createClauseParagraph("6.1", article6State[1].distributions),
+            createClauseParagraph("6.2", article6State[2].noDistributionUponWithdrawal),
+            createHeading(article7State[0].heading),
+            createClauseParagraph("7.1", article7State[1].bankAccountsInvestments),
+            createClauseParagraph("7.2", article7State[2].booksAndRecords),
+            createClauseParagraph("7.3", article7State[3].fiscalYear),
+            createHeading(article8State[0].heading),
+            createClauseParagraph("8.1", article8State[1].assignmentPermitted),
+            createClauseParagraph("8.2", article8State[2].assignmentOfEntireInterest),
+            createClauseParagraph("8.3", article8State[3].assignmentOfPartialInterest),
+            createHeading(article9State[0].heading),
+            createClauseParagraph("9.1", article9State[1].exculpation),
+            createSubclauseParagraph("9.1.1", article9State[2][0]),
+            createSubclauseParagraph("9.1.2", article9State[2][1]),
+            createClauseParagraph("9.2", article9State[3].scopeOfDutiesOfCoveredPersons),
+            createClauseParagraph("9.3", article9State[4].indemnification),
+            createClauseParagraph("9.4", article9State[5].expenses),
+            createClauseParagraph("9.5", article9State[6].insurance),
+            createClauseParagraph("9.6", article9State[7].durationOfProtection),
+            createHeading(article10State[0].heading),
+            createClauseParagraph("10.1", article10State[1].eventsRequiringWindingUp),
+            createClauseParagraph("10.2", article10State[2].revocationOrReinstatement),
+            createClauseParagraph("10.3", article10State[3].windingUpAffairsAndDistributionOfAssets),
+            createSubclauseParagraph("10.3.1", article10State[4][0]),
+            createSubclauseParagraph("10.3.2", article10State[4][1]),
+            createSubclauseParagraph("10.3.3", article10State[4][2]),
+            createClauseParagraph("10.4", article10State[5].termination),
+            createHeading(article11State[0].heading),
+            createClauseParagraph("11.1", article11State[1].entireAgreement),
+            createClauseParagraph("11.2", article11State[2].amendments),
+            createClauseParagraph("11.3", article11State[3].governingLaw),
+            createClauseParagraph("11.4", article11State[4].bindingEffectNoThirdPartyBeneficiaries),
+            createClauseParagraph("11.5", article11State[5].certainDefinitions),
+            createSubclauseParagraph("11.5.1", article11State[6][0]),
+            createSubclauseParagraph("11.5.2", article11State[6][1]),
+            createSubclauseParagraph("11.5.3", article11State[6][2]),
+            createSubclauseParagraph("11.5.4", article11State[6][3]),
+            createClauseParagraph("11.6", article11State[7].construction),
+            createSubclauseParagraph("11.6.1", article11State[8][0]),
+            createSubclauseParagraph("11.6.2", article11State[8][1]),
+            createSubclauseParagraph("11.6.3", article11State[8][2]),
+            createSubclauseParagraph("11.6.4", article11State[8][3]),
+            createSubclauseParagraph("11.6.5", article11State[8][4])
 
         ]
     });

@@ -7,24 +7,38 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Radio from '@material-ui/core/Radio';
 
-export default function ClauseQuestions({ certificateValue, handleCertificateChange }) {
+export default function ClauseQuestions({ members, certificateTerm, handleCertificateChange }) {
 
     return (
         <Fragment>
             <Typography variant="h6" gutterBottom>
                 Add Clauses and Finish
             </Typography>
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <FormControl component="fieldset">
-                        <FormLabel component="legend">Will this company be certificated?</FormLabel>
-                        <RadioGroup aria-label="Certificated?" name="certificated" value={certificateValue} onChange={handleCertificateChange}>
-                            <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="No" control={<Radio />} label="No" />
-                        </RadioGroup>
-                    </FormControl>
+            {members.length < 2 ? (
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <FormControl component="fieldset">
+                            <FormLabel component="legend">Will this company be certificated or uncertificated?</FormLabel>
+                            <RadioGroup aria-label="Certificated?" name="certificated" value={certificateTerm} onChange={handleCertificateChange}>
+                                <FormControlLabel value="Certificated" control={<Radio />} label="Certificated" />
+                                <FormControlLabel value="Uncertificated" control={<Radio />} label="Uncertificated" />
+                            </RadioGroup>
+                        </FormControl>
+                    </Grid>
                 </Grid>
-            </Grid>
+            ) : (
+                    <Grid container spacing={3}>
+                        <Grid item xs={12}>
+                            <FormControl component="fieldset">
+                                <FormLabel component="legend">Will this company be certificated or uncertificated?</FormLabel>
+                                <RadioGroup aria-label="Certificated?" name="certificated" value={certificateTerm} onChange={handleCertificateChange}>
+                                    <FormControlLabel value="Certificated" control={<Radio />} label="Certificated" />
+                                    <FormControlLabel value="Uncertificated" control={<Radio />} label="Uncertificated" />
+                                </RadioGroup>
+                            </FormControl>
+                        </Grid>
+                    </Grid>
+                )}
         </Fragment>
     );
 }

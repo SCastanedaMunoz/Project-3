@@ -1,2 +1,2 @@
-export const PARAGRAPH_INDENT_LEVEL = 700;
-export const LIST_INDENT_LEVEL = 1400;
+export const CLAUSE_INDENT_LEVEL = 700;
+export const SUBCLAUSE_INDENT_LEVEL = 1400;

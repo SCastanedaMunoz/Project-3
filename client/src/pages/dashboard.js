@@ -84,7 +84,8 @@ function Dashboard() {
                 />;
             case 3:
                 return <ClauseQuestions
-                    certificateValue={certificateValue}
+                    members={members}
+                    certificateTerm={certificateTerm}
                     handleCertificateChange={handleCertificateChange}
                 />;
             default:
@@ -483,7 +484,7 @@ function Dashboard() {
                         { heading: `${article8Heading}` },
                         { assignmentPermitted: `${article8Clauses.assignmentPermitted.heading} ${article8Clauses.assignmentPermitted.clause}` },
                         { assignmentOfEntireInterest: `${article8Clauses.assignmentOfEntireInterest.heading} ${article8Clauses.assignmentOfEntireInterest.clause}` },
-                        { assignmentofPartialInterest: `${article8Clauses.assignmentofPartialInterest.heading} ${article8Clauses.assignmentofPartialInterest.clause}` }
+                        { assignmentOfPartialInterest: `${article8Clauses.assignmentOfPartialInterest.heading} ${article8Clauses.assignmentOfPartialInterest.clause}` }
                     ])
                 } else {
                     let { article8MM } = article8;
@@ -566,7 +567,7 @@ function Dashboard() {
                         { heading: `${article10Heading}` },
                         { eventsRequiringWindingUp: `${article10Clauses.eventsRequiringWindingUp.heading} ${article10Clauses.eventsRequiringWindingUp.clause}` },
                         { revocationOrReinstatement: `${article10Clauses.revocationOrReinstatement.heading} ${article10Clauses.revocationOrReinstatement.clause}` },
-                        { windingUpAffairsAndDistributionOfAssets: [`${article10Clauses.windingUpAffairsAndDistributionOfAssets.heading}`, article10Clauses.windingUpAffairsAndDistributionOfAssets.subclauses] },
+                        { windingUpAffairsAndDistributionOfAssets: `${article10Clauses.windingUpAffairsAndDistributionOfAssets.heading}` }, article10Clauses.windingUpAffairsAndDistributionOfAssets.subclauses,
                         { termination: `${article10Clauses.termination.heading} ${article10Clauses.termination.clause}` },
                     ])
                 } else {
@@ -607,8 +608,8 @@ function Dashboard() {
                         { amendments: `${article11Clauses.amendments.heading} ${article11Clauses.amendments.clause}` },
                         { governingLaw: `${article11Clauses.governingLaw.heading} ${article11Clauses.governingLaw.clause}` },
                         { bindingEffectNoThirdPartyBeneficiaries: `${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.heading} ${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.clause}` },
-                        { certainDefinitionsAndConstruction1: `${article11Clauses.certainDefinitionsAndConstruction.heading} ${article11Clauses.certainDefinitionsAndConstruction.clause1}` }, article11Clauses.certainDefinitionsAndConstruction.subclauses1,
-                        { certainDefinitionsAndConstruction2: `${article11Clauses.certainDefinitionsAndConstruction.clause2}` }, article11Clauses.certainDefinitionsAndConstruction.subclauses2
+                        { certainDefinitions: `${article11Clauses.certainDefinitions.heading} ${article11Clauses.certainDefinitions.clause}` }, article11Clauses.certainDefinitions.subclauses,
+                        { construction: `${article11Clauses.construction.heading} ${article11Clauses.construction.clause}` }, article11Clauses.construction.subclauses
                     ])
                 } else {
                     let { article11MM } = article11;
@@ -622,8 +623,8 @@ function Dashboard() {
                         { powerofAttorney: `${article11Clauses.powerofAttorney.heading} ${article11Clauses.powerofAttorney.clause}` },
                         { bindingEffectNoThirdPartyBeneficiaries: `${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.heading} ${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.clause}` },
                         { counterparts: `${article11Clauses.counterparts.heading} ${article11Clauses.counterparts.clause}` },
-                        { certainDefinitionsAndConstruction1: `${article11Clauses.certainDefinitionsAndConstruction.heading} ${article11Clauses.certainDefinitionsAndConstruction.clause1}` }, article11Clauses.certainDefinitionsAndConstruction.subclauses1,
-                        { certainDefinitionsAndConstruction2: `${article11Clauses.certainDefinitionsAndConstruction.clause2}` }, article11Clauses.certainDefinitionsAndConstruction.subclauses2
+                        { certainDefinitions: `${article11Clauses.certainDefinitions.heading} ${article11Clauses.certainDefinitions.clause}` }, article11Clauses.certainDefinitions.subclauses,
+                        { construction: `${article11Clauses.construction.heading} ${article11Clauses.construction.clause}` }, article11Clauses.construction.subclauses
                     ])
                 }
             })
@@ -660,14 +661,12 @@ function Dashboard() {
 
     // Contract question state and functions. The clauses in the Company Agreement will dynamically update depending on how the questions are answered.
 
-    // I only have one question / updater inserted at this point but will add more. We can probably dynamically update 5-10 clauses depending on how the user answers these questions.
-
-    const [certificateValue, setCertificateValue] = useState("No");
+    const [certificateTerm, setCertificateTerm] = useState("Uncertificated");
 
     // The setter below is probably overcomplicated. It first checks to see if the key value for the updated object already exists. If so, it updates the object; if not, it creates the object. Without this, I was running into an issue where the clause was repeatedly rendered if the value changed multiple times.
 
     const handleCertificateChange = (event) => {
-        setCertificateValue(event.target.value);
+        setCertificateTerm(event.target.value);
         fetch("./data/clause-data.json", {
             headers: {
                 "Content-Type": "application/json",
@@ -679,27 +678,169 @@ function Dashboard() {
             })
             .then(JSON => {
                 let { article2 } = JSON;
-                if (certificateValue === "Yes") {
+                if (members.length < 2) {
+                    let { article2SM } = article2;
+                    let { article2Clauses } = article2SM;
+                    if (certificateTerm === "Certificated") {
+                        let _tempArticle2 = [...article2State];
+                        if (_tempArticle2.some(object => object.certificates)) {
+                            let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                            _tempArticle2[certIndex].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}`;
+                        } else {
+                            _tempArticle2 = [...article2State, { certificates: `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}` }];
+                        };
+                        setArticle2(_tempArticle2);
+                    } else if (certificateTerm === "Uncertificated") {
+                        let _tempArticle2 = [...article2State];
+                        if (_tempArticle2.some(object => object.certificates)) {
+                            let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                            _tempArticle2[certIndex].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.certificated}`;
+                        } else {
+                            _tempArticle2 = [...article2State, { certificates: `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.certificated}` }];
+                        }
+                        setArticle2(_tempArticle2)
+                    };
+                } else {
+                    let { article2MM } = article2;
+                    let { article2Clauses } = article2MM;
+                    if (certificateTerm === "Certificated") {
+                        let _tempArticle2 = [...article2State];
+                        if (_tempArticle2.some(object => object.certificates)) {
+                            let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                            _tempArticle2[certIndex].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}`;
+                        } else {
+                            _tempArticle2 = [...article2State, { certificates: `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}` }];
+                        };
+                        setArticle2(_tempArticle2);
+                    } else if (certificateTerm === "Uncertificated") {
+                        let _tempArticle2 = [...article2State];
+                        if (_tempArticle2.some(object => object.certificates)) {
+                            let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                            _tempArticle2[certIndex].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.certificated}`;
+                        } else {
+                            _tempArticle2 = [...article2State, { certificates: `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.certificated}` }];
+                        }
+                        setArticle2(_tempArticle2)
+                    };
+                }
+            })
+    }
+
+    const [standardVoteTerm, setStandardVoteTerm] = useState("Unanimous");
+
+    const handleVoteChange = (event) => {
+        setStandardVoteTerm(event.target.value);
+        fetch("./data/clause-data.json", {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(JSON => {
+                let { article2, article3 } = JSON;
+                let { article2MM } = article2;
+                let { article2Clauses } = article2MM;
+                let { article3MM } = article3;
+                let { article3Clauses } = article3MM
+                if (standardVoteTerm === "Majority") {
                     let _tempArticle2 = [...article2State];
-                    if (_tempArticle2.some(object => object.certificates)) {
-                        let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
-                        _tempArticle2[certIndex].certificates = `${article2.article2SM.article2Clauses.certificates.heading} ${article2.article2SM.article2Clauses.certificates.clause.uncertificated}`;
+                    if (_tempArticle2.some(object => object.admissionOfNewMembers)) {
+                        let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
+                        _tempArticle2[certIndex].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.unanimous}`;
                     } else {
-                        _tempArticle2 = [...article2State, { certificates: `${article2.article2SM.article2Clauses.certificates.heading} ${article2.article2SM.article2Clauses.certificates.clause.uncertificated}` }];
+                        _tempArticle2 = [...article2State, { admissionOfNewMembers: `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.unanimous}` }];
                     };
                     setArticle2(_tempArticle2);
-                } else if (certificateValue === "No") {
-                    let _tempArticle2 = [...article2State];
-                    if (_tempArticle2.some(object => object.certificates)) {
-                        let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
-                        _tempArticle2[certIndex].certificates = `${article2.article2SM.article2Clauses.certificates.heading} ${article2.article2SM.article2Clauses.certificates.clause.certificated}`;
+                    let _tempArticle3 = [...article3State];
+                    if (_tempArticle3.some(object => object.quorumAndActOfMembersOrCommittee)) {
+                        let certIndex = _tempArticle3.findIndex(object => Object.keys(object)[0] === "quorumAndActOfMembersOrCommittee");
+                        _tempArticle3[certIndex].quorumAndActOfMembersOrCommittee = `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.unanimous}`;
                     } else {
-                        _tempArticle2 = [...article2State, { certificates: `${article2.article2SM.article2Clauses.certificates.heading} ${article2.article2SM.article2Clauses.certificates.clause.certificated}` }];
-                    }
-                    setArticle2(_tempArticle2)
+                        _tempArticle3 = [...article2State, { quorumAndActOfMembersOrCommittee: `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.unanimous}` }];
+                    };
+                    setArticle3(_tempArticle3);
+                } else if (standardVoteTerm === "Unanimous") {
+                    let _tempArticle2 = [...article2State];
+                    if (_tempArticle2.some(object => object.admissionOfNewMembers)) {
+                        let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
+                        _tempArticle2[certIndex].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.majority}`;
+                    } else {
+                        _tempArticle2 = [...article2State, { admissionOfNewMembers: `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.majority}` }];
+                    };
+                    setArticle2(_tempArticle2);
+                    let _tempArticle3 = [...article3State];
+                    if (_tempArticle3.some(object => object.quorumAndActOfMembersOrCommittee)) {
+                        let certIndex = _tempArticle3.findIndex(object => Object.keys(object)[0] === "quorumAndActOfMembersOrCommittee");
+                        _tempArticle3[certIndex].quorumAndActOfMembersOrCommittee = `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.majority}`;
+                    } else {
+                        _tempArticle3 = [...article2State, { quorumAndActOfMembersOrCommittee: `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.majority}` }];
+                    };
+                    setArticle3(_tempArticle3);
                 };
             })
     }
+
+    const [fundamentalVoteTerm, setFundamentalVoteTerm] = useState("Unanimous");
+
+    const handleVoteChange = (event) => {
+        setStandardVoteTerm(event.target.value);
+        fetch("./data/clause-data.json", {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(JSON => {
+                let { article2, article3 } = JSON;
+                let { article2MM } = article2;
+                let { article2Clauses } = article2MM;
+                let { article3MM } = article3;
+                let { article3Clauses } = article3MM
+                if (standardVoteTerm === "Majority") {
+                    let _tempArticle2 = [...article2State];
+                    if (_tempArticle2.some(object => object.admissionOfNewMembers)) {
+                        let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
+                        _tempArticle2[certIndex].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.unanimous}`;
+                    } else {
+                        _tempArticle2 = [...article2State, { admissionOfNewMembers: `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.unanimous}` }];
+                    };
+                    setArticle2(_tempArticle2);
+                    let _tempArticle3 = [...article3State];
+                    if (_tempArticle3.some(object => object.quorumAndActOfMembersOrCommittee)) {
+                        let certIndex = _tempArticle3.findIndex(object => Object.keys(object)[0] === "quorumAndActOfMembersOrCommittee");
+                        _tempArticle3[certIndex].quorumAndActOfMembersOrCommittee = `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.unanimous}`;
+                    } else {
+                        _tempArticle3 = [...article2State, { quorumAndActOfMembersOrCommittee: `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.unanimous}` }];
+                    };
+                    setArticle3(_tempArticle3);
+                } else if (standardVoteTerm === "Unanimous") {
+                    let _tempArticle2 = [...article2State];
+                    if (_tempArticle2.some(object => object.admissionOfNewMembers)) {
+                        let certIndex = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
+                        _tempArticle2[certIndex].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.majority}`;
+                    } else {
+                        _tempArticle2 = [...article2State, { admissionOfNewMembers: `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.majority}` }];
+                    };
+                    setArticle2(_tempArticle2);
+                    let _tempArticle3 = [...article3State];
+                    if (_tempArticle3.some(object => object.quorumAndActOfMembersOrCommittee)) {
+                        let certIndex = _tempArticle3.findIndex(object => Object.keys(object)[0] === "quorumAndActOfMembersOrCommittee");
+                        _tempArticle3[certIndex].quorumAndActOfMembersOrCommittee = `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.majority}`;
+                    } else {
+                        _tempArticle3 = [...article2State, { quorumAndActOfMembersOrCommittee: `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.majority}` }];
+                    };
+                    setArticle3(_tempArticle3);
+                };
+            })
+    }
+
+
 
     // useEffect functions to fetch JSON data and update applicable states as values change
 
@@ -742,9 +883,9 @@ function Dashboard() {
         generateExhibitA();
     }, [members])
 
-    const generateWordDocument = (companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article9State, article10State, article11State) => {
+    const generateWordDocument = (companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
         if (members.length < 2) {
-            SMGenerator(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article9State, article10State, article11State)
+            SMGenerator(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)
         }
     }
 
@@ -800,7 +941,7 @@ function Dashboard() {
                                 </Typography>
                                 <div className={classes.buttons}>
                                     {console.log(contractHead)}
-                                    <Button className={classes.button} onClick={() => generateWordDocument(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article9State, article10State, article11State)}>
+                                    <Button className={classes.button} onClick={() => generateWordDocument(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)}>
                                         Word
                                     </Button>
                                     <Button className={classes.button}>
