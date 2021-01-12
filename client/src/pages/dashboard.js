@@ -318,6 +318,7 @@ function Dashboard() {
                         { noticeOfMeetings: `${article3Clauses.noticeOfMeetings.heading} ${article3Clauses.noticeOfMeetings.clause}` },
                         { waiverOfNotice: `${article3Clauses.waiverOfNotice.heading} ${article3Clauses.waiverOfNotice.clause}` },
                         { whoMayCall: `${article3Clauses.whoMayCall.heading} ${article3Clauses.whoMayCall.clause}` },
+                        { timeOfNotice: `${article3Clauses.timeOfNotice.heading} ${article3Clauses.timeOfNotice.clause}` },
                         { quorumAndActOfMembersOrCommittee: `${article3Clauses.quorumAndActOfMembersOrCommittee.heading}` },
                         { votesRequiredToApproveCertainActions: `${article3Clauses.votesRequiredToApproveCertainActions.heading}` },
                         { mannerOfVoting: `${article3Clauses.mannerOfVoting.heading} ${article3Clauses.mannerOfVoting.clause}` },
@@ -678,8 +679,7 @@ function Dashboard() {
     // The setter below is probably overcomplicated. It first checks to see if the key value for the updated object already exists. If so, it updates the object; if not, it creates the object. Without this, I was running into an issue where the clause was repeatedly rendered if the value changed multiple times.
 
     const handleCertificateChange = (event) => {
-        setCertificateTerm(event.target.value);
-        console.log(certificateTerm);
+
         fetch("./data/clause-data.json", {
             headers: {
                 "Content-Type": "application/json",
@@ -690,41 +690,40 @@ function Dashboard() {
                 return response.json();
             })
             .then(JSON => {
+                setCertificateTerm(event.target.value);
                 let { article2 } = JSON;
                 if (members.length < 2) {
                     let { article2SM } = article2;
                     let { article2Clauses } = article2SM;
                     let _tempArticle2 = [...article2State];
-                    if (certificateTerm === "Certificated") {
-                        let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
-                        _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}`;
-                    } else if (certificateTerm === "Uncertificated") {
+                    if (event.target.value === "Certificated") {
                         let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
                         _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.certificated}`;
+                    } else if (event.target.value === "Uncertificated") {
+                        let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                        _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}`;
                     }
                     setArticle2(_tempArticle2)
                 } else {
                     let { article2MM } = article2;
                     let { article2Clauses } = article2MM;
                     let _tempArticle2 = [...article2State];
-                    if (certificateTerm === "Certificated") {
-                        let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
-                        _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}`;
-                    } else if (certificateTerm === "Uncertificated") {
+                    if (event.target.value === "Certificated") {
                         let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
                         _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.certificated}`;
+                    } else if (event.target.value === "Uncertificated") {
+                        let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                        _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}`;
                     }
                     setArticle2(_tempArticle2)
                 };
             })
     }
 
-
     const [standardVoteTerm, setStandardVoteTerm] = useState("");
 
     const handleStandardVoteChange = (event) => {
-        console.log(standardVoteTerm);
-        setStandardVoteTerm(event.target.value);
+
         fetch("./data/clause-data.json", {
             headers: {
                 "Content-Type": "application/json",
@@ -735,6 +734,7 @@ function Dashboard() {
                 return response.json();
             })
             .then(JSON => {
+                setStandardVoteTerm(event.target.value);
                 let { article2, article3 } = JSON;
                 let { article2MM } = article2;
                 let { article2Clauses } = article2MM;
@@ -742,25 +742,10 @@ function Dashboard() {
                 let { article3Clauses } = article3MM;
                 let _tempArticle2 = [...article2State];
                 let _tempArticle3 = [...article3State];
-                if (standardVoteTerm === "Majority-in-Interest") {
-                    // issuance of interests after formation
-                    let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "issuanceOfMembershipInterestsAfterFormationOfCompany");
-                    _tempArticle2[index].issuanceOfMembershipInterestsAfterFormationOfCompany = `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading} ${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.clause.unanimous}`;
-                    index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
-                    _tempArticle2[index].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.unanimous}`;
-                    setArticle2(_tempArticle2);
-                    // quorum and act of members or committee
-                    index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "quorumAndActOfMembersOrCommittee");
-                    _tempArticle3[index].quorumAndActOfMembersOrCommittee = `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.unanimous}`;
-                    // fundamental votes
-                    index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "votesRequiredToApproveCertainActions");
-                    _tempArticle3[index].votesRequiredToApproveCertainActions = `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.unanimous}`;
-                    setArticle3(_tempArticle3);
-                } else if (standardVoteTerm === "Unanimous") {
+                if (event.target.value === "Majority-in-Interest") {
                     // issuance of interests after formation
                     let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "issuanceOfMembershipInterestsAfterFormationOfCompany");
                     _tempArticle2[index].issuanceOfMembershipInterestsAfterFormationOfCompany = `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading} ${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.clause.majority}`;
-                    // admission of new members
                     index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
                     _tempArticle2[index].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.majority}`;
                     setArticle2(_tempArticle2);
@@ -771,54 +756,29 @@ function Dashboard() {
                     index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "votesRequiredToApproveCertainActions");
                     _tempArticle3[index].votesRequiredToApproveCertainActions = `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.supermajority}`;
                     setArticle3(_tempArticle3);
+                } else if (event.target.value === "Unanimous") {
+                    // issuance of interests after formation
+                    let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "issuanceOfMembershipInterestsAfterFormationOfCompany");
+                    _tempArticle2[index].issuanceOfMembershipInterestsAfterFormationOfCompany = `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading} ${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.clause.unanimous}`;
+                    // admission of new members
+                    index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
+                    _tempArticle2[index].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.unanimous}`;
+                    setArticle2(_tempArticle2);
+                    // quorum and act of members or committee
+                    index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "quorumAndActOfMembersOrCommittee");
+                    _tempArticle3[index].quorumAndActOfMembersOrCommittee = `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.unanimous}`;
+                    // fundamental votes
+                    index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "votesRequiredToApproveCertainActions");
+                    _tempArticle3[index].votesRequiredToApproveCertainActions = `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.unanimous}`;
+                    setArticle3(_tempArticle3);
                 };
             })
     }
 
-    // const [fundamentalVoteTerm, setFundamentalVoteTerm] = useState("");
-
-    // const handleFundamentalVoteChange = (event) => {
-    //     console.log(fundamentalVoteTerm);
-    //     setFundamentalVoteTerm(event.target.value);
-    //     fetch("./data/clause-data.json", {
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         }
-    //     })
-    //         .then(response => {
-    //             return response.json();
-    //         })
-    //         .then(JSON => {
-    //             let { article3 } = JSON;
-    //             let { article3MM } = article3;
-    //             let { article3Clauses } = article3MM
-    //             if (fundamentalVoteTerm === "Supermajority-in-Interest") {
-    //                 let _tempArticle3 = [...article3State];
-    //                 if (_tempArticle3.some(object => object.votesRequiredToApproveCertainActions)) {
-    //                     let index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "votesRequiredToApproveCertainActions");
-    //                     _tempArticle3[index].votesRequiredToApproveCertainActions = `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.unanimous}`;
-    //                 } else {
-    //                     _tempArticle3 = [...article3State.slice(0, 11), { votesRequiredToApproveCertainActions: `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.unanimous}` }, ...article3State.slice(11)];
-    //                 };
-    //                 setArticle3(_tempArticle3);
-    //             } else if (standardVoteTerm === "Unanimous") {
-    //                 let _tempArticle3 = [...article3State];
-    //                 if (_tempArticle3.some(object => object.votesRequiredToApproveCertainActions)) {
-    //                     let index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "votesRequiredToApproveCertainActions");
-    //                     _tempArticle3[index].votesRequiredToApproveCertainActions = `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.supermajority}`;
-    //                 } else {
-    //                     _tempArticle3 = [...article3State.slice(0, 11), { votesRequiredToApproveCertainActions: `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.supermajority}` }, ...article3State.slice(11)];
-    //                 };
-    //                 setArticle3(_tempArticle3);
-    //             };
-    //         })
-    // }
-
     const [taxDistributionTerm, setTaxDistributionTerm] = useState("");
 
     const handleTaxDistributionChange = (event) => {
-        setTaxDistributionTerm(event.target.value);
+
         fetch("./data/clause-data.json", {
             headers: {
                 "Content-Type": "application/json",
@@ -829,17 +789,18 @@ function Dashboard() {
                 return response.json();
             })
             .then(JSON => {
+                setTaxDistributionTerm(event.target.value);
                 let { article6 } = JSON;
                 let { article6MM } = article6;
                 let { article6Clauses } = article6MM;
                 let _tempArticle6 = [...article6State];
-                if (taxDistributionTerm === "Omit") {
+                if (event.target.value === "Omit") {
+                    let index = _tempArticle6.findIndex(object => Object.keys(object)[0] === "requiredAnnualTaxDistribution");
+                    _tempArticle6[index].requiredAnnualTaxDistribution = `${article6Clauses.requiredAnnualTaxDistribution.heading} ${article6Clauses.requiredAnnualTaxDistribution.clause.omitted}`;
+                    setArticle6(_tempArticle6);
+                } else if (event.target.value === "Include") {
                     let index = _tempArticle6.findIndex(object => Object.keys(object)[0] === "requiredAnnualTaxDistribution");
                     _tempArticle6[index].requiredAnnualTaxDistribution = `${article6Clauses.requiredAnnualTaxDistribution.heading} ${article6Clauses.requiredAnnualTaxDistribution.clause.included}`;
-                    setArticle6(_tempArticle6);
-                } else if (taxDistributionTerm === "Include") {
-                    let index = _tempArticle6.findIndex(object => Object.keys(object)[0] === "requiredAnnualTaxDistribution");
-                    _tempArticle6[index].requiredAnnualTaxDistribution = `${article6Clauses.requiredAnnualTaxDistribution.heading} ${article6Clauses.requiredAnnualTaxDistribution.clause.ommitted}`;
                     setArticle6(_tempArticle6);
                 };
             })
@@ -848,7 +809,7 @@ function Dashboard() {
     const [pushPullTerm, setPushPullTerm] = useState("");
 
     const handlePushPullChange = (event) => {
-        setPushPullTerm(event.target.value);
+
         fetch("./data/clause-data.json", {
             headers: {
                 "Content-Type": "application/json",
@@ -859,23 +820,22 @@ function Dashboard() {
                 return response.json();
             })
             .then(JSON => {
+                setPushPullTerm(event.target.value);
                 let { article8 } = JSON;
                 let { article8MM } = article8;
                 let { article8Clauses } = article8MM;
                 let _tempArticle8 = [...article8State];
-                if (pushPullTerm === "Omit") {
-                    let index = _tempArticle8.findIndex(object => Object.keys(object)[0] === "pushPullBuyout");
-                    _tempArticle8[index].pushPullBuyout = `${article8Clauses.pushPullBuyout.heading}`;
-                    _tempArticle8 = [...article8State.slice(0, index + 1), article8Clauses.pushPullBuyout.clause.included, ...article8State.slice(index + 1)];
-                    console.log(_tempArticle8);
-                    setArticle8(_tempArticle8);
-                } else if (pushPullTerm === "Include") {
+                if (event.target.value === "Omit") {
                     let index = _tempArticle8.findIndex(object => Object.keys(object)[0] === "pushPullBuyout");
                     _tempArticle8[index].pushPullBuyout = `${article8Clauses.pushPullBuyout.heading} ${article8Clauses.pushPullBuyout.clause.omitted}`;
                     if (Array.isArray(_tempArticle8[index + 1])) {
                         _tempArticle8.splice(index + 1, 1);
                     }
-                    console.log(_tempArticle8);
+                    setArticle8(_tempArticle8);
+                } else if (event.target.value === "Include") {
+                    let index = _tempArticle8.findIndex(object => Object.keys(object)[0] === "pushPullBuyout");
+                    _tempArticle8[index].pushPullBuyout = `${article8Clauses.pushPullBuyout.heading}`;
+                    _tempArticle8 = [...article8State.slice(0, index + 1), article8Clauses.pushPullBuyout.clause.included, ...article8State.slice(index + 1)];
                     setArticle8(_tempArticle8);
                 };
             })
@@ -884,7 +844,7 @@ function Dashboard() {
     const [fiduciaryDutyTerm, setFiduciaryDutyTerm] = useState("");
 
     const handleFiduciaryDutyChange = (event) => {
-        setFiduciaryDutyTerm(event.target.value);
+
         fetch("./data/clause-data.json", {
             headers: {
                 "Content-Type": "application/json",
@@ -895,25 +855,26 @@ function Dashboard() {
                 return response.json();
             })
             .then(JSON => {
+                setFiduciaryDutyTerm(event.target.value);
                 let { article9 } = JSON;
                 let { article9MM } = article9;
                 let { article9Clauses } = article9MM;
                 let _tempArticle9 = [...article9State];
-                if (fiduciaryDutyTerm === "Limited") {
-                    // scope of duties
-                    let index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "scopeOfDutiesOfCoveredPersons");
-                    _tempArticle9[index].scopeOfDutiesOfCoveredPersons = `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause.default}`;
-                    // indemnification
-                    index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "indemnification");
-                    _tempArticle9[index].indemnification = `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause.default}`;
-                    setArticle9(_tempArticle9);
-                } else if (fiduciaryDutyTerm === "Include") {
+                if (event.target.value === "Limited") {
                     // scope of duties
                     let index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "scopeOfDutiesOfCoveredPersons");
                     _tempArticle9[index].scopeOfDutiesOfCoveredPersons = `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause.limited}`;
                     // indemnification
                     index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "indemnification");
                     _tempArticle9[index].indemnification = `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause.limited}`;
+                    setArticle9(_tempArticle9);
+                } else if (event.target.value === "Default") {
+                    // scope of duties
+                    let index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "scopeOfDutiesOfCoveredPersons");
+                    _tempArticle9[index].scopeOfDutiesOfCoveredPersons = `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause.default}`;
+                    // indemnification
+                    index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "indemnification");
+                    _tempArticle9[index].indemnification = `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause.default}`;
                     setArticle9(_tempArticle9);
                 };
             })
@@ -946,9 +907,6 @@ function Dashboard() {
     useEffect(() => {
         console.log(article2State)
     }, [standardVoteTerm])
-
-
-
 
     const generateWordDocument = (companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
         if (members.length < 2) {
