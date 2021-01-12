@@ -31,7 +31,7 @@ export default function MaterialAppBar() {
 
     function logoutEvent(event) {
         event.preventDefault();
-            userAPI.logoutUser().then((req) => {
+            userAPI.logoutUser().then(() => {
               window.location.replace("/");
             })
                 .catch(err => console.log(err));
