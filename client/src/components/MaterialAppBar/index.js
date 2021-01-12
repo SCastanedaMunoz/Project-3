@@ -1,4 +1,5 @@
 import React from 'react';
+import userAPI from "../../utils/userAPI"
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -27,6 +28,15 @@ export default function MaterialAppBar() {
     const redirectHome = () => {
         history.push("/")
     }
+
+    function logoutEvent(event) {
+        event.preventDefault();
+            userAPI.logoutUser().then((req) => {
+              window.location.replace("/");
+            })
+                .catch(err => console.log(err));
+      };
+  
     
     return (
         <div className={classes.root}>
@@ -39,6 +49,7 @@ export default function MaterialAppBar() {
                             Formulater
                         </Typography>
                     <Button color="inherit" onClick= {redirectHome}>Login</Button>
+                    <Button color="inherit" onClick={logoutEvent}>Logout</Button>
                     </Toolbar>
                 </AppBar>
         </div>
