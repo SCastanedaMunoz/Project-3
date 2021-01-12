@@ -1,8 +1,7 @@
 name: Test and Deploy
 
 on:
-  push: main
-  release: { types: [published] }
+  push: { branches: [main] }
 
 jobs:
   deploy-legal-formulator:
