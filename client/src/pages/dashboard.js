@@ -11,6 +11,7 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 import CompanyAgreementView from "../components/ContractViews/CompanyAgreementView";
 import BlankCompanyAgreementView from "../components/ContractViews/BlankCompanyAgreementView";
 import ExhibitAView from '../components/ContractViews/ExhibitAView';
@@ -18,6 +19,7 @@ import BlankExhibitAView from '../components/ContractViews/BlankExhibitAView';
 import AppBar from '../components/MaterialAppBar';
 
 import SMGenerator from '../components/WordGenerators/SMGenerator';
+import MMGenerator from '../components/WordGenerators/MMGenerator';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -53,6 +55,11 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(3),
         marginLeft: theme.spacing(1),
     },
+    finalBtns: {
+        padding: '30px',
+        display: 'flex',
+        justifyContent: 'space-around'
+    }
 }));
 
 function Dashboard() {
@@ -89,8 +96,6 @@ function Dashboard() {
                     handleCertificateChange={handleCertificateChange}
                     standardVoteTerm={standardVoteTerm}
                     handleStandardVoteChange={handleStandardVoteChange}
-                    // fundamentalVoteTerm={fundamentalVoteTerm}
-                    // handleFundamentalVoteChange={handleFundamentalVoteChange}
                     taxDistributionTerm={taxDistributionTerm}
                     handleTaxDistributionChange={handleTaxDistributionChange}
                     pushPullTerm={pushPullTerm}
@@ -633,7 +638,7 @@ function Dashboard() {
                         { entireAgreement: `${article11Clauses.entireAgreement.heading} ${article11Clauses.entireAgreement.clause}` },
                         { amendments: `${article11Clauses.amendments.heading} ${article11Clauses.amendments.clause}` },
                         { governingLaw: `${article11Clauses.governingLaw.heading} ${article11Clauses.governingLaw.clause}` },
-                        { powerofAttorney: `${article11Clauses.powerofAttorney.heading} ${article11Clauses.powerofAttorney.clause}` },
+                        { powerOfAttorney: `${article11Clauses.powerOfAttorney.heading} ${article11Clauses.powerOfAttorney.clause}` },
                         { bindingEffectNoThirdPartyBeneficiaries: `${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.heading} ${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.clause}` },
                         { counterparts: `${article11Clauses.counterparts.heading} ${article11Clauses.counterparts.clause}` },
                         { certainDefinitions: `${article11Clauses.certainDefinitions.heading} ${article11Clauses.certainDefinitions.clause}` }, article11Clauses.certainDefinitions.subclauses,
@@ -645,32 +650,6 @@ function Dashboard() {
                 console.log(error);
             })
     }
-
-    const generateExhibitA = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { exhibitA } = JSON;
-                // setExhibitA([
-                //     { heading: `${exhibitA.heading}` },
-                //     { memberNameAndAddress: `${exhibitA.memberNameAndAddress.heading}` },
-                //     { capitalContribution: `${exhibitA.capitalContribution.heading}` },
-                //     { percentage: `${exhibitA.percentage.heading}` }
-                // ])
-            })
-
-            .catch(error => {
-                console.log(error);
-            })
-    }
-
 
     // Contract question state and functions. The clauses in the Company Agreement will dynamically update depending on how the questions are answered.
 
@@ -894,7 +873,6 @@ function Dashboard() {
         generateArticle9();
         generateArticle10();
         generateArticle11();
-        generateExhibitA();
     }, [members])
 
     // We only need to re-generate the Company Agreement heading and Article 1 for companyDetails and raDetails state changes
@@ -908,9 +886,11 @@ function Dashboard() {
         console.log(article2State)
     }, [standardVoteTerm])
 
-    const generateWordDocument = (companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
+    const generateWordDocument = (contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
         if (members.length < 2) {
-            SMGenerator(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)
+            SMGenerator(contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)
+        } else {
+            MMGenerator(contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)
         }
     }
 
@@ -964,15 +944,11 @@ function Dashboard() {
                                 <Typography component="h1" variant="h4" align="center">
                                     Download or Save Your Document
                                 </Typography>
-                                <div className={classes.buttons}>
-                                    {console.log(contractHead)}
-                                    <Button className={classes.button} onClick={() => generateWordDocument(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)}>
-                                        Word
+                                <div className={classes.finalBtns}>
+                                    <Button variant="contained" color="primary" onClick={() => generateWordDocument(contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)}>
+                                        Download
                                     </Button>
-                                    <Button className={classes.button}>
-                                        PDF
-                                    </Button>
-                                    <Button className={classes.button}>
+                                    <Button variant="contained" color="secondary" startIcon={<SaveIcon />}>
                                         Save
                                     </Button>
                                 </div>
