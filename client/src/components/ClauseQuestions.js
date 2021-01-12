@@ -54,15 +54,6 @@ export default function ClauseQuestions({
                                 </RadioGroup>
                             </FormControl>
                         </Grid>
-                        {/* <Grid item xs={12}>
-                            <FormControl component="fieldset">
-                                <FormLabel component="legend">Should votes on fundamental business matters be unanimous or by supermajority-in-interest?</FormLabel>
-                                <RadioGroup aria-label="Fundamental Votes" name="fundamental-votes" value={fundamentalVoteTerm} onChange={handleFundamentalVoteChange}>
-                                    <FormControlLabel value="Unanimous" control={<Radio />} label="Unanimous" />
-                                    <FormControlLabel value="Supermajority-in-Interest" control={<Radio />} label="Supermajority-in-Interest" />
-                                </RadioGroup>
-                            </FormControl>
-                        </Grid> */}
                         <Grid item xs={12}>
                             <FormControl component="fieldset">
                                 <FormLabel component="legend">Should the company agreemeent include a term for mandatory annual tax distributions?</FormLabel>

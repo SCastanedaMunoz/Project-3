@@ -62,12 +62,11 @@ function addBreak() {
     return new TextRun({}).break();
 }
 
-function addDoubleBreak() {
-    return [addBreak(), addBreak()];
-}
 
-function SMGenerator(companyDetails, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) {
-    console.log(article9State)
+function SMGenerator(contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) {
+
+    console.log(contractHead);
+
     const doc = new Document({
         // externalStyles: data,
     });
@@ -147,7 +146,7 @@ function SMGenerator(companyDetails, contractHead, article1State, article2State,
     // // Used to export the file into a .docx file
     Packer.toBlob(doc).then((blob) => {
         console.log(blob);
-        saveAs(blob, "example.docx");
+        saveAs(blob, "single-member-company-agreement.docx");
     });
 
     // Create document
