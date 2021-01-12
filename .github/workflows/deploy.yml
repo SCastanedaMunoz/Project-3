@@ -17,16 +17,16 @@ jobs:
      - name: Create .netrc for Heroku Auth
        shell: bash
        run: |
-         `cat ≶~/.netrc <<EOF
-         machine api.heroku.com
-             login $EMAIL
-             password $HEROKU_AUTH_TOKEN
-         machine git.heroku.com
-             login $EMAIL
-             password $HEROKU_AUTH_TOKEN
-         EOF`
+         `cat >~/.netrc <<EOF
+          machine api.heroku.com
+              login $EMAIL
+              password $HEROKU_AUTH_TOKEN
+          machine git.heroku.com
+              login $EMAIL
+              password $HEROKU_AUTH_TOKEN
+          EOF`
        env:
-         EMAIL: me@gmail.com
+         EMAIL: ${{ secrets.EMAIL }}
          HEROKU_AUTH_TOKEN: ${{ secrets.HEROKU_AUTH_TOKEN }}
       
      # Add Application Remote
