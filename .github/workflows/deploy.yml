@@ -8,38 +8,36 @@ jobs:
   deploy-legal-formulator:
     runs-on: ubuntu-latest
     steps:
-
-      # Checkout Repo
-      - name: Checkout Repository
+     # Checkout Repo
+     - name: Checkout Repository
        uses: actions/checkout@v1
-        with:
-          ref: main
+       with:
+        ref: main
 
-      # Setup Authentication with Heroku
-      - name: Create .netrc for Heroku Auth
-
-        shell: bash
-        run: |
-          `cat ≶~/.netrc <<EOF
-          machine api.heroku.com
-              login $EMAIL
-              password $HEROKU_AUTH_TOKEN
-          machine git.heroku.com
-              login $EMAIL
-              password $HEROKU_AUTH_TOKEN
-          EOF`
-        env:
-          EMAIL: me@gmail.com
-          HEROKU_AUTH_TOKEN: ${{ secrets.HEROKU_AUTH_TOKEN }}
+     # Setup Authentication with Heroku
+     - name: Create .netrc for Heroku Auth
+       shell: bash
+       run: |
+         `cat ≶~/.netrc <<EOF
+         machine api.heroku.com
+             login $EMAIL
+             password $HEROKU_AUTH_TOKEN
+         machine git.heroku.com
+             login $EMAIL
+             password $HEROKU_AUTH_TOKEN
+         EOF`
+       env:
+         EMAIL: me@gmail.com
+         HEROKU_AUTH_TOKEN: ${{ secrets.HEROKU_AUTH_TOKEN }}
       
-      # Add Application Remote
-      - name: Add Remote
-        shell: bash
-        run: |
-          heroku git:remote --app legal-formulator
+     # Add Application Remote
+     - name: Add Remote
+       shell: bash
+       run: |
+         heroku git:remote --app legal-formulator
 
-      # Actually Deploy to Heroku
-      - name: Push to heroku
-        shell: bash
-        run: |
-          git push heroku HEAD:master
+     # Actually Deploy to Heroku
+     - name: Push to heroku
+       shell: bash
+       run: |
+         git push heroku HEAD:master
