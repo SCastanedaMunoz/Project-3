@@ -18,6 +18,8 @@ import ExhibitAView from '../components/ContractViews/ExhibitAView';
 import BlankExhibitAView from '../components/ContractViews/BlankExhibitAView';
 import AppBar from '../components/MaterialAppBar';
 
+import userAPI from "../utils/userAPI";
+
 import SMGenerator from '../components/WordGenerators/SMGenerator';
 import MMGenerator from '../components/WordGenerators/MMGenerator';
 
@@ -873,7 +875,7 @@ function Dashboard() {
         generateArticle9();
         generateArticle10();
         generateArticle11();
-    }, [members])
+    }, [])
 
     // We only need to re-generate the Company Agreement heading and Article 1 for companyDetails and raDetails state changes
 
@@ -882,9 +884,33 @@ function Dashboard() {
         generateArticle1();
     }, [companyDetails, raDetails]);
 
-    useEffect(() => {
-        console.log(article2State)
-    }, [standardVoteTerm])
+    // User object to store all state data; will be passed to db to save state for each user
+
+    const storeData = () => {
+        userAPI.getCurrentUser()
+            .then(result => {
+                if (result.data.email) {
+                    const userData = {
+                        userEmail: result.data.email,
+                        step: activeStep,
+                        members: [...members],
+                        companyDetails: { ...companyDetails },
+                        raDetails: { ...raDetails },
+                        certificateTerm: certificateTerm,
+                        standardVoteTerm: standardVoteTerm,
+                        taxDistributionTerm: taxDistributionTerm,
+                        pushPullTerm: pushPullTerm,
+                        fiduciaryDutyTerm: fiduciaryDutyTerm
+                    }
+                    console.log(userData);
+                } else {
+                    return;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
 
     const generateWordDocument = (contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
         if (members.length < 2) {
@@ -926,7 +952,7 @@ function Dashboard() {
                                         <Button
                                             variant="contained"
                                             color="primary"
-                                            onClick={handleNext}
+                                            onClick={() => { handleNext(); storeData() }}
                                             className={classes.button}
                                         >
                                             {/* On the last step, the bottom button text changes from "Next" to "Finish." On Finish click, the form paper will dissapear because the step exceeds steps.length */}
