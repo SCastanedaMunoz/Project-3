@@ -16,13 +16,9 @@ import CompanyAgreementView from "../components/ContractViews/CompanyAgreementVi
 import BlankCompanyAgreementView from "../components/ContractViews/BlankCompanyAgreementView";
 import ExhibitAView from '../components/ContractViews/ExhibitAView';
 import BlankExhibitAView from '../components/ContractViews/BlankExhibitAView';
-import AppBar from '../components/MaterialAppBar';
-
-import userAPI from "../utils/userAPI";
-
+import AppBarU from '../components/MaterialAppBarUser';
 import SMGenerator from '../components/WordGenerators/SMGenerator';
 import MMGenerator from '../components/WordGenerators/MMGenerator';
-
 
 const useStyles = makeStyles((theme) => ({
 
@@ -62,11 +58,10 @@ const useStyles = makeStyles((theme) => ({
         padding: '30px',
         display: 'flex',
         justifyContent: 'space-around'
-    },
-   
+    }
 }));
 
-function Dashboard() {
+function UserDashboard() {
     const classes = useStyles();
 
     // Step state and functions to handle form flow
@@ -877,7 +872,7 @@ function Dashboard() {
         generateArticle9();
         generateArticle10();
         generateArticle11();
-    }, [])
+    }, [members])
 
     // We only need to re-generate the Company Agreement heading and Article 1 for companyDetails and raDetails state changes
 
@@ -886,33 +881,9 @@ function Dashboard() {
         generateArticle1();
     }, [companyDetails, raDetails]);
 
-    // User object to store all state data; will be passed to db to save state for each user
-
-    const storeData = () => {
-        userAPI.getCurrentUser()
-            .then(result => {
-                if (result.data.email) {
-                    const userData = {
-                        userEmail: result.data.email,
-                        step: activeStep,
-                        members: [...members],
-                        companyDetails: { ...companyDetails },
-                        raDetails: { ...raDetails },
-                        certificateTerm: certificateTerm,
-                        standardVoteTerm: standardVoteTerm,
-                        taxDistributionTerm: taxDistributionTerm,
-                        pushPullTerm: pushPullTerm,
-                        fiduciaryDutyTerm: fiduciaryDutyTerm
-                    }
-                    console.log(userData);
-                } else {
-                    return;
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+    useEffect(() => {
+        console.log(article2State)
+    }, [standardVoteTerm])
 
     const generateWordDocument = (contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
         if (members.length < 2) {
@@ -924,7 +895,7 @@ function Dashboard() {
 
     return (
         <main className={classes.layout}>
-            <AppBar />
+            <AppBarU />
             <br />
             <Grid container spacing={4}>
                 {/* Once the user gets to the end of the form questions (activeStep is greater than steps.length), the form paper will not render. */}
@@ -954,7 +925,7 @@ function Dashboard() {
                                         <Button
                                             variant="contained"
                                             color="primary"
-                                            onClick={() => { handleNext(); storeData() }}
+                                            onClick={handleNext}
                                             className={classes.button}
                                         >
                                             {/* On the last step, the bottom button text changes from "Next" to "Finish." On Finish click, the form paper will dissapear because the step exceeds steps.length */}
@@ -1022,4 +993,4 @@ function Dashboard() {
 }
 
 
-export default Dashboard;
+export default UserDashboard;
