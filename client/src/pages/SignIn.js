@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import userAPI from "../utils/userAPI"
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -15,8 +15,12 @@ import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import { makeStyles } from '@material-ui/core/styles';
-
+import { makeStyles, withTheme } from '@material-ui/core/styles';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,23 +66,23 @@ export default function SignInSide() {
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value })
-};
+  };
 
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.username && formObject.password) {
-        userAPI.loginUser({
-            username: formObject.username,
-            password: formObject.password
-        }).then(() => setFormObject({
-          username: "",
-          password: ""
-        })).then((req) => {
-          window.location.replace("/dashboard");
-        })
-            .catch(err => 
-              console.log(err),
-              setOpen(true));
+      userAPI.loginUser({
+        username: formObject.username,
+        password: formObject.password
+      }).then(() => setFormObject({
+        username: "",
+        password: ""
+      })).then((req) => {
+        window.location.replace("/dashboard");
+      })
+        .catch(err =>
+          console.log(err),
+          setOpen(true));
     }
   };
 
@@ -98,8 +102,8 @@ export default function SignInSide() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-        <Typography variant="h2" component="h3">
-  Welcome to Formulator
+          <Typography variant="h2" component="h3">
+            Welcome to Formulator
           </Typography>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -146,25 +150,26 @@ export default function SignInSide() {
             >
               Sign In
             </Button>
+            <Dialog
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+            >
+              <DialogTitle id="alert-dialog-title">{"Wrong Username or Password"}</DialogTitle>
+              <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                  Sorry! Those credentials don't exist in our database.
+          </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleClose} color="primary" autoFocus>
+                  Okay
+          </Button>
+              </DialogActions>
+            </Dialog>
             {/* Modal */}
-            <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 id="transition-modal-title">Username or Password is incorrect.</h2>
-          </div>
-        </Fade>
-      </Modal>
+
             {/* Modal End*/}
             <Button
               type="submit"
@@ -190,20 +195,20 @@ export default function SignInSide() {
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
-                </Link> 
-              {/* To DO - Sign Up */}
+                </Link>
+                {/* To DO - Sign Up */}
               </Grid>
               <Grid item m>
-            
+
               </Grid>
             </Grid>
             <Box mt={6}>
-              
+
             </Box>
           </form>
         </div>
       </Grid>
-      </Grid>
+    </Grid>
 
   );
 }
