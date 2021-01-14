@@ -12,6 +12,9 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -44,11 +47,17 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(1, 0, 0),
   },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 }));
 
 export default function SignInSide() {
 
   const [formObject, setFormObject] = useState({})
+  const [open, setOpen] = React.useState(false);
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -67,10 +76,19 @@ export default function SignInSide() {
         })).then((req) => {
           window.location.replace("/dashboard");
         })
-            .catch(err => console.log(err));
+            .catch(err => 
+              console.log(err),
+              setOpen(true));
     }
   };
 
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const classes = useStyles();
 
@@ -128,6 +146,26 @@ export default function SignInSide() {
             >
               Sign In
             </Button>
+            {/* Modal */}
+            <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={classes.modal}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <h2 id="transition-modal-title">Username or Password is incorrect.</h2>
+          </div>
+        </Fade>
+      </Modal>
+            {/* Modal End*/}
             <Button
               type="submit"
               fullWidth
