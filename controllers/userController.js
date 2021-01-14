@@ -12,8 +12,9 @@ var userController = {
           });
       
           User.createUser(newUser, function(err, user){
-            if(err) throw err;
-            res.send(user).end()
+            console.log(err, user)
+            if(err) return res.status(500).json({error: err});
+            return res.send(user).end()
           });
          
     },
