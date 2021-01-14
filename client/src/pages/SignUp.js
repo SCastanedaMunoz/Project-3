@@ -12,6 +12,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 // import InputLabel from '@material-ui/core/InputLabel';
 // import MenuItem from '@material-ui/core/MenuItem';
 // import FormHelperText from '@material-ui/core/FormHelperText';
@@ -42,12 +47,19 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
 
     const [formObject, setFormObject] = useState({})
+    const [open, setOpen] = React.useState(false);
+    const [message, setMessage] = useState("")
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
 
     function handleInputChange(event) {
       const { name, value } = event.target;
       setFormObject({ ...formObject, [name]: value })
   };
+
   
     function handleFormSubmit(event) {
       event.preventDefault();
@@ -58,16 +70,31 @@ export default function SignUp() {
               username: formObject.username,
               email: formObject.email,
               password: formObject.password
-          }).then(() => setFormObject({
+          }).then(() => {setFormObject({
             firstName: "",
             lastName: "",
             username: "",
             email: "",
             password: ""
-          })).then((req) => {
-            window.location.replace("/dashboard");
-          })
-              .catch(err => console.log(err));
+          })})
+        //   .then((req) => {
+        //     // window.location.replace("/dashboard");
+        //   })
+              .catch(err => {
+                  const error = err.response.data.error.errors
+                  if(error.username){
+                    setMessage("This username has been taken. Please select another one.")
+                  }
+                  else if (error.email.kind === "unique"){
+                    setMessage("This email is already in use. Please use a different email address.")
+                  }
+                  else if (error.email.kind === "user defined"){
+                    setMessage("Not a valid email address. Please try again.")
+                  }
+                  console.log(err.response)
+                  setOpen(true)
+                }
+              );
       }
     };
 
@@ -186,6 +213,24 @@ export default function SignUp() {
                     >
                         Sign Up
           </Button>
+          <Dialog
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+            >
+              <DialogTitle id="alert-dialog-title">{"Error!"}</DialogTitle>
+              <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                  {message}
+          </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleClose} color="primary" autoFocus>
+                  Okay
+          </Button>
+              </DialogActions>
+            </Dialog>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="/" variant="body2">
