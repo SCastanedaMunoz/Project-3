@@ -61,9 +61,10 @@ export default function MaterialAppBarU() {
             <Drawer 
                 anchor='left'
                 open={open}
-                onClose={!open}
+                onClose={() => setOpen(false)}
             >
-                <h1>User documents</h1>
+                <div style={{ height : "100%", width : "250px"}}><h3>User documents</h3></div>
+                
                 </Drawer>
         </div>
     )
