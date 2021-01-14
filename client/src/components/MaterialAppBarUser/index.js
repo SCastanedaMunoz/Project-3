@@ -92,7 +92,7 @@ export default function MaterialAppBarU() {
             </MenuItem>
              <MenuItem style={{ marginTop: "830px",}}>
             <SettingsIcon color="secondary" style={{ textShadow: "1px 2px 2px black", marginRight: "5px",  }} />
-             Account Settings
+             Settings
             </MenuItem>
         </MenuList>
                 </div>
