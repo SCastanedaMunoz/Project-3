@@ -75,7 +75,7 @@ export default function SignInSide() {
         username: "",
         password: ""
       })).then((req) => {
-        window.location.replace("/dashboard");
+        window.location.replace("/userDashboard");
       })
         .catch(err => {
           console.log(err)
