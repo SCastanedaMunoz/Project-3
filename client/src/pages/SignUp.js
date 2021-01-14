@@ -48,6 +48,7 @@ export default function SignUp() {
 
     const [formObject, setFormObject] = useState({})
     const [open, setOpen] = React.useState(false);
+    const [message, setMessage] = useState("")
 
   const handleClose = () => {
     setOpen(false);
@@ -69,17 +70,28 @@ export default function SignUp() {
               username: formObject.username,
               email: formObject.email,
               password: formObject.password
-          }).then(() => setFormObject({
+          }).then(() => {setFormObject({
             firstName: "",
             lastName: "",
             username: "",
             email: "",
             password: ""
-          })).then((req) => {
-            window.location.replace("/dashboard");
-          })
+          })})
+        //   .then((req) => {
+        //     // window.location.replace("/dashboard");
+        //   })
               .catch(err => {
-                  console.log(err)
+                  const error = err.response.data.error.errors
+                  if(error.username){
+                    setMessage("This username has been taken. Please select another one.")
+                  }
+                  else if (error.email.kind === "unique"){
+                    setMessage("This email is already in use. Please use a different email address.")
+                  }
+                  else if (error.email.kind === "user defined"){
+                    setMessage("Not a valid email address. Please try again.")
+                  }
+                  console.log(err.response)
                   setOpen(true)
                 }
               );
@@ -210,7 +222,7 @@ export default function SignUp() {
               <DialogTitle id="alert-dialog-title">{"Error!"}</DialogTitle>
               <DialogContent>
                 <DialogContentText id="alert-dialog-description">
-                  
+                  {message}
           </DialogContentText>
               </DialogContent>
               <DialogActions>
