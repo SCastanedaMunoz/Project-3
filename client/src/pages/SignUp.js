@@ -12,6 +12,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 // import InputLabel from '@material-ui/core/InputLabel';
 // import MenuItem from '@material-ui/core/MenuItem';
 // import FormHelperText from '@material-ui/core/FormHelperText';
@@ -42,12 +47,18 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
 
     const [formObject, setFormObject] = useState({})
+    const [open, setOpen] = React.useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
 
     function handleInputChange(event) {
       const { name, value } = event.target;
       setFormObject({ ...formObject, [name]: value })
   };
+
   
     function handleFormSubmit(event) {
       event.preventDefault();
@@ -67,7 +78,11 @@ export default function SignUp() {
           })).then((req) => {
             window.location.replace("/dashboard");
           })
-              .catch(err => console.log(err));
+              .catch(err => {
+                  console.log(err)
+                  setOpen(true)
+                }
+              );
       }
     };
 
@@ -186,6 +201,24 @@ export default function SignUp() {
                     >
                         Sign Up
           </Button>
+          <Dialog
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+            >
+              <DialogTitle id="alert-dialog-title">{"Error!"}</DialogTitle>
+              <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                  
+          </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleClose} color="primary" autoFocus>
+                  Okay
+          </Button>
+              </DialogActions>
+            </Dialog>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="/" variant="body2">

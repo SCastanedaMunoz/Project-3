@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
 const LocalStrategy = require('passport-local').Strategy;
 const passport = require("passport");
+const uniqueValidator = require('mongoose-unique-validator')
+
 
 const UserSchema = new mongoose.Schema(
     {
@@ -16,7 +18,13 @@ const UserSchema = new mongoose.Schema(
         email: {
             type: String,
             required: [true, "Email is required"],
-            unique: true
+            unique: true,
+            validate: {
+              validator: function(v) {
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
+              },
+              message: props => `${props.value} is not a valid email!`
+            },
         },
         username: {
           type: String,
@@ -29,6 +37,7 @@ const UserSchema = new mongoose.Schema(
         }
     }
 );
+UserSchema.plugin(uniqueValidator)
 
 var User = module.exports = mongoose.model('User', UserSchema);
 

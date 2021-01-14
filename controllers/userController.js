@@ -1,5 +1,4 @@
 const { User } = require("../models")
-const passport = require("passport")
 
 var userController = {
     register: function (req, res){
