@@ -77,15 +77,11 @@ export default function SignInSide() {
       })).then((req) => {
         window.location.replace("/dashboard");
       })
-        .catch(err =>
-          console.log(err),
-          setOpen(true));
+        .catch(err => {
+          console.log(err)
+          setOpen(true)});
     }
   };
-
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
 
   const handleClose = () => {
     setOpen(false);
@@ -165,9 +161,6 @@ export default function SignInSide() {
           </Button>
               </DialogActions>
             </Dialog>
-            {/* Modal */}
-
-            {/* Modal End*/}
             <Button
               type="submit"
               fullWidth
