@@ -4,6 +4,7 @@ import Dashboard from "./pages/dashboard"
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import TestPage from "./pages/TestPage";
+import UserDashboard from "./pages/userDashboard"
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/dashboard" exact component={Dashboard}><Dashboard /></Route>
+          <Route path="/userDashboard" exact component={UserDashboard}><UserDashboard /></Route>
           <Route path="/" exact component={SignIn}><SignIn /></Route>
           <Route path="/SignUp" exact component={SignUp}><SignUp /></Route>
           <Route path="/test" exact component={TestPage}></Route>
