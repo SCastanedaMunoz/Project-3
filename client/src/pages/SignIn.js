@@ -48,11 +48,6 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(1, 0, 0),
   },
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 }));
 
 export default function SignInSide() {
@@ -152,8 +147,9 @@ export default function SignInSide() {
               onClose={handleClose}
               aria-labelledby="alert-dialog-title"
               aria-describedby="alert-dialog-description"
+             
             >
-              <DialogTitle id="alert-dialog-title">{"Wrong Username or Password"}</DialogTitle>
+              <DialogTitle id="alert-dialog-title"><Typography variant="h5" align="center">Wrong Username/Password!</Typography></DialogTitle>
               <DialogContent>
                 <DialogContentText id="alert-dialog-description">
                   Sorry! Those credentials don't exist in our database.
