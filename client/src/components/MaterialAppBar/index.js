@@ -28,7 +28,7 @@ export default function MaterialAppBar() {
                 <AppBar position="absolute">
                     <Toolbar>
                         <Typography variant="h6" className={classes.title}>
-                            Formulater
+                            Legal Formulater
                         </Typography>
                     <Button color="inherit" onClick= {redirectHome}>Login</Button>
                     </Toolbar>

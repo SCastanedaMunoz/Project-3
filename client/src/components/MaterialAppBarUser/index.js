@@ -47,25 +47,29 @@ export default function MaterialAppBarU() {
     return (
         <div className={classes.root}>
             <AppBarU position="absolute">
-                    <Toolbar>
-                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleDrawer}>
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" className={classes.title}>
-                            Formulater
+                <Toolbar>
+                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleDrawer}>
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography variant="h6" className={classes.title}>
+                        Legal Formulater
                         </Typography>
-                        <Button color="inherit" onClick={logoutEvent}>Logout</Button>
-                    </Toolbar>
+                    <Button color="inherit" onClick={logoutEvent}>Logout</Button>
+                </Toolbar>
             </AppBarU>
 
-            <Drawer 
+            <Drawer
                 anchor='left'
                 open={open}
                 onClose={() => setOpen(false)}
             >
-                <div style={{ height : "100%", width : "250px"}}><h3>User documents</h3></div>
-                
-                </Drawer>
+                <div style={{ height: "100%", width: "250px" }}>
+                    <Button variant="contained" color="secondary">
+                        Saved documents
+                    </Button>
+                </div>
+
+            </Drawer>
         </div>
     )
 }
