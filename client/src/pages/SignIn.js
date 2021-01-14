@@ -48,6 +48,11 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(1, 0, 0),
   },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 }));
 
 export default function SignInSide() {
@@ -70,17 +75,13 @@ export default function SignInSide() {
         username: "",
         password: ""
       })).then((req) => {
-        window.location.replace("/userDashboard");
-      }) 
-        .catch(err =>
-          console.log(err),
-          setOpen(true));
+        window.location.replace("/dashboard");
+      })
+        .catch(err => {
+          console.log(err)
+          setOpen(true)});
     }
   };
-
-  // const handleOpen = () => {
-  //   setOpen(true);
-  // };
 
   const handleClose = () => {
     setOpen(false);
@@ -147,9 +148,8 @@ export default function SignInSide() {
               onClose={handleClose}
               aria-labelledby="alert-dialog-title"
               aria-describedby="alert-dialog-description"
-             
             >
-              <DialogTitle id="alert-dialog-title"><Typography variant="h5" align="center">Wrong Username/Password!</Typography></DialogTitle>
+              <DialogTitle id="alert-dialog-title">{"Wrong Username or Password"}</DialogTitle>
               <DialogContent>
                 <DialogContentText id="alert-dialog-description">
                   Sorry! Those credentials don't exist in our database.
@@ -161,9 +161,6 @@ export default function SignInSide() {
           </Button>
               </DialogActions>
             </Dialog>
-            {/* Modal */}
-
-            {/* Modal End*/}
             <Button
               type="submit"
               fullWidth
