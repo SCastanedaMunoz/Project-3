@@ -21,6 +21,7 @@ import AppBar from '../components/MaterialAppBar';
 import SMGenerator from '../components/WordGenerators/SMGenerator';
 import MMGenerator from '../components/WordGenerators/MMGenerator';
 
+
 const useStyles = makeStyles((theme) => ({
 
     layout: {
@@ -59,7 +60,8 @@ const useStyles = makeStyles((theme) => ({
         padding: '30px',
         display: 'flex',
         justifyContent: 'space-around'
-    }
+    },
+   
 }));
 
 function Dashboard() {
