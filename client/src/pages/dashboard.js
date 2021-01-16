@@ -213,7 +213,6 @@ function Dashboard() {
             .then(JSON => {
                 let { article1 } = JSON;
                 if (members.length < 2) {
-                    console.log("sm clauses populating")
                     let { article1SM } = article1;
                     let { article1Heading, article1Clauses } = article1SM;
                     setArticle1([
@@ -227,7 +226,6 @@ function Dashboard() {
                         { definitions: `${article1Clauses.definitions.heading} ${article1Clauses.definitions.clause}` }
                     ])
                 } else {
-                    console.log("mm clauses populating")
                     let { article1MM } = article1;
                     let { article1Heading, article1Clauses } = article1MM;
                     setArticle1([
@@ -435,7 +433,6 @@ function Dashboard() {
                 } else {
                     let { article6MM } = article6;
                     let { article6Heading, article6Clauses } = article6MM;
-                    console.log(article6Clauses);
                     setArticle6([
                         { heading: `${article6Heading}` },
                         { distributions: `${article6Clauses.distributions.heading} ${article6Clauses.distributions.clause}` },
@@ -909,7 +906,6 @@ function Dashboard() {
                         pushPullTerm: pushPullTerm,
                         fiduciaryDutyTerm: fiduciaryDutyTerm
                     }
-                    console.log(userData);
                 } else {
                     return;
                 }
