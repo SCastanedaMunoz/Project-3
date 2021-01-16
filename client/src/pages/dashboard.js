@@ -17,6 +17,7 @@ import BlankCompanyAgreementView from "../components/ContractViews/BlankCompanyA
 import ExhibitAView from '../components/ContractViews/ExhibitAView';
 import BlankExhibitAView from '../components/ContractViews/BlankExhibitAView';
 import AppBar from '../components/MaterialAppBar';
+import ClauseData from '../data/clause-data.json';
 
 import userAPI from "../utils/userAPI";
 
@@ -181,686 +182,473 @@ function Dashboard() {
     // Also note that most of the generate functions are structured as if / else depending on how many members are inserted. If only one member is inserted, we use the "single member" or "SM" clauses from the JSON. If tow or more members are inserted, we use the "multi-member" or "MM" clauses from the JSON.
 
     const generateContractHead = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { contractHead } = JSON;
-                setContractHead({
-                    heading: `${contractHead.heading} ${companyDetails.name}`,
-                    intro: `${contractHead.clause1} ${companyDetails.effectiveDate} ${contractHead.clause2}`
-                })
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { contractHead } = ClauseData;
+        setContractHead({
+            heading: `${contractHead.heading} ${companyDetails.name}`,
+            intro: `${contractHead.clause1} ${companyDetails.effectiveDate} ${contractHead.clause2}`
+        });
     };
 
     const generateArticle1 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article1 } = JSON;
-                if (members.length < 2) {
-                    let { article1SM } = article1;
-                    let { article1Heading, article1Clauses } = article1SM;
-                    setArticle1([
-                        { heading: `${article1Heading}` },
-                        { formation: `${article1Clauses.formation.heading} ${companyDetails.name} ${article1Clauses.formation.clause1} ${companyDetails.filingDate} ${article1Clauses.formation.clause2}` },
-                        { name: `${article1Clauses.name.heading} ${article1Clauses.name.clause1} ${companyDetails.name} ${article1Clauses.name.clause2}` },
-                        { duration: `${article1Clauses.duration.heading} ${article1Clauses.duration.clause}` },
-                        { purpose: `${article1Clauses.purpose.heading} ${article1Clauses.purpose.clause1} ${companyDetails.businessPurpose} ${article1Clauses.purpose.clause2}` },
-                        { principalOffice: `${article1Clauses.principalOffice.heading} ${article1Clauses.principalOffice.clause1} ${companyDetails.address1}, ${companyDetails.address2}, ${companyDetails.city}, ${companyDetails.state} ${companyDetails.zip} ${article1Clauses.principalOffice.clause2}` },
-                        { registeredAgent: `${article1Clauses.registeredAgent.heading} ${article1Clauses.registeredAgent.clause1} ${raDetails.name} ${article1Clauses.registeredAgent.clause2} ${raDetails.address1}, ${raDetails.address2}, ${raDetails.city}, ${raDetails.state} ${raDetails.zip} ${article1Clauses.registeredAgent.clause3}` },
-                        { definitions: `${article1Clauses.definitions.heading} ${article1Clauses.definitions.clause}` }
-                    ])
-                } else {
-                    let { article1MM } = article1;
-                    let { article1Heading, article1Clauses } = article1MM;
-                    setArticle1([
-                        { heading: `${article1Heading}` },
-                        { formation: `${article1Clauses.formation.heading} ${companyDetails.name} ${article1Clauses.formation.clause1} ${companyDetails.filingDate} ${article1Clauses.formation.clause2}` },
-                        { name: `${article1Clauses.name.heading} ${article1Clauses.name.clause1} ${companyDetails.name} ${article1Clauses.name.clause2}` },
-                        { duration: `${article1Clauses.duration.heading} ${article1Clauses.duration.clause}` },
-                        { purpose: `${article1Clauses.purpose.heading} ${article1Clauses.purpose.clause1} ${companyDetails.businessPurpose} ${article1Clauses.purpose.clause2}` },
-                        { principalOffice: `${article1Clauses.principalOffice.heading} ${article1Clauses.principalOffice.clause1} ${companyDetails.address1}, ${companyDetails.address2}, ${companyDetails.city}, ${companyDetails.state} ${companyDetails.zip} ${article1Clauses.principalOffice.clause2}` },
-                        { registeredAgent: `${article1Clauses.registeredAgent.heading} ${article1Clauses.registeredAgent.clause1} ${raDetails.name} ${article1Clauses.registeredAgent.clause2} ${raDetails.address1}, ${raDetails.address2}, ${raDetails.city}, ${raDetails.state} ${raDetails.zip} ${article1Clauses.registeredAgent.clause3}` },
-                        { definitions: `${article1Clauses.definitions.heading} ${article1Clauses.definitions.clause}` }
-                    ])
-
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article1 } = ClauseData;
+        if (members.length < 2) {
+            let { article1SM } = article1;
+            let { article1Heading, article1Clauses } = article1SM;
+            setArticle1([
+                { heading: `${article1Heading}` },
+                { formation: `${article1Clauses.formation.heading} ${companyDetails.name} ${article1Clauses.formation.clause1} ${companyDetails.filingDate} ${article1Clauses.formation.clause2}` },
+                { name: `${article1Clauses.name.heading} ${article1Clauses.name.clause1} ${companyDetails.name} ${article1Clauses.name.clause2}` },
+                { duration: `${article1Clauses.duration.heading} ${article1Clauses.duration.clause}` },
+                { purpose: `${article1Clauses.purpose.heading} ${article1Clauses.purpose.clause1} ${companyDetails.businessPurpose} ${article1Clauses.purpose.clause2}` },
+                { principalOffice: `${article1Clauses.principalOffice.heading} ${article1Clauses.principalOffice.clause1} ${companyDetails.address1}, ${companyDetails.address2}, ${companyDetails.city}, ${companyDetails.state} ${companyDetails.zip} ${article1Clauses.principalOffice.clause2}` },
+                { registeredAgent: `${article1Clauses.registeredAgent.heading} ${article1Clauses.registeredAgent.clause1} ${raDetails.name} ${article1Clauses.registeredAgent.clause2} ${raDetails.address1}, ${raDetails.address2}, ${raDetails.city}, ${raDetails.state} ${raDetails.zip} ${article1Clauses.registeredAgent.clause3}` },
+                { definitions: `${article1Clauses.definitions.heading} ${article1Clauses.definitions.clause}` }
+            ]);
+        }
+        else {
+            let { article1MM } = article1;
+            let { article1Heading, article1Clauses } = article1MM;
+            setArticle1([
+                { heading: `${article1Heading}` },
+                { formation: `${article1Clauses.formation.heading} ${companyDetails.name} ${article1Clauses.formation.clause1} ${companyDetails.filingDate} ${article1Clauses.formation.clause2}` },
+                { name: `${article1Clauses.name.heading} ${article1Clauses.name.clause1} ${companyDetails.name} ${article1Clauses.name.clause2}` },
+                { duration: `${article1Clauses.duration.heading} ${article1Clauses.duration.clause}` },
+                { purpose: `${article1Clauses.purpose.heading} ${article1Clauses.purpose.clause1} ${companyDetails.businessPurpose} ${article1Clauses.purpose.clause2}` },
+                { principalOffice: `${article1Clauses.principalOffice.heading} ${article1Clauses.principalOffice.clause1} ${companyDetails.address1}, ${companyDetails.address2}, ${companyDetails.city}, ${companyDetails.state} ${companyDetails.zip} ${article1Clauses.principalOffice.clause2}` },
+                { registeredAgent: `${article1Clauses.registeredAgent.heading} ${article1Clauses.registeredAgent.clause1} ${raDetails.name} ${article1Clauses.registeredAgent.clause2} ${raDetails.address1}, ${raDetails.address2}, ${raDetails.city}, ${raDetails.state} ${raDetails.zip} ${article1Clauses.registeredAgent.clause3}` },
+                { definitions: `${article1Clauses.definitions.heading} ${article1Clauses.definitions.clause}` }
+            ]);
+        }
     }
 
     const generateArticle2 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article2 } = JSON;
-                if (members.length < 2) {
-                    let { article2SM } = article2;
-                    let { article2Heading, article2Clauses } = article2SM;
-                    setArticle2([
-                        { heading: `${article2Heading}` },
-                        { initialMember: `${article2Clauses.initialMember.heading} ${article2Clauses.initialMember.clause}` },
-                        { natureOfMembershipInterest: `${article2Clauses.natureOfMembershipInterest.heading} ${article2Clauses.natureOfMembershipInterest.clause}` },
-                        { certificates: `${article2Clauses.certificates.heading}` }
-                    ])
-                } else {
-                    let { article2MM } = article2;
-                    let { article2Heading, article2Clauses } = article2MM;
-                    setArticle2([
-                        { heading: `${article2Heading}` },
-                        { initialMembers: `${article2Clauses.initialMembers.heading} ${article2Clauses.initialMembers.clause}` },
-                        { issuanceOfMembershipInterestsAfterFormationOfCompany: `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading}` },
-                        { natureOfMembershipInterest: `${article2Clauses.natureOfMembershipInterest.heading} ${article2Clauses.natureOfMembershipInterest.clause}` },
-                        { withdrawalOrExpulsionOfMember: `${article2Clauses.withdrawalOrExpulsionOfMember.heading}` },
-                        article2Clauses.withdrawalOrExpulsionOfMember.subclauses,
-                        { assignmentOfMembershipInterest: `${article2Clauses.assignmentOfMembershipInterest.heading} ${article2Clauses.assignmentOfMembershipInterest.clause}` },
-                        { admissionOfNewMembers: `${article2Clauses.admissionOfNewMembers.heading}` },
-                        { rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership: `${article2Clauses.rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership.heading}` },
-                        article2Clauses.rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership.subclauses,
-                        { rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember: `${article2Clauses.rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember.heading}` }, article2Clauses.rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember.subclauses,
-                        { certificates: `${article2Clauses.certificates.heading}` },
-                        { representationsAndWarranties: `${article2Clauses.representationsAndWarranties.heading} ${article2Clauses.representationsAndWarranties.clause}` }
-                    ])
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article2 } = ClauseData;
+        if (members.length < 2) {
+            let { article2SM } = article2;
+            let { article2Heading, article2Clauses } = article2SM;
+            setArticle2([
+                { heading: `${article2Heading}` },
+                { initialMember: `${article2Clauses.initialMember.heading} ${article2Clauses.initialMember.clause}` },
+                { natureOfMembershipInterest: `${article2Clauses.natureOfMembershipInterest.heading} ${article2Clauses.natureOfMembershipInterest.clause}` },
+                { certificates: `${article2Clauses.certificates.heading}` }
+            ]);
+        }
+        else {
+            let { article2MM } = article2;
+            let { article2Heading, article2Clauses } = article2MM;
+            setArticle2([
+                { heading: `${article2Heading}` },
+                { initialMembers: `${article2Clauses.initialMembers.heading} ${article2Clauses.initialMembers.clause}` },
+                { issuanceOfMembershipInterestsAfterFormationOfCompany: `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading}` },
+                { natureOfMembershipInterest: `${article2Clauses.natureOfMembershipInterest.heading} ${article2Clauses.natureOfMembershipInterest.clause}` },
+                { withdrawalOrExpulsionOfMember: `${article2Clauses.withdrawalOrExpulsionOfMember.heading}` },
+                article2Clauses.withdrawalOrExpulsionOfMember.subclauses,
+                { assignmentOfMembershipInterest: `${article2Clauses.assignmentOfMembershipInterest.heading} ${article2Clauses.assignmentOfMembershipInterest.clause}` },
+                { admissionOfNewMembers: `${article2Clauses.admissionOfNewMembers.heading}` },
+                { rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership: `${article2Clauses.rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership.heading}` },
+                article2Clauses.rightsAndDutiesOfAssigneeOfMembershipInterestBeforeMembership.subclauses,
+                { rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember: `${article2Clauses.rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember.heading}` }, article2Clauses.rightsAndLiabilitiesOfAssigneeOfMembershipInterestAfterBecomingMember.subclauses,
+                { certificates: `${article2Clauses.certificates.heading}` },
+                { representationsAndWarranties: `${article2Clauses.representationsAndWarranties.heading} ${article2Clauses.representationsAndWarranties.clause}` }
+            ]);
+        }
     }
 
     const generateArticle3 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article3 } = JSON;
-                if (members.length < 2) {
-                    let { article3SM } = article3;
-                    let { article3Heading, article3Clauses } = article3SM;
-                    setArticle3([
-                        { heading: `${article3Heading}` },
-                        { management: `${article3Clauses.management.heading} ${article3Clauses.management.clause}` },
-                        { officers: `${article3Clauses.officers.heading} ${article3Clauses.officers.clause}` }
-                    ])
-                } else {
-                    let { article3MM } = article3;
-                    let { article3Heading, article3Clauses } = article3MM;
-                    setArticle3([
-                        { heading: `${article3Heading}` },
-                        { management: `${article3Clauses.management.heading} ${article3Clauses.management.clause}` },
-                        { officersAndOtherAgents: `${article3Clauses.officersAndOtherAgents.heading} ${article3Clauses.officersAndOtherAgents.clause}` },
-                        { locationOfMeetings: `${article3Clauses.locationOfMeetings.heading} ${article3Clauses.locationOfMeetings.clause}` },
-                        { alternativeFormsOfMeeting: `${article3Clauses.alternativeFormsOfMeeting.heading}` }, article3Clauses.alternativeFormsOfMeeting.subclauses,
-                        { participationConstitutesPresence: `${article3Clauses.participationConstitutesPresence.heading} ${article3Clauses.participationConstitutesPresence.clause}` },
-                        { noticeOfMeetings: `${article3Clauses.noticeOfMeetings.heading} ${article3Clauses.noticeOfMeetings.clause}` },
-                        { waiverOfNotice: `${article3Clauses.waiverOfNotice.heading} ${article3Clauses.waiverOfNotice.clause}` },
-                        { whoMayCall: `${article3Clauses.whoMayCall.heading} ${article3Clauses.whoMayCall.clause}` },
-                        { timeOfNotice: `${article3Clauses.timeOfNotice.heading} ${article3Clauses.timeOfNotice.clause}` },
-                        { quorumAndActOfMembersOrCommittee: `${article3Clauses.quorumAndActOfMembersOrCommittee.heading}` },
-                        { votesRequiredToApproveCertainActions: `${article3Clauses.votesRequiredToApproveCertainActions.heading}` },
-                        { mannerOfVoting: `${article3Clauses.mannerOfVoting.heading} ${article3Clauses.mannerOfVoting.clause}` },
-                        { actionByWrittenConsent: `${article3Clauses.actionByWrittenConsent.heading} ${article3Clauses.actionByWrittenConsent.clause}` },
-                        { explicitVoteOrConsentRequired: `${article3Clauses.explicitVoteOrConsentRequired.heading} ${article3Clauses.explicitVoteOrConsentRequired.clause}` },
-
-                    ])
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article3 } = ClauseData;
+        if (members.length < 2) {
+            let { article3SM } = article3;
+            let { article3Heading, article3Clauses } = article3SM;
+            setArticle3([
+                { heading: `${article3Heading}` },
+                { management: `${article3Clauses.management.heading} ${article3Clauses.management.clause}` },
+                { officers: `${article3Clauses.officers.heading} ${article3Clauses.officers.clause}` }
+            ]);
+        }
+        else {
+            let { article3MM } = article3;
+            let { article3Heading, article3Clauses } = article3MM;
+            setArticle3([
+                { heading: `${article3Heading}` },
+                { management: `${article3Clauses.management.heading} ${article3Clauses.management.clause}` },
+                { officersAndOtherAgents: `${article3Clauses.officersAndOtherAgents.heading} ${article3Clauses.officersAndOtherAgents.clause}` },
+                { locationOfMeetings: `${article3Clauses.locationOfMeetings.heading} ${article3Clauses.locationOfMeetings.clause}` },
+                { alternativeFormsOfMeeting: `${article3Clauses.alternativeFormsOfMeeting.heading}` }, article3Clauses.alternativeFormsOfMeeting.subclauses,
+                { participationConstitutesPresence: `${article3Clauses.participationConstitutesPresence.heading} ${article3Clauses.participationConstitutesPresence.clause}` },
+                { noticeOfMeetings: `${article3Clauses.noticeOfMeetings.heading} ${article3Clauses.noticeOfMeetings.clause}` },
+                { waiverOfNotice: `${article3Clauses.waiverOfNotice.heading} ${article3Clauses.waiverOfNotice.clause}` },
+                { whoMayCall: `${article3Clauses.whoMayCall.heading} ${article3Clauses.whoMayCall.clause}` },
+                { timeOfNotice: `${article3Clauses.timeOfNotice.heading} ${article3Clauses.timeOfNotice.clause}` },
+                { quorumAndActOfMembersOrCommittee: `${article3Clauses.quorumAndActOfMembersOrCommittee.heading}` },
+                { votesRequiredToApproveCertainActions: `${article3Clauses.votesRequiredToApproveCertainActions.heading}` },
+                { mannerOfVoting: `${article3Clauses.mannerOfVoting.heading} ${article3Clauses.mannerOfVoting.clause}` },
+                { actionByWrittenConsent: `${article3Clauses.actionByWrittenConsent.heading} ${article3Clauses.actionByWrittenConsent.clause}` },
+                { explicitVoteOrConsentRequired: `${article3Clauses.explicitVoteOrConsentRequired.heading} ${article3Clauses.explicitVoteOrConsentRequired.clause}` },
+            ]);
+        }
     }
     const generateArticle4 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article4 } = JSON;
-                if (members.length < 2) {
-                    let { article4SM } = article4;
-                    let { article4Heading, article4Clauses } = article4SM;
-                    setArticle4([
-                        { heading: `${article4Heading}` },
-                        { agreedCapitalContributions: `${article4Clauses.agreedCapitalContributions.heading} ${article4Clauses.agreedCapitalContributions.clause}` },
-                        { additionalCapitalContributions: `${article4Clauses.additionalCapitalContributions.heading} ${article4Clauses.additionalCapitalContributions.clause}` }
-                    ])
-                } else {
-                    let { article4MM } = article4;
-                    let { article4Heading, article4Clauses } = article4MM;
-                    setArticle4([
-                        { heading: `${article4Heading}` },
-                        { agreedCapitalContributions: `${article4Clauses.agreedCapitalContributions.heading} ${article4Clauses.agreedCapitalContributions.clause}` },
-                        { additionalCapitalContributions: `${article4Clauses.additionalCapitalContributions.heading} ${article4Clauses.additionalCapitalContributions.clause}` },
-                        { capitalAccounts: `${article4Clauses.capitalAccounts.heading} ${article4Clauses.capitalAccounts.clause}` }
-                    ])
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article4 } = ClauseData;
+        if (members.length < 2) {
+            let { article4SM } = article4;
+            let { article4Heading, article4Clauses } = article4SM;
+            setArticle4([
+                { heading: `${article4Heading}` },
+                { agreedCapitalContributions: `${article4Clauses.agreedCapitalContributions.heading} ${article4Clauses.agreedCapitalContributions.clause}` },
+                { additionalCapitalContributions: `${article4Clauses.additionalCapitalContributions.heading} ${article4Clauses.additionalCapitalContributions.clause}` }
+            ]);
+        }
+        else {
+            let { article4MM } = article4;
+            let { article4Heading, article4Clauses } = article4MM;
+            setArticle4([
+                { heading: `${article4Heading}` },
+                { agreedCapitalContributions: `${article4Clauses.agreedCapitalContributions.heading} ${article4Clauses.agreedCapitalContributions.clause}` },
+                { additionalCapitalContributions: `${article4Clauses.additionalCapitalContributions.heading} ${article4Clauses.additionalCapitalContributions.clause}` },
+                { capitalAccounts: `${article4Clauses.capitalAccounts.heading} ${article4Clauses.capitalAccounts.clause}` }
+            ]);
+        }
     }
 
     const generateArticle5 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article5 } = JSON;
-                if (members.length < 2) {
-                    let { article5SM } = article5;
-                    let { article5Heading, article5Clauses } = article5SM;
-                    setArticle5([
-                        { heading: `${article5Heading}` },
-                        { taxStatus: `${article5Clauses.taxStatus.heading} ${article5Clauses.taxStatus.clause}` }
-                    ])
-                } else {
-                    let { article5MM } = article5;
-                    let { article5Heading, article5Clauses } = article5MM;
-                    setArticle5([
-                        { heading: `${article5Heading}` },
-                        { general: `${article5Clauses.general.heading} ${article5Clauses.general.clause}` },
-                        { regulatoryAllocations: `${article5Clauses.regulatoryAllocations.heading} ${article5Clauses.regulatoryAllocations.clause}` },
-                        { reporting: `${article5Clauses.reporting.heading} ${article5Clauses.reporting.clause}` }
-                    ])
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article5 } = ClauseData;
+        if (members.length < 2) {
+            let { article5SM } = article5;
+            let { article5Heading, article5Clauses } = article5SM;
+            setArticle5([
+                { heading: `${article5Heading}` },
+                { taxStatus: `${article5Clauses.taxStatus.heading} ${article5Clauses.taxStatus.clause}` }
+            ]);
+        }
+        else {
+            let { article5MM } = article5;
+            let { article5Heading, article5Clauses } = article5MM;
+            setArticle5([
+                { heading: `${article5Heading}` },
+                { general: `${article5Clauses.general.heading} ${article5Clauses.general.clause}` },
+                { regulatoryAllocations: `${article5Clauses.regulatoryAllocations.heading} ${article5Clauses.regulatoryAllocations.clause}` },
+                { reporting: `${article5Clauses.reporting.heading} ${article5Clauses.reporting.clause}` }
+            ]);
+        }
     }
 
     const generateArticle6 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article6 } = JSON;
-                if (members.length < 2) {
-                    let { article6SM } = article6;
-                    let { article6Heading, article6Clauses } = article6SM;
-                    setArticle6([
-                        { heading: `${article6Heading}` },
-                        { distributions: `${article6Clauses.distributions.heading} ${article6Clauses.distributions.clause}` },
-                        { noDistributionUponWithdrawal: `${article6Clauses.noDistributionUponWithdrawal.heading} ${article6Clauses.noDistributionUponWithdrawal.clause}` }
-                    ])
-                } else {
-                    let { article6MM } = article6;
-                    let { article6Heading, article6Clauses } = article6MM;
-                    console.log(article6Clauses);
-                    setArticle6([
-                        { heading: `${article6Heading}` },
-                        { distributions: `${article6Clauses.distributions.heading} ${article6Clauses.distributions.clause}` },
-                        { requiredAnnualTaxDistribution: `${article6Clauses.requiredAnnualTaxDistribution.heading}` }
-                    ])
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article6 } = ClauseData;
+        if (members.length < 2) {
+            let { article6SM } = article6;
+            let { article6Heading, article6Clauses } = article6SM;
+            setArticle6([
+                { heading: `${article6Heading}` },
+                { distributions: `${article6Clauses.distributions.heading} ${article6Clauses.distributions.clause}` },
+                { noDistributionUponWithdrawal: `${article6Clauses.noDistributionUponWithdrawal.heading} ${article6Clauses.noDistributionUponWithdrawal.clause}` }
+            ]);
+        }
+        else {
+            let { article6MM } = article6;
+            let { article6Heading, article6Clauses } = article6MM;
+            console.log(article6Clauses);
+            setArticle6([
+                { heading: `${article6Heading}` },
+                { distributions: `${article6Clauses.distributions.heading} ${article6Clauses.distributions.clause}` },
+                { requiredAnnualTaxDistribution: `${article6Clauses.requiredAnnualTaxDistribution.heading}` }
+            ]);
+        }
     }
 
     const generateArticle7 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article7 } = JSON;
-                if (members.length < 2) {
-                    let { article7SM } = article7;
-                    let { article7Heading, article7Clauses } = article7SM;
-                    setArticle7([
-                        { heading: `${article7Heading}` },
-                        { bankAccountsInvestments: `${article7Clauses.bankAccountsInvestments.heading} ${article7Clauses.bankAccountsInvestments.clause}` },
-                        { booksAndRecords: `${article7Clauses.booksAndRecords.heading} ${article7Clauses.booksAndRecords.clause}` },
-                        { fiscalYear: `${article7Clauses.fiscalYear.heading} ${article7Clauses.fiscalYear.clause}` }
-                    ])
-                } else {
-                    let { article7MM } = article7;
-                    let { article7Heading, article7Clauses } = article7MM;
-                    setArticle7([
-                        { heading: `${article7Heading}` },
-                        { bankAccountsInvestments: `${article7Clauses.bankAccountsInvestments.heading} ${article7Clauses.bankAccountsInvestments.clause}` },
-                        { booksAndRecords: `${article7Clauses.booksAndRecords.heading}` }, article7Clauses.booksAndRecords.subclauses,
-                        { financialInformation: `${article7Clauses.financialInformation.heading} ${article7Clauses.financialInformation.clause}` },
-                        { taxReturnsAndInformationGoverningDocuments: `${article7Clauses.taxReturnsAndInformationGoverningDocuments.heading} ${article7Clauses.taxReturnsAndInformationGoverningDocuments.clause}` },
-                        { fiscalYear: `${article7Clauses.fiscalYear.heading} ${article7Clauses.fiscalYear.clause}` }
-                    ])
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article7 } = ClauseData;
+        if (members.length < 2) {
+            let { article7SM } = article7;
+            let { article7Heading, article7Clauses } = article7SM;
+            setArticle7([
+                { heading: `${article7Heading}` },
+                { bankAccountsInvestments: `${article7Clauses.bankAccountsInvestments.heading} ${article7Clauses.bankAccountsInvestments.clause}` },
+                { booksAndRecords: `${article7Clauses.booksAndRecords.heading} ${article7Clauses.booksAndRecords.clause}` },
+                { fiscalYear: `${article7Clauses.fiscalYear.heading} ${article7Clauses.fiscalYear.clause}` }
+            ]);
+        }
+        else {
+            let { article7MM } = article7;
+            let { article7Heading, article7Clauses } = article7MM;
+            setArticle7([
+                { heading: `${article7Heading}` },
+                { bankAccountsInvestments: `${article7Clauses.bankAccountsInvestments.heading} ${article7Clauses.bankAccountsInvestments.clause}` },
+                { booksAndRecords: `${article7Clauses.booksAndRecords.heading}` }, article7Clauses.booksAndRecords.subclauses,
+                { financialInformation: `${article7Clauses.financialInformation.heading} ${article7Clauses.financialInformation.clause}` },
+                { taxReturnsAndInformationGoverningDocuments: `${article7Clauses.taxReturnsAndInformationGoverningDocuments.heading} ${article7Clauses.taxReturnsAndInformationGoverningDocuments.clause}` },
+                { fiscalYear: `${article7Clauses.fiscalYear.heading} ${article7Clauses.fiscalYear.clause}` }
+            ]);
+        }
     }
 
     const generateArticle8 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article8 } = JSON;
-                if (members.length < 2) {
-                    let { article8SM } = article8;
-                    let { article8Heading, article8Clauses } = article8SM;
-                    setArticle8([
-                        { heading: `${article8Heading}` },
-                        { assignmentPermitted: `${article8Clauses.assignmentPermitted.heading} ${article8Clauses.assignmentPermitted.clause}` },
-                        { assignmentOfEntireInterest: `${article8Clauses.assignmentOfEntireInterest.heading} ${article8Clauses.assignmentOfEntireInterest.clause}` },
-                        { assignmentOfPartialInterest: `${article8Clauses.assignmentOfPartialInterest.heading} ${article8Clauses.assignmentOfPartialInterest.clause}` }
-                    ])
-                } else {
-                    let { article8MM } = article8;
-                    let { article8Heading, article8Clauses } = article8MM;
-                    setArticle8([
-                        { heading: `${article8Heading}` },
-                        { rightOfFirstRefusal: `${article8Clauses.rightOfFirstRefusal.heading} ${article8Clauses.rightOfFirstRefusal.clause}` },
-                        { deathOrDivocrceOfMemberOrSpouse: `${article8Clauses.deathOrDivocrceOfMemberOrSpouse.heading}` }, article8Clauses.deathOrDivocrceOfMemberOrSpouse.subclauses,
-                        { pushPullBuyout: `${article8Clauses.pushPullBuyout.heading}` },
-                        { determinationOfPurchaseValue: `${article8Clauses.determinationOfPurchaseValue.heading}` }, article8Clauses.determinationOfPurchaseValue.subclauses,
-                        { closingOfSalePaymentOfPurchasePrice: `${article8Clauses.closingOfSalePaymentOfPurchasePrice.heading} ${article8Clauses.closingOfSalePaymentOfPurchasePrice.clause}` },
-                        { basisAdjustment: `${article8Clauses.basisAdjustment.heading} ${article8Clauses.basisAdjustment.clause}` }
-                    ])
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article8 } = ClauseData;
+        if (members.length < 2) {
+            let { article8SM } = article8;
+            let { article8Heading, article8Clauses } = article8SM;
+            setArticle8([
+                { heading: `${article8Heading}` },
+                { assignmentPermitted: `${article8Clauses.assignmentPermitted.heading} ${article8Clauses.assignmentPermitted.clause}` },
+                { assignmentOfEntireInterest: `${article8Clauses.assignmentOfEntireInterest.heading} ${article8Clauses.assignmentOfEntireInterest.clause}` },
+                { assignmentOfPartialInterest: `${article8Clauses.assignmentOfPartialInterest.heading} ${article8Clauses.assignmentOfPartialInterest.clause}` }
+            ]);
+        }
+        else {
+            let { article8MM } = article8;
+            let { article8Heading, article8Clauses } = article8MM;
+            setArticle8([
+                { heading: `${article8Heading}` },
+                { rightOfFirstRefusal: `${article8Clauses.rightOfFirstRefusal.heading} ${article8Clauses.rightOfFirstRefusal.clause}` },
+                { deathOrDivocrceOfMemberOrSpouse: `${article8Clauses.deathOrDivocrceOfMemberOrSpouse.heading}` }, article8Clauses.deathOrDivocrceOfMemberOrSpouse.subclauses,
+                { pushPullBuyout: `${article8Clauses.pushPullBuyout.heading}` },
+                { determinationOfPurchaseValue: `${article8Clauses.determinationOfPurchaseValue.heading}` }, article8Clauses.determinationOfPurchaseValue.subclauses,
+                { closingOfSalePaymentOfPurchasePrice: `${article8Clauses.closingOfSalePaymentOfPurchasePrice.heading} ${article8Clauses.closingOfSalePaymentOfPurchasePrice.clause}` },
+                { basisAdjustment: `${article8Clauses.basisAdjustment.heading} ${article8Clauses.basisAdjustment.clause}` }
+            ]);
+        }
     }
 
     const generateArticle9 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article9 } = JSON;
-                if (members.length < 2) {
-                    let { article9SM } = article9;
-                    let { article9Heading, article9Clauses } = article9SM;
-                    setArticle9([
-                        { heading: `${article9Heading}` },
-                        { exculpation: `${article9Clauses.exculpation.heading}` }, article9Clauses.exculpation.subclauses,
-                        { scopeOfDutiesOfCoveredPersons: `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause}` },
-                        { indemnification: `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause}` },
-                        { expenses: `${article9Clauses.expenses.heading} ${article9Clauses.expenses.clause}` },
-                        { insurance: `${article9Clauses.insurance.heading} ${article9Clauses.insurance.clause}` },
-                        { durationOfProtection: `${article9Clauses.durationOfProtection.heading} ${article9Clauses.durationOfProtection.clause}` },
-                    ])
-                } else {
-                    let { article9MM } = article9;
-                    let { article9Heading, article9Clauses } = article9MM;
-                    setArticle9([
-                        { heading: `${article9Heading}` },
-                        { exculpation: `${article9Clauses.exculpation.heading}` }, article9Clauses.exculpation.subclauses,
-                        { scopeOfDutiesOfCoveredPersons: `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading}` },
-                        { indemnification: `${article9Clauses.indemnification.heading}` },
-                        { expenses: `${article9Clauses.expenses.heading} ${article9Clauses.expenses.clause}` },
-                        { insurance: `${article9Clauses.insurance.heading} ${article9Clauses.insurance.clause}` },
-                        { durationOfProtection: `${article9Clauses.durationOfProtection.heading} ${article9Clauses.durationOfProtection.clause}` },
-                    ])
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article9 } = ClauseData;
+        if (members.length < 2) {
+            let { article9SM } = article9;
+            let { article9Heading, article9Clauses } = article9SM;
+            setArticle9([
+                { heading: `${article9Heading}` },
+                { exculpation: `${article9Clauses.exculpation.heading}` }, article9Clauses.exculpation.subclauses,
+                { scopeOfDutiesOfCoveredPersons: `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause}` },
+                { indemnification: `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause}` },
+                { expenses: `${article9Clauses.expenses.heading} ${article9Clauses.expenses.clause}` },
+                { insurance: `${article9Clauses.insurance.heading} ${article9Clauses.insurance.clause}` },
+                { durationOfProtection: `${article9Clauses.durationOfProtection.heading} ${article9Clauses.durationOfProtection.clause}` },
+            ]);
+        }
+        else {
+            let { article9MM } = article9;
+            let { article9Heading, article9Clauses } = article9MM;
+            setArticle9([
+                { heading: `${article9Heading}` },
+                { exculpation: `${article9Clauses.exculpation.heading}` }, article9Clauses.exculpation.subclauses,
+                { scopeOfDutiesOfCoveredPersons: `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading}` },
+                { indemnification: `${article9Clauses.indemnification.heading}` },
+                { expenses: `${article9Clauses.expenses.heading} ${article9Clauses.expenses.clause}` },
+                { insurance: `${article9Clauses.insurance.heading} ${article9Clauses.insurance.clause}` },
+                { durationOfProtection: `${article9Clauses.durationOfProtection.heading} ${article9Clauses.durationOfProtection.clause}` },
+            ]);
+        }
     }
 
     const generateArticle10 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article10 } = JSON;
-                if (members.length < 2) {
-                    let { article10SM } = article10;
-                    let { article10Heading, article10Clauses } = article10SM;
-                    setArticle10([
-                        { heading: `${article10Heading}` },
-                        { eventsRequiringWindingUp: `${article10Clauses.eventsRequiringWindingUp.heading} ${article10Clauses.eventsRequiringWindingUp.clause}` },
-                        { revocationOrReinstatement: `${article10Clauses.revocationOrReinstatement.heading} ${article10Clauses.revocationOrReinstatement.clause}` },
-                        { windingUpAffairsAndDistributionOfAssets: `${article10Clauses.windingUpAffairsAndDistributionOfAssets.heading}` }, article10Clauses.windingUpAffairsAndDistributionOfAssets.subclauses,
-                        { termination: `${article10Clauses.termination.heading} ${article10Clauses.termination.clause}` },
-                    ])
-                } else {
-                    let { article10MM } = article10;
-                    let { article10Heading, article10Clauses } = article10MM;
-                    setArticle10([
-                        { heading: `${article10Heading}` },
-                        { eventsRequiringWindingUp: `${article10Clauses.eventsRequiringWindingUp.heading} ${article10Clauses.eventsRequiringWindingUp.clause}` },
-                        { revocationOrReinstatement: `${article10Clauses.revocationOrReinstatement.heading} ${article10Clauses.revocationOrReinstatement.clause}` },
-                        { windingUpAffairsAndDistributionOfAssets: `${article10Clauses.windingUpAffairsAndDistributionOfAssets.heading}` }, article10Clauses.windingUpAffairsAndDistributionOfAssets.subclauses,
-                        { termination: `${article10Clauses.termination.heading} ${article10Clauses.termination.clause}` },
-                    ])
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article10 } = ClauseData;
+        if (members.length < 2) {
+            let { article10SM } = article10;
+            let { article10Heading, article10Clauses } = article10SM;
+            setArticle10([
+                { heading: `${article10Heading}` },
+                { eventsRequiringWindingUp: `${article10Clauses.eventsRequiringWindingUp.heading} ${article10Clauses.eventsRequiringWindingUp.clause}` },
+                { revocationOrReinstatement: `${article10Clauses.revocationOrReinstatement.heading} ${article10Clauses.revocationOrReinstatement.clause}` },
+                { windingUpAffairsAndDistributionOfAssets: `${article10Clauses.windingUpAffairsAndDistributionOfAssets.heading}` }, article10Clauses.windingUpAffairsAndDistributionOfAssets.subclauses,
+                { termination: `${article10Clauses.termination.heading} ${article10Clauses.termination.clause}` },
+            ]);
+        } else {
+            let { article10MM } = article10;
+            let { article10Heading, article10Clauses } = article10MM;
+            setArticle10([
+                { heading: `${article10Heading}` },
+                { eventsRequiringWindingUp: `${article10Clauses.eventsRequiringWindingUp.heading} ${article10Clauses.eventsRequiringWindingUp.clause}` },
+                { revocationOrReinstatement: `${article10Clauses.revocationOrReinstatement.heading} ${article10Clauses.revocationOrReinstatement.clause}` },
+                { windingUpAffairsAndDistributionOfAssets: `${article10Clauses.windingUpAffairsAndDistributionOfAssets.heading}` }, article10Clauses.windingUpAffairsAndDistributionOfAssets.subclauses,
+                { termination: `${article10Clauses.termination.heading} ${article10Clauses.termination.clause}` },
+            ]);
+        }
     }
 
     const generateArticle11 = () => {
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                let { article11 } = JSON;
-                if (members.length < 2) {
-                    let { article11SM } = article11;
-                    let { article11Heading, article11Clauses } = article11SM;
-                    setArticle11([
-                        { heading: `${article11Heading}` },
-                        { entireAgreement: `${article11Clauses.entireAgreement.heading} ${article11Clauses.entireAgreement.clause}` },
-                        { amendments: `${article11Clauses.amendments.heading} ${article11Clauses.amendments.clause}` },
-                        { governingLaw: `${article11Clauses.governingLaw.heading} ${article11Clauses.governingLaw.clause}` },
-                        { bindingEffectNoThirdPartyBeneficiaries: `${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.heading} ${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.clause}` },
-                        { certainDefinitions: `${article11Clauses.certainDefinitions.heading} ${article11Clauses.certainDefinitions.clause}` }, article11Clauses.certainDefinitions.subclauses,
-                        { construction: `${article11Clauses.construction.heading} ${article11Clauses.construction.clause}` }, article11Clauses.construction.subclauses
-                    ])
-                } else {
-                    let { article11MM } = article11;
-                    let { article11Heading, article11Clauses } = article11MM;
-                    setArticle11([
-                        { heading: `${article11Heading}` },
-                        { notices: `${article11Clauses.notices.heading} ${article11Clauses.notices.clause}` },
-                        { entireAgreement: `${article11Clauses.entireAgreement.heading} ${article11Clauses.entireAgreement.clause}` },
-                        { amendments: `${article11Clauses.amendments.heading} ${article11Clauses.amendments.clause}` },
-                        { governingLaw: `${article11Clauses.governingLaw.heading} ${article11Clauses.governingLaw.clause}` },
-                        { powerOfAttorney: `${article11Clauses.powerOfAttorney.heading} ${article11Clauses.powerOfAttorney.clause}` },
-                        { bindingEffectNoThirdPartyBeneficiaries: `${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.heading} ${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.clause}` },
-                        { counterparts: `${article11Clauses.counterparts.heading} ${article11Clauses.counterparts.clause}` },
-                        { certainDefinitions: `${article11Clauses.certainDefinitions.heading} ${article11Clauses.certainDefinitions.clause}` }, article11Clauses.certainDefinitions.subclauses,
-                        { construction: `${article11Clauses.construction.heading} ${article11Clauses.construction.clause}` }, article11Clauses.construction.subclauses
-                    ])
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        let { article11 } = ClauseData;
+        if (members.length < 2) {
+            let { article11SM } = article11;
+            let { article11Heading, article11Clauses } = article11SM;
+            setArticle11([
+                { heading: `${article11Heading}` },
+                { entireAgreement: `${article11Clauses.entireAgreement.heading} ${article11Clauses.entireAgreement.clause}` },
+                { amendments: `${article11Clauses.amendments.heading} ${article11Clauses.amendments.clause}` },
+                { governingLaw: `${article11Clauses.governingLaw.heading} ${article11Clauses.governingLaw.clause}` },
+                { bindingEffectNoThirdPartyBeneficiaries: `${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.heading} ${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.clause}` },
+                { certainDefinitions: `${article11Clauses.certainDefinitions.heading} ${article11Clauses.certainDefinitions.clause}` }, article11Clauses.certainDefinitions.subclauses,
+                { construction: `${article11Clauses.construction.heading} ${article11Clauses.construction.clause}` }, article11Clauses.construction.subclauses
+            ]);
+        } else {
+            let { article11MM } = article11;
+            let { article11Heading, article11Clauses } = article11MM;
+            setArticle11([
+                { heading: `${article11Heading}` },
+                { notices: `${article11Clauses.notices.heading} ${article11Clauses.notices.clause}` },
+                { entireAgreement: `${article11Clauses.entireAgreement.heading} ${article11Clauses.entireAgreement.clause}` },
+                { amendments: `${article11Clauses.amendments.heading} ${article11Clauses.amendments.clause}` },
+                { governingLaw: `${article11Clauses.governingLaw.heading} ${article11Clauses.governingLaw.clause}` },
+                { powerOfAttorney: `${article11Clauses.powerOfAttorney.heading} ${article11Clauses.powerOfAttorney.clause}` },
+                { bindingEffectNoThirdPartyBeneficiaries: `${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.heading} ${article11Clauses.bindingEffectNoThirdPartyBeneficiaries.clause}` },
+                { counterparts: `${article11Clauses.counterparts.heading} ${article11Clauses.counterparts.clause}` },
+                { certainDefinitions: `${article11Clauses.certainDefinitions.heading} ${article11Clauses.certainDefinitions.clause}` }, article11Clauses.certainDefinitions.subclauses,
+                { construction: `${article11Clauses.construction.heading} ${article11Clauses.construction.clause}` }, article11Clauses.construction.subclauses
+            ]);
+        }
     }
 
     // Contract question state and functions. The clauses in the Company Agreement will dynamically update depending on how the questions are answered.
-
     const [certificateTerm, setCertificateTerm] = useState("");
 
     // The setter below is probably overcomplicated. It first checks to see if the key value for the updated object already exists. If so, it updates the object; if not, it creates the object. Without this, I was running into an issue where the clause was repeatedly rendered if the value changed multiple times.
-
     const handleCertificateChange = (event) => {
+        setCertificateTerm(event.target.value);
+        let { article2 } = ClauseData;
 
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
+        if (members.length < 2) {
+            let { article2SM } = article2;
+            let { article2Clauses } = article2SM;
+            let _tempArticle2 = [...article2State];
+            if (event.target.value === "Certificated") {
+                let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.certificated}`;
+            } else if (event.target.value === "Uncertificated") {
+                let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}`;
             }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                setCertificateTerm(event.target.value);
-                let { article2 } = JSON;
-                if (members.length < 2) {
-                    let { article2SM } = article2;
-                    let { article2Clauses } = article2SM;
-                    let _tempArticle2 = [...article2State];
-                    if (event.target.value === "Certificated") {
-                        let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
-                        _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.certificated}`;
-                    } else if (event.target.value === "Uncertificated") {
-                        let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
-                        _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}`;
-                    }
-                    setArticle2(_tempArticle2)
-                } else {
-                    let { article2MM } = article2;
-                    let { article2Clauses } = article2MM;
-                    let _tempArticle2 = [...article2State];
-                    if (event.target.value === "Certificated") {
-                        let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
-                        _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.certificated}`;
-                    } else if (event.target.value === "Uncertificated") {
-                        let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
-                        _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}`;
-                    }
-                    setArticle2(_tempArticle2)
-                };
-            })
+            setArticle2(_tempArticle2)
+        }
+        else {
+            let { article2MM } = article2;
+            let { article2Clauses } = article2MM;
+            let _tempArticle2 = [...article2State];
+            if (event.target.value === "Certificated") {
+                let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.certificated}`;
+            } else if (event.target.value === "Uncertificated") {
+                let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "certificates");
+                _tempArticle2[index].certificates = `${article2Clauses.certificates.heading} ${article2Clauses.certificates.clause.uncertificated}`;
+            }
+            setArticle2(_tempArticle2)
+        };
     }
 
     const [standardVoteTerm, setStandardVoteTerm] = useState("");
 
     const handleStandardVoteChange = (event) => {
+        setStandardVoteTerm(event.target.value);
+        let { article2, article3 } = ClauseData;
+        let { article2MM } = article2;
+        let { article2Clauses } = article2MM;
+        let { article3MM } = article3;
+        let { article3Clauses } = article3MM;
+        let _tempArticle2 = [...article2State];
+        let _tempArticle3 = [...article3State];
 
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                setStandardVoteTerm(event.target.value);
-                let { article2, article3 } = JSON;
-                let { article2MM } = article2;
-                let { article2Clauses } = article2MM;
-                let { article3MM } = article3;
-                let { article3Clauses } = article3MM;
-                let _tempArticle2 = [...article2State];
-                let _tempArticle3 = [...article3State];
-                if (event.target.value === "Majority-in-Interest") {
-                    // issuance of interests after formation
-                    let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "issuanceOfMembershipInterestsAfterFormationOfCompany");
-                    _tempArticle2[index].issuanceOfMembershipInterestsAfterFormationOfCompany = `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading} ${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.clause.majority}`;
-                    index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
-                    _tempArticle2[index].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.majority}`;
-                    setArticle2(_tempArticle2);
-                    // quorum and act of members or committee
-                    index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "quorumAndActOfMembersOrCommittee");
-                    _tempArticle3[index].quorumAndActOfMembersOrCommittee = `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.majority}`;
-                    // fundamental votes
-                    index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "votesRequiredToApproveCertainActions");
-                    _tempArticle3[index].votesRequiredToApproveCertainActions = `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.supermajority}`;
-                    setArticle3(_tempArticle3);
-                } else if (event.target.value === "Unanimous") {
-                    // issuance of interests after formation
-                    let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "issuanceOfMembershipInterestsAfterFormationOfCompany");
-                    _tempArticle2[index].issuanceOfMembershipInterestsAfterFormationOfCompany = `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading} ${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.clause.unanimous}`;
-                    // admission of new members
-                    index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
-                    _tempArticle2[index].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.unanimous}`;
-                    setArticle2(_tempArticle2);
-                    // quorum and act of members or committee
-                    index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "quorumAndActOfMembersOrCommittee");
-                    _tempArticle3[index].quorumAndActOfMembersOrCommittee = `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.unanimous}`;
-                    // fundamental votes
-                    index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "votesRequiredToApproveCertainActions");
-                    _tempArticle3[index].votesRequiredToApproveCertainActions = `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.unanimous}`;
-                    setArticle3(_tempArticle3);
-                };
-            })
+        if (event.target.value === "Majority-in-Interest") {
+            // issuance of interests after formation
+            let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "issuanceOfMembershipInterestsAfterFormationOfCompany");
+            _tempArticle2[index].issuanceOfMembershipInterestsAfterFormationOfCompany = `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading} ${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.clause.majority}`;
+            index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
+            _tempArticle2[index].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.majority}`;
+            setArticle2(_tempArticle2);
+            // quorum and act of members or committee
+            index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "quorumAndActOfMembersOrCommittee");
+            _tempArticle3[index].quorumAndActOfMembersOrCommittee = `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.majority}`;
+            // fundamental votes
+            index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "votesRequiredToApproveCertainActions");
+            _tempArticle3[index].votesRequiredToApproveCertainActions = `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.supermajority}`;
+            setArticle3(_tempArticle3);
+        }
+        else if (event.target.value === "Unanimous") {
+            // issuance of interests after formation
+            let index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "issuanceOfMembershipInterestsAfterFormationOfCompany");
+            _tempArticle2[index].issuanceOfMembershipInterestsAfterFormationOfCompany = `${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.heading} ${article2Clauses.issuanceOfMembershipInterestsAfterFormationOfCompany.clause.unanimous}`;
+            // admission of new members
+            index = _tempArticle2.findIndex(object => Object.keys(object)[0] === "admissionOfNewMembers");
+            _tempArticle2[index].admissionOfNewMembers = `${article2Clauses.admissionOfNewMembers.heading} ${article2Clauses.admissionOfNewMembers.clause.unanimous}`;
+            setArticle2(_tempArticle2);
+            // quorum and act of members or committee
+            index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "quorumAndActOfMembersOrCommittee");
+            _tempArticle3[index].quorumAndActOfMembersOrCommittee = `${article3Clauses.quorumAndActOfMembersOrCommittee.heading} ${article3Clauses.quorumAndActOfMembersOrCommittee.clause.unanimous}`;
+            // fundamental votes
+            index = _tempArticle3.findIndex(object => Object.keys(object)[0] === "votesRequiredToApproveCertainActions");
+            _tempArticle3[index].votesRequiredToApproveCertainActions = `${article3Clauses.votesRequiredToApproveCertainActions.heading} ${article3Clauses.votesRequiredToApproveCertainActions.clause.unanimous}`;
+            setArticle3(_tempArticle3);
+        };
     }
 
     const [taxDistributionTerm, setTaxDistributionTerm] = useState("");
 
     const handleTaxDistributionChange = (event) => {
+        setTaxDistributionTerm(event.target.value);
+        let { article6 } = ClauseData;
+        let { article6MM } = article6;
+        let { article6Clauses } = article6MM;
+        let _tempArticle6 = [...article6State];
 
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                setTaxDistributionTerm(event.target.value);
-                let { article6 } = JSON;
-                let { article6MM } = article6;
-                let { article6Clauses } = article6MM;
-                let _tempArticle6 = [...article6State];
-                if (event.target.value === "Omit") {
-                    let index = _tempArticle6.findIndex(object => Object.keys(object)[0] === "requiredAnnualTaxDistribution");
-                    _tempArticle6[index].requiredAnnualTaxDistribution = `${article6Clauses.requiredAnnualTaxDistribution.heading} ${article6Clauses.requiredAnnualTaxDistribution.clause.omitted}`;
-                    setArticle6(_tempArticle6);
-                } else if (event.target.value === "Include") {
-                    let index = _tempArticle6.findIndex(object => Object.keys(object)[0] === "requiredAnnualTaxDistribution");
-                    _tempArticle6[index].requiredAnnualTaxDistribution = `${article6Clauses.requiredAnnualTaxDistribution.heading} ${article6Clauses.requiredAnnualTaxDistribution.clause.included}`;
-                    setArticle6(_tempArticle6);
-                };
-            })
+        if (event.target.value === "Omit") {
+            let index = _tempArticle6.findIndex(object => Object.keys(object)[0] === "requiredAnnualTaxDistribution");
+            _tempArticle6[index].requiredAnnualTaxDistribution = `${article6Clauses.requiredAnnualTaxDistribution.heading} ${article6Clauses.requiredAnnualTaxDistribution.clause.omitted}`;
+            setArticle6(_tempArticle6);
+        }
+        else if (event.target.value === "Include") {
+            let index = _tempArticle6.findIndex(object => Object.keys(object)[0] === "requiredAnnualTaxDistribution");
+            _tempArticle6[index].requiredAnnualTaxDistribution = `${article6Clauses.requiredAnnualTaxDistribution.heading} ${article6Clauses.requiredAnnualTaxDistribution.clause.included}`;
+            setArticle6(_tempArticle6);
+        };
     }
 
     const [pushPullTerm, setPushPullTerm] = useState("");
 
     const handlePushPullChange = (event) => {
+        setPushPullTerm(event.target.value);
+        let { article8 } = ClauseData;
+        let { article8MM } = article8;
+        let { article8Clauses } = article8MM;
+        let _tempArticle8 = [...article8State];
 
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
+        if (event.target.value === "Omit") {
+            let index = _tempArticle8.findIndex(object => Object.keys(object)[0] === "pushPullBuyout");
+            _tempArticle8[index].pushPullBuyout = `${article8Clauses.pushPullBuyout.heading} ${article8Clauses.pushPullBuyout.clause.omitted}`;
+            if (Array.isArray(_tempArticle8[index + 1])) {
+                _tempArticle8.splice(index + 1, 1);
             }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                setPushPullTerm(event.target.value);
-                let { article8 } = JSON;
-                let { article8MM } = article8;
-                let { article8Clauses } = article8MM;
-                let _tempArticle8 = [...article8State];
-                if (event.target.value === "Omit") {
-                    let index = _tempArticle8.findIndex(object => Object.keys(object)[0] === "pushPullBuyout");
-                    _tempArticle8[index].pushPullBuyout = `${article8Clauses.pushPullBuyout.heading} ${article8Clauses.pushPullBuyout.clause.omitted}`;
-                    if (Array.isArray(_tempArticle8[index + 1])) {
-                        _tempArticle8.splice(index + 1, 1);
-                    }
-                    setArticle8(_tempArticle8);
-                } else if (event.target.value === "Include") {
-                    let index = _tempArticle8.findIndex(object => Object.keys(object)[0] === "pushPullBuyout");
-                    _tempArticle8[index].pushPullBuyout = `${article8Clauses.pushPullBuyout.heading}`;
-                    _tempArticle8 = [...article8State.slice(0, index + 1), article8Clauses.pushPullBuyout.clause.included, ...article8State.slice(index + 1)];
-                    setArticle8(_tempArticle8);
-                };
-            })
+            setArticle8(_tempArticle8);
+        }
+        else if (event.target.value === "Include") {
+            let index = _tempArticle8.findIndex(object => Object.keys(object)[0] === "pushPullBuyout");
+            _tempArticle8[index].pushPullBuyout = `${article8Clauses.pushPullBuyout.heading}`;
+            _tempArticle8 = [...article8State.slice(0, index + 1), article8Clauses.pushPullBuyout.clause.included, ...article8State.slice(index + 1)];
+            setArticle8(_tempArticle8);
+        };
     }
 
     const [fiduciaryDutyTerm, setFiduciaryDutyTerm] = useState("");
 
     const handleFiduciaryDutyChange = (event) => {
+        setFiduciaryDutyTerm(event.target.value);
+        let { article9 } = ClauseData;
+        let { article9MM } = article9;
+        let { article9Clauses } = article9MM;
+        let _tempArticle9 = [...article9State];
 
-        fetch("./data/clause-data.json", {
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            }
-        })
-            .then(response => {
-                return response.json();
-            })
-            .then(JSON => {
-                setFiduciaryDutyTerm(event.target.value);
-                let { article9 } = JSON;
-                let { article9MM } = article9;
-                let { article9Clauses } = article9MM;
-                let _tempArticle9 = [...article9State];
-                if (event.target.value === "Limited") {
-                    // scope of duties
-                    let index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "scopeOfDutiesOfCoveredPersons");
-                    _tempArticle9[index].scopeOfDutiesOfCoveredPersons = `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause.limited}`;
-                    // indemnification
-                    index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "indemnification");
-                    _tempArticle9[index].indemnification = `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause.limited}`;
-                    setArticle9(_tempArticle9);
-                } else if (event.target.value === "Default") {
-                    // scope of duties
-                    let index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "scopeOfDutiesOfCoveredPersons");
-                    _tempArticle9[index].scopeOfDutiesOfCoveredPersons = `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause.default}`;
-                    // indemnification
-                    index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "indemnification");
-                    _tempArticle9[index].indemnification = `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause.default}`;
-                    setArticle9(_tempArticle9);
-                };
-            })
+        if (event.target.value === "Limited") {
+            // scope of duties
+            let index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "scopeOfDutiesOfCoveredPersons");
+            _tempArticle9[index].scopeOfDutiesOfCoveredPersons = `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause.limited}`;
+            // indemnification
+            index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "indemnification");
+            _tempArticle9[index].indemnification = `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause.limited}`;
+            setArticle9(_tempArticle9);
+        }
+        else if (event.target.value === "Default") {
+            // scope of duties
+            let index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "scopeOfDutiesOfCoveredPersons");
+            _tempArticle9[index].scopeOfDutiesOfCoveredPersons = `${article9Clauses.scopeOfDutiesOfCoveredPersons.heading} ${article9Clauses.scopeOfDutiesOfCoveredPersons.clause.default}`;
+            // indemnification
+            index = _tempArticle9.findIndex(object => Object.keys(object)[0] === "indemnification");
+            _tempArticle9[index].indemnification = `${article9Clauses.indemnification.heading} ${article9Clauses.indemnification.clause.default}`;
+            setArticle9(_tempArticle9);
+        };
     }
 
     // useEffect functions to fetch JSON data and update applicable states as values change
@@ -890,28 +678,28 @@ function Dashboard() {
 
     const storeData = () => {
         userAPI.getCurrentUser()
-            .then(result => {
-                if (result.data.email) {
-                    const userData = {
-                        userEmail: result.data.email,
-                        step: activeStep,
-                        members: [...members],
-                        companyDetails: { ...companyDetails },
-                        raDetails: { ...raDetails },
-                        certificateTerm: certificateTerm,
-                        standardVoteTerm: standardVoteTerm,
-                        taxDistributionTerm: taxDistributionTerm,
-                        pushPullTerm: pushPullTerm,
-                        fiduciaryDutyTerm: fiduciaryDutyTerm
-                    }
-                    console.log(userData);
-                } else {
-                    return;
+        .then(result => {
+            if (result.data.email) {
+                const userData = {
+                    userEmail: result.data.email,
+                    step: activeStep,
+                    members: [...members],
+                    companyDetails: { ...companyDetails },
+                    raDetails: { ...raDetails },
+                    certificateTerm: certificateTerm,
+                    standardVoteTerm: standardVoteTerm,
+                    taxDistributionTerm: taxDistributionTerm,
+                    pushPullTerm: pushPullTerm,
+                    fiduciaryDutyTerm: fiduciaryDutyTerm
                 }
-            })
-            .catch(error => {
-                console.log(error);
-            })
+                console.log(userData);
+            } else {
+                return;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
 
     const generateWordDocument = (contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
