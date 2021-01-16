@@ -34,7 +34,12 @@ export default function CompanyAgreementView({
     article8,
     article9,
     article10,
-    article11
+    article11,
+    certificateRef,
+    voteRef,
+    taxRef,
+    pushPullRef,
+    fiduciaryRef
 }) {
 
     const classes = useStyles();
@@ -54,14 +59,14 @@ export default function CompanyAgreementView({
 
             <ol>
                 <ClauseListItem article={article1}></ClauseListItem>
-                <ClauseListItem article={article2}></ClauseListItem>
-                <ClauseListItem article={article3}></ClauseListItem>
+                <ClauseListItem article={article2} certificateRef={certificateRef}></ClauseListItem>
+                <ClauseListItem article={article3} voteRef={voteRef}></ClauseListItem>
                 <ClauseListItem article={article4}></ClauseListItem>
                 <ClauseListItem article={article5}></ClauseListItem>
-                <ClauseListItem article={article6}></ClauseListItem>
+                <ClauseListItem article={article6} taxRef={taxRef}></ClauseListItem>
                 <ClauseListItem article={article7}></ClauseListItem>
-                <ClauseListItem article={article8}></ClauseListItem>
-                <ClauseListItem article={article9}></ClauseListItem>
+                <ClauseListItem article={article8} pushPullRef={pushPullRef}></ClauseListItem>
+                <ClauseListItem article={article9} fiduciaryRef={fiduciaryRef}></ClauseListItem>
                 <ClauseListItem article={article10}></ClauseListItem>
                 <ClauseListItem article={article11}></ClauseListItem>
             </ol>

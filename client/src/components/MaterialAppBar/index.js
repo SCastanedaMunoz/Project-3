@@ -25,14 +25,14 @@ export default function MaterialAppBar() {
 
     return (
         <div className={classes.root}>
-                <AppBar position="absolute">
-                    <Toolbar>
-                        <Typography variant="h6" className={classes.title}>
-                            Formulater
+            <AppBar position="absolute">
+                <Toolbar>
+                    <Typography variant="h6" className={classes.title}>
+                        Formulater
                         </Typography>
-                    <Button color="inherit" onClick= {redirectHome}>Login</Button>
-                    </Toolbar>
-                </AppBar>
+                    <Button color="inherit" onClick={redirectHome}>Login</Button>
+                </Toolbar>
+            </AppBar>
         </div>
     )
 }

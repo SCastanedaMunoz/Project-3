@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useRef, useEffect, Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CompanyMembers from "../components/CompanyMembers";
 import CompanyDetails from "../components/CompanyDetails";
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'space-around'
     },
-   
+
 }));
 
 function Dashboard() {
@@ -84,6 +84,7 @@ function Dashboard() {
                 return <CompanyMembers
                     members={members}
                     handleMemberChange={handleMemberChange}
+                    deleteMember={deleteMember}
                     addMember={addMember}
                 />;
             case 1:
@@ -130,14 +131,20 @@ function Dashboard() {
     const handleMemberChange = event => {
         const _tempMembers = [...members];
         _tempMembers[event.target.dataset.id][event.target.name] = event.target.value;
+        _tempMembers[event.target.dataset.id].ID = event.target.id;
         setMembers(_tempMembers);
     }
 
-    const addMember = () => {
+    const addMember = (event) => {
         setMembers(previousMembers => [
             ...previousMembers,
             {}
         ]);
+    }
+
+    const deleteMember = (ID) => {
+        const _tempMembers = members.filter(member => member.ID !== ID)
+        setMembers(_tempMembers);
     }
 
     // Company state and functions to handle company name, address, etc. (Note: These details are passed in as props to the Company Agreement heading and Article 1)
@@ -175,7 +182,7 @@ function Dashboard() {
     const [article10State, setArticle10] = useState([{}]);
     const [article11State, setArticle11] = useState([{}]);
     // TODO signature page and blocks
-    const [exhibitAState, setExhibitA] = useState([{}]);
+    // const [exhibitAState, setExhibitA] = useState([{}]);
 
     // These generate functions are calling to a massive JSON file with all our Company Agreement content. The setters probably could have been dynamically generated. This is also extremely long, so we may want to try to move some or all of this out into on eor more util files. Not very DRY - sorry!
 
@@ -497,9 +504,11 @@ function Dashboard() {
 
     // Contract question state and functions. The clauses in the Company Agreement will dynamically update depending on how the questions are answered.
     const [certificateTerm, setCertificateTerm] = useState("");
+    const certificateRef = useRef();
 
     // The setter below is probably overcomplicated. It first checks to see if the key value for the updated object already exists. If so, it updates the object; if not, it creates the object. Without this, I was running into an issue where the clause was repeatedly rendered if the value changed multiple times.
     const handleCertificateChange = (event) => {
+        certificateRef.current.scrollIntoView({ behavior: 'smooth' });
         setCertificateTerm(event.target.value);
         let { article2 } = ClauseData;
 
@@ -532,8 +541,11 @@ function Dashboard() {
     }
 
     const [standardVoteTerm, setStandardVoteTerm] = useState("");
+    const voteRef = useRef();
+
 
     const handleStandardVoteChange = (event) => {
+        voteRef.current.scrollIntoView({ behavior: 'smooth' });
         setStandardVoteTerm(event.target.value);
         let { article2, article3 } = ClauseData;
         let { article2MM } = article2;
@@ -577,8 +589,10 @@ function Dashboard() {
     }
 
     const [taxDistributionTerm, setTaxDistributionTerm] = useState("");
+    const taxRef = useRef();
 
     const handleTaxDistributionChange = (event) => {
+        taxRef.current.scrollIntoView({ behavior: 'smooth' });
         setTaxDistributionTerm(event.target.value);
         let { article6 } = ClauseData;
         let { article6MM } = article6;
@@ -598,8 +612,10 @@ function Dashboard() {
     }
 
     const [pushPullTerm, setPushPullTerm] = useState("");
+    const pushPullRef = useRef();
 
     const handlePushPullChange = (event) => {
+        pushPullRef.current.scrollIntoView({ behavior: 'smooth' });
         setPushPullTerm(event.target.value);
         let { article8 } = ClauseData;
         let { article8MM } = article8;
@@ -623,8 +639,10 @@ function Dashboard() {
     }
 
     const [fiduciaryDutyTerm, setFiduciaryDutyTerm] = useState("");
+    const fiduciaryRef = useRef();
 
     const handleFiduciaryDutyChange = (event) => {
+        fiduciaryRef.current.scrollIntoView({ behavior: 'smooth' });
         setFiduciaryDutyTerm(event.target.value);
         let { article9 } = ClauseData;
         let { article9MM } = article9;
@@ -654,6 +672,7 @@ function Dashboard() {
     // useEffect functions to fetch JSON data and update applicable states as values change
 
     useEffect(() => {
+        generateContractHead();
         generateArticle1();
         generateArticle2();
         generateArticle3();
@@ -665,41 +684,34 @@ function Dashboard() {
         generateArticle9();
         generateArticle10();
         generateArticle11();
-    }, [])
-
-    // We only need to re-generate the Company Agreement heading and Article 1 for companyDetails and raDetails state changes
-
-    useEffect(() => {
-        generateContractHead();
-        generateArticle1();
     }, [companyDetails, raDetails]);
 
     // User object to store all state data; will be passed to db to save state for each user
 
     const storeData = () => {
         userAPI.getCurrentUser()
-        .then(result => {
-            if (result.data.email) {
-                const userData = {
-                    userEmail: result.data.email,
-                    step: activeStep,
-                    members: [...members],
-                    companyDetails: { ...companyDetails },
-                    raDetails: { ...raDetails },
-                    certificateTerm: certificateTerm,
-                    standardVoteTerm: standardVoteTerm,
-                    taxDistributionTerm: taxDistributionTerm,
-                    pushPullTerm: pushPullTerm,
-                    fiduciaryDutyTerm: fiduciaryDutyTerm
+            .then(result => {
+                if (result.data.email) {
+                    const userData = {
+                        userEmail: result.data.email,
+                        step: activeStep,
+                        members: [...members],
+                        companyDetails: { ...companyDetails },
+                        raDetails: { ...raDetails },
+                        certificateTerm: certificateTerm,
+                        standardVoteTerm: standardVoteTerm,
+                        taxDistributionTerm: taxDistributionTerm,
+                        pushPullTerm: pushPullTerm,
+                        fiduciaryDutyTerm: fiduciaryDutyTerm
+                    }
+                    console.log(userData);
+                } else {
+                    return;
                 }
-                console.log(userData);
-            } else {
-                return;
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     const generateWordDocument = (contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
@@ -772,7 +784,8 @@ function Dashboard() {
                         </Grid>
                     )}
                 {/* This is the Company Agreement paper with all needed states being passed into the applicable view */}
-                <Grid xs={12} sm={8} md={6}>
+                <Grid item xs={12} sm={8} md={6}>
+
                     {/* This ensures that the Company Agreement will only render once companyDetails start populating. Otherwise, there is a very prominant "undefined" rendering at the top of the Company Agreement */}
                     {companyDetails.name !== undefined ? (
                         <CompanyAgreementView
@@ -788,6 +801,11 @@ function Dashboard() {
                             article9={article9State}
                             article10={article10State}
                             article11={article11State}
+                            certificateRef={certificateRef}
+                            voteRef={voteRef}
+                            taxRef={taxRef}
+                            pushPullRef={pushPullRef}
+                            fiduciaryRef={fiduciaryRef}
                         ></CompanyAgreementView>
                     ) : (
                             // Before companyDetails are populated, we just render a blank contract with "Company Agreement" at the top. Could also do some sort of loading screen.
@@ -796,12 +814,13 @@ function Dashboard() {
                     {/* Same with Exhibit A. We only show the "true" Exhibit A view once members start being populated */}
                     {members[0].name !== undefined ? (
                         <ExhibitAView
-                            exhibitA={exhibitAState}
+                            // exhibitA={exhibitAState}
                             members={members}
                         ></ExhibitAView>
                     ) : (
                             <BlankExhibitAView></BlankExhibitAView>
                         )}
+
                 </Grid>
             </Grid>
 

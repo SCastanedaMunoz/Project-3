@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import { InputAdornment } from '@material-ui/core';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -37,9 +38,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function MemberCard({ members, handleMemberChange }) {
+export default function MemberCard({ members, handleMemberChange, deleteMember }) {
 
     const classes = useStyles();
+
+    const validatorSubmit = () => {
+
+    }
 
     return (
         members.map((member, index) => {
@@ -49,7 +54,9 @@ export default function MemberCard({ members, handleMemberChange }) {
                     <Typography className={classes.title} gutterBottom>
                         Member {index + 1}
                     </Typography>
-                    <ValidatorForm>
+                    <ValidatorForm
+                        onSubmit={validatorSubmit}
+                    >
                         <Grid item xs={12} className={classes.textfield}>
                             <TextValidator
                                 required
@@ -170,7 +177,9 @@ export default function MemberCard({ members, handleMemberChange }) {
                                 validators={['isNumber', 'maxNumber:100']}
                                 errorMessages={['You must insert a number', 'Percentage cannot be greater than 100']}
                             />
-
+                            {index >= 1 ? (
+                                <Button variant="contained" color="secondary" className={classes.button} onClick={() => deleteMember(memberID)}>Delete</Button>
+                            ) : null}
                         </Grid>
                     </ValidatorForm>
                 </Card >

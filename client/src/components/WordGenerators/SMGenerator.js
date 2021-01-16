@@ -6,12 +6,12 @@ import {
     TextRun,
     HeadingLevel,
     AlignmentType,
-    PageBreak,
-    Table,
-    TableRow,
-    TableCell,
-    WidthType,
-    BorderStyle,
+    // PageBreak,
+    // Table,
+    // TableRow,
+    // TableCell,
+    // WidthType,
+    // BorderStyle,
 } from "docx";
 import {
     CLAUSE_INDENT_LEVEL,

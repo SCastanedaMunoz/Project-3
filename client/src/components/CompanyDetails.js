@@ -1,16 +1,22 @@
 import React, { Fragment } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 export default function CompanyDetails({ handleCompanyDetailChange }) {
+
+    const validatorSubmit = () => {
+
+    }
+
     return (
         <Fragment>
             <Typography variant="h6" gutterBottom>
                 Company Details
             </Typography>
-            <ValidatorForm>
+            <ValidatorForm
+                onSubmit={validatorSubmit}
+            >
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <TextValidator
