@@ -20,6 +20,7 @@ import AppBar from '../components/MaterialAppBar';
 import ClauseData from '../data/clause-data.json';
 
 import userAPI from "../utils/userAPI";
+import documentAPI from '../utils/documentAPI';
 
 import SMGenerator from '../components/WordGenerators/SMGenerator';
 import MMGenerator from '../components/WordGenerators/MMGenerator';
@@ -67,13 +68,26 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
+// This is to generate an ID for a document if none exist
+function ID() {
+    // Math.random should be unique because of its seeding algorithm.
+    // Convert it to base 36 (numbers + letters), and grab the first 9 characters
+    // after the decimal.
+    return '_' + Math.random().toString(36).substr(2, 9);
+};
+
 function Dashboard() {
     const classes = useStyles();
 
     // Step state and functions to handle form flow
 
     const [activeStep, setActiveStep] = useState(0);
+    
+    // USe SetDocumentId to update the ID after we fetch it from the Database
+    const [documentId, setDocumentId] = useState(ID());
 
+
+    
     const steps = ['Members', 'Company', 'Registered Agent', 'Finish'];
 
     // Form components are passed in order to a swtich
@@ -690,28 +704,29 @@ function Dashboard() {
 
     const storeData = () => {
         userAPI.getCurrentUser()
-            .then(result => {
-                if (result.data.email) {
-                    const userData = {
-                        userEmail: result.data.email,
-                        step: activeStep,
-                        members: [...members],
-                        companyDetails: { ...companyDetails },
-                        raDetails: { ...raDetails },
-                        certificateTerm: certificateTerm,
-                        standardVoteTerm: standardVoteTerm,
-                        taxDistributionTerm: taxDistributionTerm,
-                        pushPullTerm: pushPullTerm,
-                        fiduciaryDutyTerm: fiduciaryDutyTerm
-                    }
-                    console.log(userData);
-                } else {
-                    return;
+        .then(result => {
+            if (result.data.email) {
+                const documentData = {
+                    docId: documentId,
+                    userEmail: result.data.email,
+                    step: activeStep,
+                    members: members,
+                    companyDetails: companyDetails ,
+                    raDetails: raDetails ,
+                    certificateTerm: certificateTerm,
+                    standardVoteTerm: standardVoteTerm,
+                    taxDistributionTerm: taxDistributionTerm,
+                    pushPullTerm: pushPullTerm,
+                    fiduciaryDutyTerm: fiduciaryDutyTerm
                 }
-            })
-            .catch(error => {
-                console.log(error);
-            });
+                documentAPI.createOrUpdate(documentData);
+            } else {
+                return;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
 
     const generateWordDocument = (members, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
