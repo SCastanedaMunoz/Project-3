@@ -81,6 +81,7 @@ function Dashboard() {
                 return <CompanyMembers
                     members={members}
                     handleMemberChange={handleMemberChange}
+                    deleteMember={deleteMember}
                     addMember={addMember}
                 />;
             case 1:
@@ -127,14 +128,20 @@ function Dashboard() {
     const handleMemberChange = event => {
         const _tempMembers = [...members];
         _tempMembers[event.target.dataset.id][event.target.name] = event.target.value;
+        _tempMembers[event.target.dataset.id].ID = event.target.id;
         setMembers(_tempMembers);
     }
 
-    const addMember = () => {
+    const addMember = (event) => {
         setMembers(previousMembers => [
             ...previousMembers,
             {}
         ]);
+    }
+
+    const deleteMember = (ID) => {
+        const _tempMembers = members.filter(member => member.ID !== ID)
+        setMembers(_tempMembers);
     }
 
     // Company state and functions to handle company name, address, etc. (Note: These details are passed in as props to the Company Agreement heading and Article 1)
@@ -172,7 +179,7 @@ function Dashboard() {
     const [article10State, setArticle10] = useState([{}]);
     const [article11State, setArticle11] = useState([{}]);
     // TODO signature page and blocks
-    const [exhibitAState, setExhibitA] = useState([{}]);
+    // const [exhibitAState, setExhibitA] = useState([{}]);
 
     // These generate functions are calling to a massive JSON file with all our Company Agreement content. The setters probably could have been dynamically generated. This is also extremely long, so we may want to try to move some or all of this out into on eor more util files. Not very DRY - sorry!
 
@@ -886,7 +893,7 @@ function Dashboard() {
         generateArticle9();
         generateArticle10();
         generateArticle11();
-    }, [members, companyDetails, raDetails]);
+    }, [companyDetails, raDetails]);
 
     // User object to store all state data; will be passed to db to save state for each user
 
@@ -985,7 +992,8 @@ function Dashboard() {
                         </Grid>
                     )}
                 {/* This is the Company Agreement paper with all needed states being passed into the applicable view */}
-                <Grid xs={12} sm={8} md={6}>
+                <Grid item xs={12} sm={8} md={6}>
+
                     {/* This ensures that the Company Agreement will only render once companyDetails start populating. Otherwise, there is a very prominant "undefined" rendering at the top of the Company Agreement */}
                     {companyDetails.name !== undefined ? (
                         <CompanyAgreementView
@@ -1014,12 +1022,13 @@ function Dashboard() {
                     {/* Same with Exhibit A. We only show the "true" Exhibit A view once members start being populated */}
                     {members[0].name !== undefined ? (
                         <ExhibitAView
-                            exhibitA={exhibitAState}
+                            // exhibitA={exhibitAState}
                             members={members}
                         ></ExhibitAView>
                     ) : (
                             <BlankExhibitAView></BlankExhibitAView>
                         )}
+
                 </Grid>
             </Grid>
 

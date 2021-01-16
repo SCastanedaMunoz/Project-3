@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function CompanyMembers({ members, handleMemberChange, addMember }) {
+export default function CompanyMembers({ members, handleMemberChange, deleteMember, addMember }) {
 
     const classes = useStyles();
 
@@ -37,6 +37,7 @@ export default function CompanyMembers({ members, handleMemberChange, addMember 
                 <MemberCard
                     members={members}
                     handleMemberChange={handleMemberChange}
+                    deleteMember={deleteMember}
                 ></MemberCard>
 
                 <div className={classes.buttons}>

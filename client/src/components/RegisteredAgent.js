@@ -4,12 +4,19 @@ import Typography from '@material-ui/core/Typography';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 export default function RegisteredAgent({ handleRADetailChange }) {
+
+    const validatorSubmit = () => {
+
+    }
+
     return (
         <Fragment>
             <Typography variant="h6" gutterBottom>
                 Registered Agent Information
       </Typography>
-            <ValidatorForm>
+            <ValidatorForm
+                onSubmit={validatorSubmit}
+            >
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <TextValidator

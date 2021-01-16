@@ -14,22 +14,22 @@ export default function ClauseListItem({ article, certificateRef, voteRef, taxRe
                     <Fragment>
                         {Array.isArray(article[index + 2]) ? (
                             Object.keys(clause)[0] === "pushPullBuyout" ? (
-                                <li ref={pushPullRef}>
+                                <li key={index} ref={pushPullRef}>
                                     {Object.values(clause)}
                                     <ol>
-                                        {article[index + 2].map((subclause) => (
-                                            <li>
+                                        {article[index + 2].map((subclause, subindex) => (
+                                            <li key={subindex}>
                                                 {subclause}
                                             </li>
                                         ))}
                                     </ol>
                                 </li>
                             ) : (
-                                    <li ref={Object.keys(clause)}>
+                                    <li key={index} ref={Object.keys(clause)}>
                                         {Object.values(clause)}
                                         <ol>
-                                            {article[index + 2].map((subclause) => (
-                                                <li>
+                                            {article[index + 2].map((subclause, subindex) => (
+                                                <li key={subindex}>
                                                     {subclause}
                                                 </li>
                                             ))}
@@ -38,31 +38,31 @@ export default function ClauseListItem({ article, certificateRef, voteRef, taxRe
                                 )) : (
                                 Array.isArray(clause) === false ? (
                                     Object.keys(clause)[0] === "certificates" ? (
-                                        <li ref={certificateRef}>
+                                        <li key={index} ref={certificateRef}>
                                             {Object.values(clause)}
                                         </li>
                                     ) : (
                                             Object.keys(clause)[0] === "quorumAndActOfMembersOrCommittee" ? (
-                                                <li ref={voteRef}>
+                                                <li key={index} ref={voteRef}>
                                                     {Object.values(clause)}
                                                 </li>
                                             ) : (
                                                     Object.keys(clause)[0] === "requiredAnnualTaxDistribution" ? (
-                                                        <li ref={taxRef}>
+                                                        <li key={index} ref={taxRef}>
                                                             {Object.values(clause)}
                                                         </li>
                                                     ) : (
                                                             Object.keys(clause)[0] === "pushPullBuyout" ? (
-                                                                <li ref={pushPullRef}>
+                                                                <li key={index} ref={pushPullRef}>
                                                                     {Object.values(clause)}
                                                                 </li>
                                                             ) : (
                                                                     Object.keys(clause)[0] === "scopeOfDutiesOfCoveredPersons" ? (
-                                                                        <li ref={fiduciaryRef}>
+                                                                        <li key={index} ref={fiduciaryRef}>
                                                                             {Object.values(clause)}
                                                                         </li>
                                                                     ) : (
-                                                                            <li>
+                                                                            <li key={index}>
                                                                                 {Object.values(clause)}
                                                                             </li>
                                                                         )
