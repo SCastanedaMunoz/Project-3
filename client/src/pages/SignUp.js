@@ -77,9 +77,15 @@ export default function SignUp() {
             email: "",
             password: ""
           })})
-        //   .then((req) => {
-        //     // window.location.replace("/dashboard");
-        //   })
+          .then(() => {
+            userAPI.loginUser({
+                username: formObject.username,
+                password: formObject.password
+              })
+          })
+          .then(() => {
+            window.location.replace("/userDashboard");
+          })
               .catch(err => {
                   const error = err.response.data.error.errors
                   if(error.username){

@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import userAPI from "../../utils/userAPI"
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -23,6 +23,25 @@ export default function MaterialAppBar() {
         history.push("/")
     }
 
+    const [loggedIn, setStatus] = useState(false)
+
+    function logoutEvent(event) {
+        event.preventDefault();
+        userAPI.logoutUser().then(() => {
+            window.location.replace("/");
+        })
+            .catch(err => console.log(err));
+    };
+
+    userAPI.getCurrentUser().then((result) => {
+        if (result.data){
+            setStatus(true)
+        }
+        else{
+            setStatus(false)
+        }
+    })
+
     return (
         <div className={classes.root}>
             <AppBar position="absolute">
@@ -30,7 +49,11 @@ export default function MaterialAppBar() {
                     <Typography variant="h6" className={classes.title}>
                         Formulater
                         </Typography>
-                    <Button color="inherit" onClick={redirectHome}>Login</Button>
+                        {loggedIn ? (
+                            <Button color="inherit" onClick={logoutEvent}>Logout</Button>
+                        ) : (
+                            <Button color="inherit" onClick={redirectHome}>Login</Button>
+                        )}
                 </Toolbar>
             </AppBar>
         </div>
