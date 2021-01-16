@@ -714,11 +714,11 @@ function Dashboard() {
             });
     }
 
-    const generateWordDocument = (contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
+    const generateWordDocument = (members, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
         if (members.length < 2) {
-            SMGenerator(contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)
+            SMGenerator(members, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)
         } else {
-            MMGenerator(contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)
+            MMGenerator(members, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)
         }
     }
 
@@ -773,7 +773,7 @@ function Dashboard() {
                                     Download or Save Your Document
                                 </Typography>
                                 <div className={classes.finalBtns}>
-                                    <Button variant="contained" color="primary" onClick={() => generateWordDocument(contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)}>
+                                    <Button variant="contained" color="primary" onClick={() => generateWordDocument(members, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)}>
                                         Download
                                     </Button>
                                     <Button variant="contained" color="secondary" startIcon={<SaveIcon />}>
@@ -789,6 +789,7 @@ function Dashboard() {
                     {/* This ensures that the Company Agreement will only render once companyDetails start populating. Otherwise, there is a very prominant "undefined" rendering at the top of the Company Agreement */}
                     {companyDetails.name !== undefined ? (
                         <CompanyAgreementView
+                            members={members}
                             contractHead={contractHead}
                             article1={article1State}
                             article2={article2State}

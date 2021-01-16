@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CompanyAgreementView({
+    members,
     contractHead,
     article1,
     article2,
@@ -56,7 +57,6 @@ export default function CompanyAgreementView({
                 {contractHead.intro}
             </Typography>
 
-
             <ol>
                 <ClauseListItem article={article1}></ClauseListItem>
                 <ClauseListItem article={article2} certificateRef={certificateRef}></ClauseListItem>
@@ -70,6 +70,25 @@ export default function CompanyAgreementView({
                 <ClauseListItem article={article10}></ClauseListItem>
                 <ClauseListItem article={article11}></ClauseListItem>
             </ol>
+
+            <Typography component="p" variant="body1" align="justify">
+                IN WITNESS WHEREOF, the undersigned Member(s) has/have duly executed this Agreement as of the day and year first above written.
+            </Typography>
+
+            <br />
+
+            <Typography component="p" variant="body1" align="justify">
+                MEMBERS(S):
+            </Typography>
+
+            <br />
+
+            {members.map(member => (
+                <Typography component="p" variant="body1" align="justify">
+                    ________________________________ <br />
+                    {member.name}
+                </Typography>
+            ))}
 
         </Paper >
     )

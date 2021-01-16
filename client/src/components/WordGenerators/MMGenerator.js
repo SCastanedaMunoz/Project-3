@@ -18,6 +18,27 @@ import {
     SUBCLAUSE_INDENT_LEVEL,
 } from "../../utils/constants";
 
+function createParagraph(content) {
+    return new Paragraph({
+        children: [
+            new TextRun(` ${content}`),
+            addBreak(),
+        ],
+    });
+}
+
+function createIndentParagraph(content) {
+    return new Paragraph({
+        indent: {
+            firstLine: CLAUSE_INDENT_LEVEL,
+        },
+        children: [
+            new TextRun(` ${content}`),
+            addBreak(),
+        ],
+    });
+}
+
 function createHeading(content) {
     return new Paragraph({
         children: [
@@ -58,11 +79,22 @@ function createSubclauseParagraph(number, content) {
     });
 }
 
+function createSignatureBlock(content) {
+    return new Paragraph({
+        children: [
+            new TextRun(`________________________________`),
+            addBreak(),
+            new TextRun(` ${content}`),
+            addBreak(),
+        ],
+    });
+}
+
 function addBreak() {
     return new TextRun({}).break();
 }
 
-function MMGenerator(contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) {
+function MMGenerator(members, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) {
 
     const doc = new Document({
         // externalStyles: data,
@@ -74,7 +106,7 @@ function MMGenerator(contractHead, article1State, article2State, article3State, 
             properties: {},
             children: [
                 createHeading(contractHead.heading),
-                createClauseParagraph(contractHead.intro),
+                createIndentParagraph(contractHead.intro),
                 createHeading(article1State[0].heading),
                 createClauseParagraph("1.1", article1State[1].formation),
                 createClauseParagraph("1.2", article1State[2].name),
@@ -196,16 +228,21 @@ function MMGenerator(contractHead, article1State, article2State, article3State, 
                 createSubclauseParagraph("11.9.2", article11State[11][1]),
                 createSubclauseParagraph("11.9.3", article11State[11][2]),
                 createSubclauseParagraph("11.9.4", article11State[11][3]),
-                createSubclauseParagraph("11.9.5", article11State[11][4])
+                createSubclauseParagraph("11.9.5", article11State[11][4]),
+                createIndentParagraph(" IN WITNESS WHEREOF, the undersigned Members have duly executed this Agreement as of the day and year first above written."),
+                createParagraph("MEMBERS:"),
+                createSignatureBlock(members[0].name),
+                createSignatureBlock(members[1].name)
             ]
         })
+
     } else {
 
         doc.addSection({
             properties: {},
             children: [
                 createHeading(contractHead.heading),
-                createClauseParagraph(contractHead.intro),
+                createIndentParagraph(contractHead.intro),
                 createHeading(article1State[0].heading),
                 createClauseParagraph("1.1", article1State[1].formation),
                 createClauseParagraph("1.2", article1State[2].name),
@@ -324,7 +361,11 @@ function MMGenerator(contractHead, article1State, article2State, article3State, 
                 createSubclauseParagraph("11.9.2", article11State[11][1]),
                 createSubclauseParagraph("11.9.3", article11State[11][2]),
                 createSubclauseParagraph("11.9.4", article11State[11][3]),
-                createSubclauseParagraph("11.9.5", article11State[11][4])
+                createSubclauseParagraph("11.9.5", article11State[11][4]),
+                createIndentParagraph(" IN WITNESS WHEREOF, the undersigned Members have duly executed this Agreement as of the day and year first above written."),
+                createParagraph("MEMBERS:"),
+                createSignatureBlock(members[0].name),
+                createSignatureBlock(members[1].name)
 
             ]
         })
