@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useRef, useEffect, Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CompanyMembers from "../components/CompanyMembers";
 import CompanyDetails from "../components/CompanyDetails";
@@ -213,6 +213,7 @@ function Dashboard() {
             .then(JSON => {
                 let { article1 } = JSON;
                 if (members.length < 2) {
+                    console.log("sm clauses populating")
                     let { article1SM } = article1;
                     let { article1Heading, article1Clauses } = article1SM;
                     setArticle1([
@@ -226,6 +227,7 @@ function Dashboard() {
                         { definitions: `${article1Clauses.definitions.heading} ${article1Clauses.definitions.clause}` }
                     ])
                 } else {
+                    console.log("mm clauses populating")
                     let { article1MM } = article1;
                     let { article1Heading, article1Clauses } = article1MM;
                     setArticle1([
@@ -656,6 +658,7 @@ function Dashboard() {
     // Contract question state and functions. The clauses in the Company Agreement will dynamically update depending on how the questions are answered.
 
     const [certificateTerm, setCertificateTerm] = useState("");
+    const certificateRef = useRef();
 
     // The setter below is probably overcomplicated. It first checks to see if the key value for the updated object already exists. If so, it updates the object; if not, it creates the object. Without this, I was running into an issue where the clause was repeatedly rendered if the value changed multiple times.
 
@@ -671,6 +674,7 @@ function Dashboard() {
                 return response.json();
             })
             .then(JSON => {
+                certificateRef.current.scrollIntoView({ behavior: 'smooth' });
                 setCertificateTerm(event.target.value);
                 let { article2 } = JSON;
                 if (members.length < 2) {
@@ -702,6 +706,8 @@ function Dashboard() {
     }
 
     const [standardVoteTerm, setStandardVoteTerm] = useState("");
+    const voteRef = useRef();
+
 
     const handleStandardVoteChange = (event) => {
 
@@ -715,6 +721,7 @@ function Dashboard() {
                 return response.json();
             })
             .then(JSON => {
+                voteRef.current.scrollIntoView({ behavior: 'smooth' });
                 setStandardVoteTerm(event.target.value);
                 let { article2, article3 } = JSON;
                 let { article2MM } = article2;
@@ -757,6 +764,7 @@ function Dashboard() {
     }
 
     const [taxDistributionTerm, setTaxDistributionTerm] = useState("");
+    const taxRef = useRef();
 
     const handleTaxDistributionChange = (event) => {
 
@@ -770,6 +778,7 @@ function Dashboard() {
                 return response.json();
             })
             .then(JSON => {
+                taxRef.current.scrollIntoView({ behavior: 'smooth' });
                 setTaxDistributionTerm(event.target.value);
                 let { article6 } = JSON;
                 let { article6MM } = article6;
@@ -788,6 +797,7 @@ function Dashboard() {
     }
 
     const [pushPullTerm, setPushPullTerm] = useState("");
+    const pushPullRef = useRef();
 
     const handlePushPullChange = (event) => {
 
@@ -801,6 +811,7 @@ function Dashboard() {
                 return response.json();
             })
             .then(JSON => {
+                pushPullRef.current.scrollIntoView({ behavior: 'smooth' });
                 setPushPullTerm(event.target.value);
                 let { article8 } = JSON;
                 let { article8MM } = article8;
@@ -823,6 +834,7 @@ function Dashboard() {
     }
 
     const [fiduciaryDutyTerm, setFiduciaryDutyTerm] = useState("");
+    const fiduciaryRef = useRef();
 
     const handleFiduciaryDutyChange = (event) => {
 
@@ -836,6 +848,7 @@ function Dashboard() {
                 return response.json();
             })
             .then(JSON => {
+                fiduciaryRef.current.scrollIntoView({ behavior: 'smooth' });
                 setFiduciaryDutyTerm(event.target.value);
                 let { article9 } = JSON;
                 let { article9MM } = article9;
@@ -864,6 +877,7 @@ function Dashboard() {
     // useEffect functions to fetch JSON data and update applicable states as values change
 
     useEffect(() => {
+        generateContractHead();
         generateArticle1();
         generateArticle2();
         generateArticle3();
@@ -875,14 +889,7 @@ function Dashboard() {
         generateArticle9();
         generateArticle10();
         generateArticle11();
-    }, [])
-
-    // We only need to re-generate the Company Agreement heading and Article 1 for companyDetails and raDetails state changes
-
-    useEffect(() => {
-        generateContractHead();
-        generateArticle1();
-    }, [companyDetails, raDetails]);
+    }, [members, companyDetails, raDetails]);
 
     // User object to store all state data; will be passed to db to save state for each user
 
@@ -998,6 +1005,11 @@ function Dashboard() {
                             article9={article9State}
                             article10={article10State}
                             article11={article11State}
+                            certificateRef={certificateRef}
+                            voteRef={voteRef}
+                            taxRef={taxRef}
+                            pushPullRef={pushPullRef}
+                            fiduciaryRef={fiduciaryRef}
                         ></CompanyAgreementView>
                     ) : (
                             // Before companyDetails are populated, we just render a blank contract with "Company Agreement" at the top. Could also do some sort of loading screen.
