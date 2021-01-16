@@ -17,6 +17,7 @@ import BlankCompanyAgreementView from "../components/ContractViews/BlankCompanyA
 import ExhibitAView from '../components/ContractViews/ExhibitAView';
 import BlankExhibitAView from '../components/ContractViews/BlankExhibitAView';
 import AppBar from '../components/MaterialAppBar';
+import UserAppBar from '../components/MaterialAppBarUser'
 import ClauseData from '../data/clause-data.json';
 
 import userAPI from "../utils/userAPI";
@@ -725,6 +726,7 @@ function Dashboard() {
     return (
         <main className={classes.layout}>
             <AppBar />
+            <UserAppBar />
             <br />
             <Grid container spacing={4}>
                 {/* Once the user gets to the end of the form questions (activeStep is greater than steps.length), the form paper will not render. */}
