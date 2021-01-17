@@ -78,6 +78,20 @@ function Dashboard(props) {
 
     const classes = useStyles();
 
+    // Checking for user being logged in 
+
+    const [loggedIn, setStatus] = useState(false);
+
+    useEffect(() => {
+      userAPI.getCurrentUser().then((result) => {
+        if (result.data) {
+          setStatus(true);
+        } else {
+          setStatus(false);
+        }
+      });
+    }, [])
+
     // Step state and functions to handle form flow
 
     const [activeStep, setActiveStep] = useState(0);
@@ -802,7 +816,8 @@ function Dashboard(props) {
                                     <Button variant="contained" color="primary" onClick={() => generateWordDocument(members, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)}>
                                         Download
                                     </Button>
-                                    <Button variant="contained" color="secondary" startIcon={<SaveIcon />} onClick={() => { storeData(); setMembers([{}]); setActiveStep(0) }}>
+                                    
+                                    <Button variant="contained" color="secondary" disabled={!loggedIn} startIcon={<SaveIcon />} onClick={() => { storeData(); setMembers([{}]); setActiveStep(0) }}>
                                         Save and Return
                                     </Button>
                                 </div>
