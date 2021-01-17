@@ -17,11 +17,10 @@ import BlankCompanyAgreementView from "../components/ContractViews/BlankCompanyA
 import ExhibitAView from '../components/ContractViews/ExhibitAView';
 import BlankExhibitAView from '../components/ContractViews/BlankExhibitAView';
 import AppBar from '../components/MaterialAppBar';
+import UserAppBar from '../components/MaterialAppBarUser/MaterialAppBarUser'
 import ClauseData from '../data/clause-data.json';
-
 import userAPI from "../utils/userAPI";
 import documentAPI from '../utils/documentAPI';
-
 import SMGenerator from '../components/WordGenerators/SMGenerator';
 import MMGenerator from '../components/WordGenerators/MMGenerator';
 
@@ -76,34 +75,33 @@ function ID() {
     return '_' + Math.random().toString(36).substr(2, 9);
 };
 
-function Dashboard() {
+function Dashboard(props) {
+
     const classes = useStyles();
 
     // Step state and functions to handle form flow
 
     const [activeStep, setActiveStep] = useState(0);
-    
+
     // USe SetDocumentId to update the ID after we fetch it from the Database
     const [documentId, setDocumentId] = useState(ID());
 
-
-    
-    const steps = ['Members', 'Company', 'Registered Agent', 'Finish'];
+    const steps = ['Company', 'Members', 'Registered Agent', 'Finish'];
 
     // Form components are passed in order to a swtich
 
     function getStepContent(step) {
         switch (step) {
             case 0:
+                return <CompanyDetails
+                    handleCompanyDetailChange={handleCompanyDetailChange}
+                />;
+            case 1:
                 return <CompanyMembers
                     members={members}
                     handleMemberChange={handleMemberChange}
                     deleteMember={deleteMember}
                     addMember={addMember}
-                />;
-            case 1:
-                return <CompanyDetails
-                    handleCompanyDetailChange={handleCompanyDetailChange}
                 />;
             case 2:
                 return <RegisteredAgent
@@ -138,6 +136,16 @@ function Dashboard() {
         setActiveStep(activeStep - 1);
     };
 
+    // Company state and functions to handle company name, address, etc. (Note: These details are passed in as props to the Company Agreement heading and Article 1)
+
+    const [companyDetails, setCompanyDetails] = useState({});
+
+    const handleCompanyDetailChange = event => {
+        const _tempCompanyDetails = { ...companyDetails };
+        _tempCompanyDetails[event.target.name] = event.target.value;
+        setCompanyDetails(_tempCompanyDetails);
+    }
+
     // Member state and functions (Note: Members are the owners of the LLC and need to be listed on Exhibit A to the Company Agreement)
 
     const [members, setMembers] = useState([{}]);
@@ -159,16 +167,6 @@ function Dashboard() {
     const deleteMember = (ID) => {
         const _tempMembers = members.filter(member => member.ID !== ID)
         setMembers(_tempMembers);
-    }
-
-    // Company state and functions to handle company name, address, etc. (Note: These details are passed in as props to the Company Agreement heading and Article 1)
-
-    const [companyDetails, setCompanyDetails] = useState({});
-
-    const handleCompanyDetailChange = event => {
-        const _tempCompanyDetails = { ...companyDetails };
-        _tempCompanyDetails[event.target.name] = event.target.value;
-        setCompanyDetails(_tempCompanyDetails);
     }
 
     // Registered agent state and functions (Note: These details are passed in as props to  Article 1)
@@ -698,35 +696,35 @@ function Dashboard() {
         generateArticle9();
         generateArticle10();
         generateArticle11();
-    }, [companyDetails, raDetails]);
+    }, [companyDetails, members, raDetails]);
 
     // User object to store all state data; will be passed to db to save state for each user
 
     const storeData = () => {
         userAPI.getCurrentUser()
-        .then(result => {
-            if (result.data.email) {
-                const documentData = {
-                    docId: documentId,
-                    userEmail: result.data.email,
-                    step: activeStep,
-                    members: members,
-                    companyDetails: companyDetails ,
-                    raDetails: raDetails ,
-                    certificateTerm: certificateTerm,
-                    standardVoteTerm: standardVoteTerm,
-                    taxDistributionTerm: taxDistributionTerm,
-                    pushPullTerm: pushPullTerm,
-                    fiduciaryDutyTerm: fiduciaryDutyTerm
+            .then(result => {
+                if (result.data.email) {
+                    const documentData = {
+                        docId: documentId,
+                        userEmail: result.data.email,
+                        step: activeStep,
+                        members: members,
+                        companyDetails: companyDetails,
+                        raDetails: raDetails,
+                        certificateTerm: certificateTerm,
+                        standardVoteTerm: standardVoteTerm,
+                        taxDistributionTerm: taxDistributionTerm,
+                        pushPullTerm: pushPullTerm,
+                        fiduciaryDutyTerm: fiduciaryDutyTerm
+                    }
+                    documentAPI.createOrUpdate(documentData);
+                } else {
+                    return;
                 }
-                documentAPI.createOrUpdate(documentData);
-            } else {
-                return;
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     const generateWordDocument = (members, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State) => {
@@ -740,6 +738,17 @@ function Dashboard() {
     return (
         <main className={classes.layout}>
             <AppBar />
+            <UserAppBar
+                setActiveStep={setActiveStep}
+                setCompanyDetails={setCompanyDetails}
+                setMembers={setMembers}
+                setRADetails={setRADetails}
+                setCertificateTerm={setCertificateTerm}
+                setStandardVoteTerm={setStandardVoteTerm}
+                setTaxDistributionTerm={setTaxDistributionTerm}
+                setPushPullTerm={setPushPullTerm}
+                setFiduciaryDutyTerm={setFiduciaryDutyTerm}
+            />
             <br />
             <Grid container spacing={4}>
                 {/* Once the user gets to the end of the form questions (activeStep is greater than steps.length), the form paper will not render. */}
@@ -791,8 +800,8 @@ function Dashboard() {
                                     <Button variant="contained" color="primary" onClick={() => generateWordDocument(members, contractHead, article1State, article2State, article3State, article4State, article5State, article6State, article7State, article8State, article9State, article10State, article11State)}>
                                         Download
                                     </Button>
-                                    <Button variant="contained" color="secondary" startIcon={<SaveIcon />}>
-                                        Save
+                                    <Button variant="contained" color="secondary" startIcon={<SaveIcon />} onClick={() => { storeData(); setMembers([{}]); setActiveStep(0) }}>
+                                        Save and Return
                                     </Button>
                                 </div>
                             </Paper>
