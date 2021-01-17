@@ -16,7 +16,6 @@ import CompanyAgreementView from "../components/ContractViews/CompanyAgreementVi
 import BlankCompanyAgreementView from "../components/ContractViews/BlankCompanyAgreementView";
 import ExhibitAView from '../components/ContractViews/ExhibitAView';
 import BlankExhibitAView from '../components/ContractViews/BlankExhibitAView';
-import AppBar from '../components/MaterialAppBarUser/MaterialAppBarUser';
 import UserAppBar from '../components/MaterialAppBarUser/MaterialAppBarUser'
 import ClauseData from '../data/clause-data.json';
 import userAPI from "../utils/userAPI";
@@ -737,7 +736,6 @@ function Dashboard(props) {
 
     return (
         <main className={classes.layout}>
-            <AppBar />
             <UserAppBar
                 setActiveStep={setActiveStep}
                 setCompanyDetails={setCompanyDetails}
