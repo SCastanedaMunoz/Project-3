@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import userAPI from "../../utils/userAPI"
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -12,13 +11,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import FaceIcon from '@material-ui/icons/Face';
 import GavelIcon from '@material-ui/icons/Gavel';
-import SettingsIcon from '@material-ui/icons/Settings';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import DocumentModal from './DocumentModal';
 
+import userAPI from "../../utils/userAPI";
+import documentAPI from '../../utils/documentAPI';
 
 const AppBarU = AppBar
 
@@ -38,47 +34,45 @@ const useStyles = makeStyles((theme) => ({
     },
     Drawer: {
         height: "100%", width: "250px", backgroundColor: "rgb(153, 153, 153)", color: "white", textShadow: "1px 2px 2px black",
-    },
-    modal: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    paper: {
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
-    },
-    cardTitle: {
-        fontSize: 16,
-        alignItems: "center"
-    },
-    cardButtons: {
-        display: "flex",
-        alignItems: "flex-end"
     }
 }));
 
 
-export default function MaterialAppBarU() {
+export default function MaterialAppBarUser({ setActiveStep, setCompanyDetails, setMembers, setRADetails, setCertificateTerm, setStandardVoteTerm, setTaxDistributionTerm, setPushPullTerm, setFiduciaryDutyTerm }) {
 
     const classes = useStyles();
 
     const [drawer, setDrawerOpen] = useState(false)
 
-    const handleDrawer = () => {
+    const handleDrawerOpen = () => {
         setDrawerOpen(true)
     }
 
-    const [modal, setModalOpen] = useState(false);
+    const handleDrawerClose = () => {
+        setDrawerOpen(false)
+    }
 
-    const handleModalOpen = () => {
-        setModalOpen(true);
-    };
+    const [savedDocuments, setSavedDocuments] = useState([{}])
 
-    const handleModalClose = () => {
-        setModalOpen(false);
+    const [documentModal, setDocumentModalOpen] = useState(false);
+
+    const handleDocumentModalOpen = () => {
+        setDocumentModalOpen(true);
+        userAPI.getCurrentUser()
+            .then(result => {
+                console.log(result)
+                const email = result.data.email;
+                documentAPI.getUserDocuments(email)
+                    .then(documents => {
+                        console.log(documents)
+                        setSavedDocuments(documents.data)
+                        console.log(savedDocuments)
+                    })
+            })
+    }
+
+    const handleDocumentModalClose = () => {
+        setDocumentModalOpen(false);
     };
 
     function logoutEvent(event) {
@@ -89,17 +83,17 @@ export default function MaterialAppBarU() {
             .catch(err => console.log(err));
     };
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    // const [anchorEl, setAnchorEl] = React.useState(null);
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    // const handleClose = () => {
+    //     setAnchorEl(null);
+    // };
 
     return (
         <div className={classes.root}>
             <AppBarU position="absolute">
                 <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleDrawer}>
+                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
@@ -117,51 +111,34 @@ export default function MaterialAppBarU() {
                     <MenuList>
                         <MenuItem>
                             <GavelIcon color="secondary" style={{ textShadow: "1px 2px 2px black", marginRight: "5px", }} />
-                            <Button type="button" onClick={handleModalOpen}>Saved Documents</Button>
+                            <Button type="button" onClick={handleDocumentModalOpen}>Saved Documents</Button>
                         </MenuItem>
                         <MenuItem>
                             <FaceIcon color="secondary" style={{ textShadow: "1px 2px 2px black", marginRight: "5px", }} />
                             <Button type="button">Profile</Button>
                         </MenuItem>
-                        <MenuItem style={{ marginTop: "830px", }}>
+                        {/* <MenuItem style={{ marginTop: "830px", }}>
                             <SettingsIcon color="secondary" style={{ textShadow: "1px 2px 2px black", marginRight: "5px", }} />
                             <Button type="button">Settings</Button>
-                        </MenuItem>
+                        </MenuItem> */}
                     </MenuList>
                 </div>
             </Drawer>
-            <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={classes.modal}
-                open={modal}
-                onClose={handleModalClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 500,
-                }}
-            >
-                <Fade in={modal}>
-                    <div className={classes.paper}>
-
-                        <Card>
-                            <CardContent>
-                                <Typography className={classes.cardTitle} color="textSecondary" gutterBottom>
-                                    Company Agreement of Test LLC
-                                </Typography>
-                                <div className={classes.cardButtons}>
-                                    <Button>Download</Button>
-                                    <Button>View</Button>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                    </div>
-                </Fade>
-            </Modal>
-        </div>
+            <DocumentModal
+                documentModal={documentModal}
+                savedDocuments={savedDocuments}
+                setActiveStep={setActiveStep}
+                setCompanyDetails={setCompanyDetails}
+                setMembers={setMembers}
+                setRADetails={setRADetails}
+                setCertificateTerm={setCertificateTerm}
+                setStandardVoteTerm={setStandardVoteTerm}
+                setTaxDistributionTerm={setTaxDistributionTerm}
+                setPushPullTerm={setPushPullTerm}
+                setFiduciaryDutyTerm={setFiduciaryDutyTerm}
+                handleDocumentModalClose={handleDocumentModalClose}
+                handleDrawerClose={handleDrawerClose}
+            />
+        </div >
     )
 }
-
-
