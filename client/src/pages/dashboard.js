@@ -164,8 +164,12 @@ function Dashboard(props) {
     }
 
     const deleteMember = (ID) => {
-        const _tempMembers = members.filter(member => member.ID !== ID)
-        setMembers(_tempMembers);
+         
+        const newMembers =  members.filter(member => {
+             console.log(member.ID)
+          return  member.ID.includes(ID) === false})
+        console.log( newMembers)
+        setMembers(newMembers);
     }
 
     // Registered agent state and functions (Note: These details are passed in as props to  Article 1)
