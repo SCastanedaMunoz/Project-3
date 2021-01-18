@@ -755,6 +755,7 @@ function Dashboard(props) {
     return (
         <main className={classes.layout}>
             <UserAppBar
+                setDocumentID={setDocumentId}
                 setActiveStep={setActiveStep}
                 setCompanyDetails={setCompanyDetails}
                 setMembers={setMembers}
@@ -817,7 +818,7 @@ function Dashboard(props) {
                                         Download
                                     </Button>
                                     
-                                    <Button variant="contained" color="secondary" disabled={!loggedIn} startIcon={<SaveIcon />} onClick={() => { storeData(); setMembers([{}]); setActiveStep(0) }}>
+                                    <Button variant="contained" color="secondary" disabled={!loggedIn} startIcon={<SaveIcon />} onClick={() => { setActiveStep(0); storeData(); setMembers([{}]); }}>
                                         Save and Return
                                     </Button>
                                 </div>

@@ -15,9 +15,11 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   delete: (req, res) => {
-    db.Document.findById({ docId: req.params.docId })
-      .then((dbModel) => dbModel.remove())
+    db.Document.deleteOne({ docId: req.params.docId })
       .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+      .catch((err) => {
+        console.log(err);
+        res.status(422).json(err);
+      });
   },
 };
