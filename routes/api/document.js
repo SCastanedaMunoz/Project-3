@@ -3,7 +3,7 @@ const documentsController = require('../../controllers/documentsController');
 
 router.route("/").post(documentsController.createOrUpdate);
 
-router.route("/:id").delete(documentsController.delete);
+router.route("/:docId").delete(documentsController.delete);
 
 router.route("/:userEmail").get(documentsController.getAllDocumentsFromUser);
 
