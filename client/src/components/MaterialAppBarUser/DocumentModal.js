@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function DocumentModal({ documentModal, savedDocuments, setActiveStep, setCompanyDetails, setMembers, setRADetails, setCertificateTerm, setStandardVoteTerm, setTaxDistributionTerm, setPushPullTerm, setFiduciaryDutyTerm, handleDocumentModalClose, handleDrawerClose }) {
+export default function DocumentModal({ documentModal, savedDocuments, setDocumentID, setActiveStep, setCompanyDetails, setMembers, setRADetails, setCertificateTerm, setStandardVoteTerm, setTaxDistributionTerm, setPushPullTerm, setFiduciaryDutyTerm, handleDocumentModalClose, handleDrawerClose, onDelete }) {
 
     const classes = useStyles();
 
@@ -76,6 +76,7 @@ export default function DocumentModal({ documentModal, savedDocuments, setActive
                                                         ) : null}
                                                     </TableCell>
                                                     <TableCell align="right"><Link to={{ pathname: "/dashboard", state: document }}> <Button onClick={() => {
+                                                        setDocumentID(document.docId)
                                                         setActiveStep(document.step);
                                                         if (document.companyDetails !== undefined) {
                                                             setCompanyDetails(document.companyDetails);
@@ -95,7 +96,8 @@ export default function DocumentModal({ documentModal, savedDocuments, setActive
                                                         handleDrawerClose();
                                                     }}>Edit</Button></Link></TableCell>
                                                     <TableCell align="right"><Button onClick={() => {
-                                                        documentAPI.deleteDocument(document.docId)
+                                                        documentAPI.deleteDocument(document.docId);
+                                                        onDelete();
                                                     }}>Delete</Button></TableCell>
                                                 </TableRow>
                                             )}

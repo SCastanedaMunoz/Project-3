@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function MaterialAppBarUser({ setActiveStep, setCompanyDetails, setMembers, setRADetails, setCertificateTerm, setStandardVoteTerm, setTaxDistributionTerm, setPushPullTerm, setFiduciaryDutyTerm }) {
+export default function MaterialAppBarUser({ setDocumentID, setActiveStep, setCompanyDetails, setMembers, setRADetails, setCertificateTerm, setStandardVoteTerm, setTaxDistributionTerm, setPushPullTerm, setFiduciaryDutyTerm }) {
 
     const classes = useStyles();
     const history = useHistory();
@@ -66,13 +66,10 @@ export default function MaterialAppBarUser({ setActiveStep, setCompanyDetails, s
         setDocumentModalOpen(true);
         userAPI.getCurrentUser()
             .then(result => {
-                console.log(result)
                 const email = result.data.email;
                 documentAPI.getUserDocuments(email)
                     .then(documents => {
-                        console.log(documents)
                         setSavedDocuments(documents.data)
-                        console.log(savedDocuments)
                     })
             })
     }
@@ -162,6 +159,7 @@ export default function MaterialAppBarUser({ setActiveStep, setCompanyDetails, s
             <DocumentModal
                 documentModal={documentModal}
                 savedDocuments={savedDocuments}
+                setDocumentID={setDocumentID}
                 setActiveStep={setActiveStep}
                 setCompanyDetails={setCompanyDetails}
                 setMembers={setMembers}
@@ -172,6 +170,7 @@ export default function MaterialAppBarUser({ setActiveStep, setCompanyDetails, s
                 setPushPullTerm={setPushPullTerm}
                 setFiduciaryDutyTerm={setFiduciaryDutyTerm}
                 handleDocumentModalClose={handleDocumentModalClose}
+                onDelete={handleDocumentModalOpen}
                 handleDrawerClose={handleDrawerClose}
             />
         </div >

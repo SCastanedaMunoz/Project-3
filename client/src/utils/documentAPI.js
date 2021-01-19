@@ -4,8 +4,8 @@ const documentAPI = {
   createOrUpdate: (documentData) => {
     return axios.post("/api/documents", documentData);
   },
-  deleteDocument: (id) => {
-    return axios.delete(`/api/documents/${id}`);
+  deleteDocument: (docId) => {
+    return axios.delete(`/api/documents/${docId}`);
   },
   getUserDocuments: (userEmail) => {
     return axios.get(`/api/documents/${userEmail}`);
