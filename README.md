@@ -2,7 +2,8 @@
 
 [Deployed Application Link](https://legal-formulator.herokuapp.com/)
 
-![Screenshot of deployed application](./screenshot.jpg)
+![Screenshot of deployed application](./screenshot-0.jpg)
+![Screenshot of deployed application](./screenshot-1.jpg)
 
 Formulator is a React application that allows users to create legal docuements quick and effeciently by using pre-generated documennts. Users simply fill out the a form based on the document selected, rendering the document as it is filled out. Once finished, anyone may download the document using docx, but registered users currently logged in may then save their document for future access. Users can then access or delete documents. 
 
