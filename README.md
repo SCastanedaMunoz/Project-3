@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# 📝 Formulator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Deployed Application Link](https://legal-formulator.herokuapp.com/)
 
-## Available Scripts
+Formulator is a React application that allows users to create legal docuements quick and effeciently by using pre-generated documennts. Ussers simply fill out the a form based on the document selected, rendering the document as it is filled out. Once finished, anyone may download the document using docx, but registered users currently logged in may then save their document for future access. Users can then access or delete documents. 
 
-In the project directory, you can run:
+# Inner-Workings of the Website
 
-### `npm start`
+This website was created by ultizing the following technologies: 
+* React
+* Material-UI
+* docx
+* Passport + Bcrypt.js
+* Express
+* MongoDB & Mongoose
+* file-saver
+* And more!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Team
+* [Brett](https://github.com/BreadBooks) - UI Design, Front-End
+* [James](https://github.com/jth2698) - Form Database, Form Generation, Back-End 
+* [Santiago](https://github.com/SCastanedaMunoz) - Docx, Back-End, Testing & Debugging 
+* [Chris](https://github.com/cldominy) - User Authoization, Front-End
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Future Developments
+The following are ideas for future changes for the website: 
+* Adding more templates for users to select from 
+* Creating user profiles 
+* Allowing users to edit previous documents 
+* Sharing documents between users 
